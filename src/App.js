@@ -1,5 +1,18 @@
+import styled from 'styled-components';
+import Creepypasta from './components/Creepypasta.js';
+
 function App() {
-  return <div>Hello World</div>
+  return (
+    <Grid>
+      <Creepypasta />
+    </Grid>
+  );
 }
 
-export default App
+const Grid = styled.section`
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+`;
+
+export default App;
