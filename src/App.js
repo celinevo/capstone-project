@@ -29,7 +29,7 @@ const Header = styled.h1`
   margin: 0;
 `;
 
-const Grid = styled.section`
+const Grid = styled.main`
   display: grid;
   gap: 20px;
   padding: 20px;
