@@ -8,10 +8,16 @@ export default createGlobalStyle`
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Special Elite';
+  letter-spacing: 2px;
+  word-spacing: 1px;
+  font-size: 16px;
   line-height: 1.5;
   color: #E6E6E6;
   background-color: #261b1b;
 }
 
+h1 {
+  font-family: 'Creepster', cursive;
+}
 `;
