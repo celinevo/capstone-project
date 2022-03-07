@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import Creepypasta from './components/Creepypasta.js';
+import creepypastas from './CreepypastaData.js';
+import headerPicture from './Images/Header.png';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header>
+        <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
+      </Header>
+      <Grid>
+        {creepypastas.map((creepypasta, index) => (
+          <Creepypasta
+            key={index}
+            title={creepypasta.title}
+            image={creepypasta.image}
+            text={creepypasta.text}
+            wordcount={creepypasta.wordcount}
+          />
+        ))}
+      </Grid>
+    </>
   );
 }
+
+const Header = styled.h1`
+  text-align: center;
+  margin: 0;
+`;
+
+const Grid = styled.main`
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+`;
 
 export default App;
