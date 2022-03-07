@@ -1,0 +1,16 @@
+import { createGlobalStyle } from 'styled-components';
+
+export default createGlobalStyle`
+
+* {
+  box-sizing: border-box;
+};
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #E6E6E6;
+}
+
+`;
