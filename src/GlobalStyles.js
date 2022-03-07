@@ -11,6 +11,7 @@ body {
   font-family: sans-serif;
   line-height: 1.5;
   color: #E6E6E6;
+  background-color: #261b1b;
 }
 
 `;

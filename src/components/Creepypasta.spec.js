@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Creepypasta from './Creepypasta.js';
 
 describe('Creepypasta', () => {
-  it('renders a title, text and a wordcount', () => {
+  it('renders a title, text and wordcount', () => {
     render(
       <Creepypasta
         title="Slenderman"
