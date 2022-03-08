@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export default function Creepypasta({ title, image, text, wordcount }) {
+export default function Creepypasta({ title, image, wordcount }) {
   return (
     <Wrapper>
       <Title>{title}</Title>
       <Image alt="" src={image} height="160" />
-      <Text>{text}</Text>
       <Wordcount>{wordcount} Words</Wordcount>
     </Wrapper>
   );
@@ -32,10 +31,6 @@ const Image = styled.img`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
-`;
-
-const Text = styled.p`
-  margin: 0;
 `;
 
 const Wordcount = styled.p`

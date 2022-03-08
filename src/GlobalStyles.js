@@ -16,7 +16,7 @@ body {
   background-color: #261b1b;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Creepster', cursive;
 }
 `;
