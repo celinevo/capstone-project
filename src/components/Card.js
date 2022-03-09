@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export default function Creepypasta({ title, image, wordcount }) {
+export default function Creepypasta({ title, image, wordcount, index }) {
   return (
     <Wrapper>
       <Card
@@ -10,13 +10,14 @@ export default function Creepypasta({ title, image, wordcount }) {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
+        key={index}
       >
         <CardContent>
           <Title>{title}</Title>
           <Wordcount>{wordcount} Words</Wordcount>
         </CardContent>
         <ReadMoreButton>
-          <ReadMoreButtonText to="/FullCreepypasta">Read!</ReadMoreButtonText>
+          <ReadMoreButtonText to="/fullcreepypasta">Read</ReadMoreButtonText>
         </ReadMoreButton>
       </Card>
     </Wrapper>
@@ -31,7 +32,6 @@ const Card = styled.div`
   height: 200px;
   width: 100%;
   position: relative;
-  z-index: -1;
   border-radius: 6px;
 `;
 
@@ -60,12 +60,12 @@ const Wordcount = styled.p`
   margin: 0px;
 `;
 
-const ReadMoreButton = styled.button`
+const ReadMoreButton = styled.div`
   margin-top: 15px;
   background-color: #990000;
   border: none;
   border-radius: 6px;
-  padding: 5px 10px 5px 10px;
+  padding: 2px 10px 2px 10px;
   position: absolute;
   top: 60%;
   left: 50%;
@@ -74,6 +74,7 @@ const ReadMoreButton = styled.button`
 `;
 
 const ReadMoreButtonText = styled(Link)`
-  color: #e6e6e6;
+  z-index: 2;
   text-decoration: none;
+  color: #e6e6e6;
 `;

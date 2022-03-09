@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Creepypasta from '../components/Creepypasta.js';
 import creepypastas from '../CreepypastaData.js';
 
-export default function CreepypastaPage() {
+export default function FullCreepypastaPage() {
   return (
     <>
       <Header>Full Story</Header>

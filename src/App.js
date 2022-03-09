@@ -7,7 +7,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<CreepypastaPage />} />
-        <Route path="/FullCreepypasta" element={<FullCreepypastaPage />} />
+        <Route path="/fullcreepypasta" element={<FullCreepypastaPage />} />
       </Routes>
     </>
   );
