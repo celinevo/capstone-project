@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import arrow from '../Images/Arrow.svg';
 
-export default function Creepypasta({ title, image, text, wordcount, id }) {
+export default function Creepypasta({ title, image, text, wordcount }) {
   return (
     <Wrapper>
       <GoBackTop to="/">
