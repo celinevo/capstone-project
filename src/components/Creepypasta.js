@@ -2,36 +2,32 @@ import styled from 'styled-components';
 
 export default function Creepypasta({ title, image, text, wordcount }) {
   return (
-    <Wrapper key={title}>
-      <Title>{title}</Title>
+    <>
       <Image alt="" src={image} height="160" />
-      <Text>{text}</Text>
-      <Wordcount>{wordcount} Words</Wordcount>
-    </Wrapper>
+      <Wrapper key={title}>
+        <Title>{title}</Title>
+        <Text>{text}</Text>
+        <Wordcount>{wordcount} Words</Wordcount>
+      </Wrapper>
+    </>
   );
 }
 
 const Wrapper = styled.section`
-  background-color: #261b1b;
-  border: 2px solid #4d4d4d;
-  padding: 12px;
-  padding-top: 5px;
+  padding: 20px;
+  padding-top: 0px;
   border-radius: 6px;
-  overflow: hidden;
 `;
 
 const Title = styled.h3`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 8px;
+  margin: 15px;
+  margin-top: 0px;
+  text-align: center;
 `;
 
 const Image = styled.img`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
+  height: auto;
+  width: 100%;
 `;
 
 const Text = styled.p`

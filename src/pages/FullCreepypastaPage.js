@@ -28,5 +28,4 @@ export default function FullCreepypastaPage() {
 const Grid = styled.main`
   display: grid;
   gap: 20px;
-  padding: 20px;
 `;
