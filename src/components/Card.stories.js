@@ -1,17 +1,16 @@
-import Creepypasta from './Creepypasta.js';
+import Card from './Card.js';
 
 export default {
-  title: 'components/Creepypasta',
-  component: Creepypasta,
+  title: 'components/Card',
+  component: Card,
 };
 
-const Template = args => <Creepypasta {...args} />;
+const Template = args => <Card {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   title: 'Slenderman',
   image:
     'https://www.creepypasta.com/wp-content/uploads/2010/01/slenderman-1.jpg.webp',
-  text: 'This is the story of Slenderman',
   wordcount: '1973',
 };
