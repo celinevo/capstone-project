@@ -11,12 +11,14 @@ export default function CreepypastaPage() {
       </Header>
       <Grid>
         {creepypastas.map((creepypasta, index) => (
-          <Card
-            key={index}
-            title={creepypasta.title}
-            image={creepypasta.image}
-            wordcount={creepypasta.wordcount}
-          />
+          <>
+            <Card
+              key={index}
+              title={creepypasta.title}
+              image={creepypasta.image}
+              wordcount={creepypasta.wordcount}
+            />
+          </>
         ))}
       </Grid>
     </>

@@ -1,22 +1,52 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function Creepypasta({ title, image, wordcount }) {
   return (
     <Wrapper>
-      <Title>{title}</Title>
-      <Image alt="" src={image} height="160" />
-      <Wordcount>{wordcount} Words</Wordcount>
+      <Card
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <CardContent>
+          <Title>{title}</Title>
+          <Wordcount>{wordcount} Words</Wordcount>
+        </CardContent>
+        <ReadMoreButton>
+          <ReadMoreButtonText to="/FullCreepypasta">Read!</ReadMoreButtonText>
+        </ReadMoreButton>
+      </Card>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.section`
-  background-color: #261b1b;
-  border: 2px solid #4d4d4d;
-  padding: 12px;
-  padding-top: 5px;
-  border-radius: 6px;
   overflow: hidden;
+`;
+
+const Card = styled.div`
+  height: 200px;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  border-radius: 6px;
+`;
+
+const CardContent = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
 `;
 
 const Title = styled.h3`
@@ -26,14 +56,24 @@ const Title = styled.h3`
   margin: 8px;
 `;
 
-const Image = styled.img`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
+const Wordcount = styled.p`
+  margin: 0px;
 `;
 
-const Wordcount = styled.p`
+const ReadMoreButton = styled.button`
   margin-top: 15px;
-  margin-bottom: 0px;
+  background-color: #990000;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px 5px 10px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+`;
+
+const ReadMoreButtonText = styled(Link)`
+  color: #e6e6e6;
+  text-decoration: none;
 `;
