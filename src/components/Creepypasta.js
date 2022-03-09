@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default function Creepypasta({ title, image, text, wordcount }) {
   return (
-    <Wrapper>
+    <Wrapper key={title}>
       <Title>{title}</Title>
       <Image alt="" src={image} height="160" />
       <Text>{text}</Text>
