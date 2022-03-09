@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import arrow from '../Images/Arrow.svg';
 
-export default function Creepypasta({ title, image, text, wordcount }) {
+export default function Creepypasta({ title, image, text, wordcount, id }) {
   return (
     <Wrapper>
       <GoBackTop to="/">
@@ -13,7 +13,7 @@ export default function Creepypasta({ title, image, text, wordcount }) {
         />
       </GoBackTop>
       <Image alt="" src={image} height="160" />
-      <TextContent key={title}>
+      <TextContent>
         <Title>{title}</Title>
         <Text>{text}</Text>
         <Wordcount>{wordcount} Words</Wordcount>

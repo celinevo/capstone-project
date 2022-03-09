@@ -5,15 +5,15 @@ import creepypastas from '../CreepypastaData.js';
 
 export default function FullCreepypastaPage() {
   const location = useLocation();
-  const { title } = location.state;
+  const { id } = location.state;
   return (
     <>
       <Grid>
         {creepypastas
-          .filter(creepypasta => creepypasta.title === title)
+          .filter(creepypasta => creepypasta.id === id)
           .map(creepypasta => (
             <Creepypasta
-              key={creepypasta.title}
+              key={creepypasta.id}
               title={creepypasta.title}
               image={creepypasta.image}
               text={creepypasta.text}

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export default function Creepypasta({ title, image, wordcount }) {
+export default function Creepypasta({ title, image, wordcount, id }) {
   return (
-    <Wrapper key={title}>
+    <Wrapper>
       <Card
         style={{
           backgroundImage: `url(${image})`,
@@ -16,7 +16,7 @@ export default function Creepypasta({ title, image, wordcount }) {
           <Wordcount>{wordcount} Words</Wordcount>
         </CardContent>
         <ReadMoreButton>
-          <ReadMoreButtonText to="/fullcreepypasta" state={{ title: title }}>
+          <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
             Read
           </ReadMoreButtonText>
         </ReadMoreButton>

@@ -10,9 +10,10 @@ export default function CreepypastaPage() {
         <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
       </Header>
       <Grid>
-        {creepypastas.map((creepypasta, index) => (
+        {creepypastas.map(creepypasta => (
           <Card
-            key={index}
+            key={creepypasta.id}
+            id={creepypasta.id}
             title={creepypasta.title}
             image={creepypasta.image}
             wordcount={creepypasta.wordcount}
