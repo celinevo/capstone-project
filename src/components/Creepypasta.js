@@ -12,7 +12,7 @@ export default function Creepypasta({ title, image, text, wordcount }) {
           width="60"
         />
       </GoBackTop>
-      <Image alt="" src={image} height="160" />
+      <Image alt={title} src={image} height="160" />
       <TextContent>
         <Title>{title}</Title>
         <Text>{text}</Text>
