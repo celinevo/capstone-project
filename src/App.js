@@ -27,7 +27,15 @@ function App() {
 
         <Route
           path="/spookmarked"
-          element={<SpookmarkPage creepypastas={creepypastas} />}
+          element={
+            <SpookmarkPage
+              spookmarkedCreepypastas={creepypastas.filter(
+                creepypasta => creepypasta.isSpookmarked === true
+              )}
+              handleSpookmarkClick={handleSpookmarkClick}
+              creepypastas={creepypastas}
+            />
+          }
         />
       </Routes>
     </>

@@ -1,18 +1,24 @@
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 
-export default function SpookmarkPage({ creepypastas }) {
+export default function SpookmarkPage({
+  creepypastas,
+  handleSpookmarkClick,
+  spookmarkedCreepypastas,
+}) {
   return (
     <Grid>
-      <h2>Spookmarked</h2>
-      {creepypastas.length > 0 ? (
-        creepypastas.map(creepypasta => (
+      <Header>Spookmarked</Header>
+      {spookmarkedCreepypastas.length > 0 ? (
+        spookmarkedCreepypastas.map(creepypasta => (
           <Card
             key={creepypasta.id}
             id={creepypasta.id}
             title={creepypasta.title}
             image={creepypasta.image}
             wordcount={creepypasta.wordcount}
+            onSpookmarkClick={() => handleSpookmarkClick(creepypasta.id)}
+            isSpookmarked={creepypasta.isSpookmarked}
           />
         ))
       ) : (
@@ -29,4 +35,9 @@ const Grid = styled.main`
   display: grid;
   gap: 20px;
   padding: 20px;
+`;
+
+const Header = styled.h2`
+  text-align: center;
+  font-size: 30px;
 `;
