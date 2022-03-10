@@ -1,9 +1,21 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import SpookmarkButton from './SpookmarkButton';
 
-export default function Creepypasta({ title, image, wordcount, id }) {
+export default function Creepypasta({
+  title,
+  image,
+  wordcount,
+  id,
+  onSpookmarkClick,
+  isSpookmarked,
+}) {
   return (
     <Wrapper>
+      <SpookmarkButton
+        onSpookmarkClick={onSpookmarkClick}
+        isSpookmarked={isSpookmarked}
+      />
       <Card
         style={{
           backgroundImage: `url(${image})`,
@@ -26,7 +38,8 @@ export default function Creepypasta({ title, image, wordcount, id }) {
 }
 
 const Wrapper = styled.section`
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 `;
 
 const Card = styled.div`
@@ -66,9 +79,9 @@ const ReadMoreButton = styled.div`
   background-color: #990000;
   border: none;
   border-radius: 6px;
-  padding: 2px 10px 2px 10px;
+  padding: 5px 10px 2px 10px;
   position: absolute;
-  top: 60%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

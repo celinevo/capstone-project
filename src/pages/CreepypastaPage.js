@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import Card from '../components/Card.js';
-import creepypastas from '../CreepypastaData.js';
 import headerPicture from '../Images/Header.png';
 
-export default function CreepypastaPage() {
+export default function CreepypastaPage({
+  handleSpookmarkClick,
+  creepypastas,
+}) {
   return (
     <>
       <Header>
@@ -17,6 +19,8 @@ export default function CreepypastaPage() {
             title={creepypasta.title}
             image={creepypasta.image}
             wordcount={creepypasta.wordcount}
+            onSpookmarkClick={() => handleSpookmarkClick(creepypasta.id)}
+            isSpookmarked={creepypasta.isSpookmarked}
           />
         ))}
       </Grid>
