@@ -1,9 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Creepypasta from '../components/Creepypasta.js';
-import creepypastas from '../CreepypastasData.js';
 
-export default function FullCreepypastaPage() {
+export default function FullCreepypastaPage({ creepypastas }) {
   const location = useLocation();
   const { id } = location.state;
   return (

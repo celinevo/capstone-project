@@ -26,7 +26,10 @@ function App() {
           }
         />
 
-        <Route path="/fullcreepypasta" element={<FullCreepypastaPage />} />
+        <Route
+          path="/fullcreepypasta"
+          element={<FullCreepypastaPage creepypastas={creepypastas} />}
+        />
 
         <Route
           path="/spookmarked"
