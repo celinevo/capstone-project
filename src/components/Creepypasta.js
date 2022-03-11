@@ -81,6 +81,8 @@ const GoBackBottom = styled(Link)`
   right: 5%;
   bottom: 0%;
   @media (min-width: 800px) {
-    bottom: -1075%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
