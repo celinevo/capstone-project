@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SpookmarkButton from './SpookmarkButton.js';
+import BookmarkButton from './BookmarkButton.js';
 
-describe('SpookmarkButton', () => {
+describe('BookmarkButton', () => {
   it('renders a button and a image', () => {
-    render(<SpookmarkButton />);
+    render(<BookmarkButton />);
 
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe('SpookmarkButton', () => {
   it('by clicking the button the bookmark status toggles', () => {
     const toggle = jest.fn();
 
-    render(<SpookmarkButton onSpookmarkClick={toggle} />);
+    render(<BookmarkButton onBookmarkClick={toggle} />);
 
     const button = screen.getByRole('button');
     userEvent.click(button);

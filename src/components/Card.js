@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import SpookmarkButton from './SpookmarkButton';
+import BookmarkButton from './BookmarkButton';
 
 export default function Creepypasta({
   title,
   image,
   wordcount,
   id,
-  onSpookmarkClick,
-  isSpookmarked,
+  onBookmarkClick,
+  isBookmarked,
 }) {
   return (
     <Wrapper>
-      <SpookmarkButton
-        onSpookmarkClick={onSpookmarkClick}
-        isSpookmarked={isSpookmarked}
+      <BookmarkButton
+        onBookmarkClick={onBookmarkClick}
+        isBookmarked={isBookmarked}
       />
       <Card
         style={{

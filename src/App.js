@@ -3,7 +3,7 @@ import { useState } from 'react';
 import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
 import FullCreepypastaPage from './pages/FullCreepypastaPage';
-import SpookmarkPage from './pages/SpookmarkPage';
+import BookmarkPage from './pages/BookmarkPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           path="/"
           element={
             <CreepypastaPage
-              handleSpookmarkClick={handleSpookmarkClick}
+              handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
             />
           }
@@ -28,11 +28,11 @@ function App() {
         <Route
           path="/spookmarked"
           element={
-            <SpookmarkPage
-              spookmarkedCreepypastas={creepypastas.filter(
-                creepypasta => creepypasta.isSpookmarked === true
+            <BookmarkPage
+              bookmarkedCreepypastas={creepypastas.filter(
+                creepypasta => creepypasta.isBookmarked === true
               )}
-              handleSpookmarkClick={handleSpookmarkClick}
+              handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
             />
           }
@@ -41,10 +41,10 @@ function App() {
     </>
   );
 
-  function handleSpookmarkClick(id) {
+  function handleBookmarkClick(id) {
     const saveCreepypasta = creepypastas.map(creepypasta => {
       if (creepypasta.id === id) {
-        return { ...creepypasta, isSpookmarked: !creepypasta.isSpookmarked };
+        return { ...creepypasta, isBookmarked: !creepypasta.isBookmarked };
       } else {
         return creepypasta;
       }

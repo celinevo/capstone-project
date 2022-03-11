@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 
-export default function SpookmarkPage({
-  handleSpookmarkClick,
-  spookmarkedCreepypastas,
+export default function BookmarkPage({
+  handleBookmarkClick,
+  bookmarkedCreepypastas,
 }) {
   return (
     <>
@@ -12,16 +12,16 @@ export default function SpookmarkPage({
 
       <Grid>
         <Header>Spookmarked</Header>
-        {spookmarkedCreepypastas.length > 0 ? (
-          spookmarkedCreepypastas.map(creepypasta => (
+        {bookmarkedCreepypastas.length > 0 ? (
+          bookmarkedCreepypastas.map(creepypasta => (
             <Card
               key={creepypasta.id}
               id={creepypasta.id}
               title={creepypasta.title}
               image={creepypasta.image}
               wordcount={creepypasta.wordcount}
-              onSpookmarkClick={() => handleSpookmarkClick(creepypasta.id)}
-              isSpookmarked={creepypasta.isSpookmarked}
+              onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+              isBookmarked={creepypasta.isBookmarked}
             />
           ))
         ) : (

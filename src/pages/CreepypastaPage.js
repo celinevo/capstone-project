@@ -3,10 +3,7 @@ import styled from 'styled-components';
 import Card from '../components/Card.js';
 import headerPicture from '../Images/Header.png';
 
-export default function CreepypastaPage({
-  handleSpookmarkClick,
-  creepypastas,
-}) {
+export default function CreepypastaPage({ handleBookmarkClick, creepypastas }) {
   return (
     <>
       <Link to="/spookmarked">Spookmarked</Link>
@@ -21,8 +18,8 @@ export default function CreepypastaPage({
             title={creepypasta.title}
             image={creepypasta.image}
             wordcount={creepypasta.wordcount}
-            onSpookmarkClick={() => handleSpookmarkClick(creepypasta.id)}
-            isSpookmarked={creepypasta.isSpookmarked}
+            onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+            isBookmarked={creepypasta.isBookmarked}
           />
         ))}
       </Grid>
