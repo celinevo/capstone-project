@@ -25,4 +25,5 @@ const Bookmark = styled.button`
   top: -8%;
   right: 4%;
   z-index: 100;
+  cursor: pointer;
 `;

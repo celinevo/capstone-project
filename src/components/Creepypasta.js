@@ -4,33 +4,45 @@ import arrow from '../Images/Arrow.svg';
 
 export default function Creepypasta({ title, image, text, wordcount }) {
   return (
-    <Wrapper>
-      <GoBackTop to="/">
-        <img
-          alt="Red Arrow, if clicked leads back to main page"
-          src={arrow}
-          width="60"
-        />
-      </GoBackTop>
-      <Image alt={title} src={image} height="160" />
-      <TextContent>
-        <Title>{title}</Title>
-        <Text>{text}</Text>
-        <Wordcount>{wordcount} Words</Wordcount>
-      </TextContent>
-      <GoBackBottom to="/">
-        <img
-          alt="Red Arrow, if clicked leads back to main page"
-          src={arrow}
-          width="60"
-        />
-      </GoBackBottom>
-    </Wrapper>
+    <Flex>
+      <Wrapper>
+        <GoBackTop to="/">
+          <img
+            alt="Red Arrow, if clicked leads back to main page"
+            src={arrow}
+            width="60"
+          />
+        </GoBackTop>
+        <Image alt={title} src={image} height="160" />
+        <TextContent>
+          <Title>{title}</Title>
+          <Text>{text}</Text>
+          <Wordcount>{wordcount} Words</Wordcount>
+        </TextContent>
+        <GoBackBottom to="/">
+          <img
+            alt="Red Arrow, if clicked leads back to main page"
+            src={arrow}
+            width="60"
+          />
+        </GoBackBottom>
+      </Wrapper>
+    </Flex>
   );
 }
 
+const Flex = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Wrapper = styled.section`
   position: relative;
+  @media (min-width: 800px) {
+    height: 200px;
+    width: 800px;
+  }
 `;
 
 const TextContent = styled.div`
@@ -68,4 +80,9 @@ const GoBackBottom = styled(Link)`
   position: absolute;
   right: 5%;
   bottom: 0%;
+  @media (min-width: 800px) {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
