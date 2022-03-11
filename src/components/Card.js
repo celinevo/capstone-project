@@ -11,35 +11,47 @@ export default function Creepypasta({
   isBookmarked,
 }) {
   return (
-    <Wrapper>
-      <BookmarkButton
-        onBookmarkClick={onBookmarkClick}
-        isBookmarked={isBookmarked}
-      />
-      <Card
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <CardContent>
-          <Title>{title}</Title>
-          <Wordcount>{wordcount} Words</Wordcount>
-        </CardContent>
-        <ReadMoreButton>
-          <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
-            Read
-          </ReadMoreButtonText>
-        </ReadMoreButton>
-      </Card>
-    </Wrapper>
+    <Flex>
+      <Wrapper>
+        <BookmarkButton
+          onBookmarkClick={onBookmarkClick}
+          isBookmarked={isBookmarked}
+        />
+        <Card
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <CardContent>
+            <Title>{title}</Title>
+            <Wordcount>{wordcount} Words</Wordcount>
+          </CardContent>
+          <ReadMoreButton>
+            <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
+              Read
+            </ReadMoreButtonText>
+          </ReadMoreButton>
+        </Card>
+      </Wrapper>
+    </Flex>
   );
 }
 
-const Wrapper = styled.section`
+const Flex = styled.section`
+  display: grid;
+`;
+
+const Wrapper = styled.div`
   overflow: visible;
   position: relative;
+  align-content: center;
+  @media (min-width: 500px) {
+    height: 200px;
+    width: 400px;
+    place-self: center;
+  }
 `;
 
 const Card = styled.div`
