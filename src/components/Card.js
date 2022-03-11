@@ -11,7 +11,7 @@ export default function Creepypasta({
   isBookmarked,
 }) {
   return (
-    <Flex>
+    <Grid>
       <Wrapper>
         <BookmarkButton
           onBookmarkClick={onBookmarkClick}
@@ -35,11 +35,11 @@ export default function Creepypasta({
           </ReadMoreButton>
         </Card>
       </Wrapper>
-    </Flex>
+    </Grid>
   );
 }
 
-const Flex = styled.section`
+const Grid = styled.section`
   display: grid;
 `;
 
