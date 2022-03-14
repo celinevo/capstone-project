@@ -62,6 +62,5 @@ const Header = styled.h1`
 const Grid = styled.main`
   display: grid;
   gap: 20px;
-  padding: 20px;
-  padding-top: 0px;
+  padding: 0 20px 20px;
 `;

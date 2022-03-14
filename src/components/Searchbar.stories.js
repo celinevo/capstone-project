@@ -5,7 +5,4 @@ export default {
   component: Searchbar,
 };
 
-const Template = args => <Searchbar {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = <Searchbar />;

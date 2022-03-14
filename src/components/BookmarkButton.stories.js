@@ -5,6 +5,4 @@ export default {
   components: BookmarkButton,
 };
 
-const Template = args => <BookmarkButton {...args} />;
-
-export const Default = Template.bind({});
+export const Default = <BookmarkButton />;
