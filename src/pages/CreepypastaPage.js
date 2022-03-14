@@ -56,11 +56,12 @@ const Link = styled(NavLink)`
 const Header = styled.h1`
   text-align: center;
   margin: 0;
-  margin-top: -25px;
+  margin-top: -30px;
 `;
 
 const Grid = styled.main`
   display: grid;
   gap: 20px;
   padding: 20px;
+  padding-top: 0px;
 `;
