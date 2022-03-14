@@ -12,7 +12,7 @@ export default function Searchbar({ handleChange, searchValue }) {
         value={searchValue}
         name="search-input"
         type="text"
-        placeholder="Search Spookie Story"
+        placeholder=" Search Spookie Story"
       />
     </SearchForm>
   );
