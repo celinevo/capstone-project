@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
@@ -11,6 +12,7 @@ function App() {
     'creepy',
     creepypastasData
   );
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <>
@@ -22,6 +24,8 @@ function App() {
             <CreepypastaPage
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
+              searchValue={searchValue}
+              handleChange={handleChange}
             />
           }
         />
@@ -56,6 +60,10 @@ function App() {
       }
     });
     setCreepypastas(saveCreepypasta);
+  }
+
+  function handleChange(event) {
+    setSearchValue(event.target.value.trim().toLowerCase());
   }
 }
 
