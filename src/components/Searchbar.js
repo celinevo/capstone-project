@@ -8,6 +8,7 @@ export default function Searchbar({ handleChange, searchValue }) {
       </label>
       <InputField
         aria-label="search-input"
+        maxLength={25}
         onChange={handleChange}
         value={searchValue}
         name="search-input"
@@ -30,7 +31,7 @@ const InputField = styled.input`
   color: #e6e6e6;
   font-family: 'Special Elite';
   letter-spacing: 1px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.4;
   padding-bottom: 0px;
   @media (min-width: 500px) {
