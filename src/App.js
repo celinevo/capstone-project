@@ -49,7 +49,12 @@ function App() {
           }
         />
 
-        <Route path="/create" element={<CreatePage />} />
+        <Route
+          path="/create"
+          element={
+            <CreatePage handleCreateCreepypasta={handleCreateCreepypasta} />
+          }
+        />
       </Routes>
     </>
   );
@@ -67,6 +72,10 @@ function App() {
 
   function handleChange(event) {
     setSearchValue(event.target.value.trim().toLowerCase());
+  }
+
+  function handleCreateCreepypasta({ id, title, text, image }) {
+    setCreepypastas([{ id, title, text, image }, ...creepypastas]);
   }
 }
 
