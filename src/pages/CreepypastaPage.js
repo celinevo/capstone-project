@@ -12,7 +12,10 @@ export default function CreepypastaPage({
 }) {
   return (
     <>
-      <Link to="/spookmarked">Spookmarked</Link>
+      <Navigation>
+        <Link to="/spookmarked">Spookmarked</Link>
+        <Link to="/profilepage">Profile</Link>
+      </Navigation>
       <Header>
         <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
       </Header>
@@ -45,9 +48,12 @@ export default function CreepypastaPage({
   );
 }
 
-const Link = styled(NavLink)`
+const Navigation = styled.nav`
   display: flex;
   justify-content: flex-end;
+`;
+
+const Link = styled(NavLink)`
   text-decoration: none;
   color: #e6e6e6;
   margin: 10px;

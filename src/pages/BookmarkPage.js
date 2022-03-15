@@ -8,8 +8,10 @@ export default function BookmarkPage({
 }) {
   return (
     <>
-      <Link to="/">All</Link>
-
+      <Navigation>
+        <Link to="/">All</Link>
+        <Link to="/profilepage">Profile</Link>
+      </Navigation>
       <Grid>
         <Header>Spookmarked</Header>
         {bookmarkedCreepypastas.length > 0 ? (
@@ -35,9 +37,12 @@ export default function BookmarkPage({
   );
 }
 
-const Link = styled(NavLink)`
+const Navigation = styled.nav`
   display: flex;
   justify-content: flex-end;
+`;
+
+const Link = styled(NavLink)`
   text-decoration: none;
   color: #e6e6e6;
   margin: 10px;
