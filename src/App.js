@@ -5,6 +5,7 @@ import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
 import FullCreepypastaPage from './pages/FullCreepypastaPage';
 import BookmarkPage from './pages/BookmarkPage';
+import ProfilePage from './pages/ProfilePage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             />
           }
         />
+        <Route path="/profilepage" element={<ProfilePage />} />
       </Routes>
     </>
   );
