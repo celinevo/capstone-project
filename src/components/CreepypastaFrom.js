@@ -1,13 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import styled from 'styled-components';
+import { nanoid } from 'nanoid';
 
 export default function CreepypastaFrom({ handleCreateCreepypasta }) {
+  const [wordCount, setWordCount] = useState(0);
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    trigger,
     formState: { errors },
   } = useForm();
 
@@ -24,39 +27,37 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
             },
           })}
           id="title"
-          onKeyUp={() => {
-            trigger('title');
-          }}
         />
         <label htmlFor="text">Text:</label>
         <textarea
           {...register('text', { required: 'You need a scary text!' })}
           id="text"
-          onKeyUp={() => {
-            trigger('text');
-          }}
+          onChange={e => setWordCount(e.target.value.split(' ').length)}
         />
+        <p {...register('wordcount')} id="wordcount">
+          {wordCount}
+        </p>
         <label htmlFor="image">Image:</label>
         <input
           {...register('image', { required: 'You need a creepy image!' })}
           id="image"
-          onKeyUp={() => {
-            trigger('image');
-          }}
         />
         <button type="submit">Save</button>
         <p>{errors.title && errors.title.message}</p>
-        <p>{errors.text && errors.title.message}</p>
-        <p>{errors.image && errors.title.message}</p>
+        <p>{errors.text && errors.text.message}</p>
+        <p>{errors.image && errors.image.message}</p>
       </form>
     </Grid>
   );
 
   function onSubmit(creepypasta) {
     handleCreateCreepypasta({
+      id: nanoid(),
       title: creepypasta.title,
       text: creepypasta.text,
+      wordcount: wordCount,
       image: creepypasta.image,
+      isSpookmarked: false,
     });
     navigate('/');
   }

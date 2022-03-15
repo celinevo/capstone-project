@@ -37,7 +37,7 @@ function App() {
         />
 
         <Route
-          path="/profilepage"
+          path="/profile"
           element={
             <ProfilePage
               bookmarkedCreepypastas={creepypastas.filter(
@@ -74,8 +74,8 @@ function App() {
     setSearchValue(event.target.value.trim().toLowerCase());
   }
 
-  function handleCreateCreepypasta({ id, title, text, image }) {
-    setCreepypastas([{ id, title, text, image }, ...creepypastas]);
+  function handleCreateCreepypasta(createdCreepypasta) {
+    setCreepypastas([createdCreepypasta, ...creepypastas]);
   }
 }
 
