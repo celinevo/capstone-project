@@ -14,6 +14,7 @@ export default function CreepypastaPage({
     <>
       <Navigation>
         <Link to="/profilepage">Profile</Link>
+        <Link to="/create">Create</Link>
       </Navigation>
       <Header>
         <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />

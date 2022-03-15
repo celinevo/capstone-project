@@ -10,6 +10,7 @@ export default function ProfilePage({
     <>
       <Navigation>
         <Link to="/">All</Link>
+        <Link to="/create">Create</Link>
       </Navigation>
       <Flex>
         <Wrapper>
