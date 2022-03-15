@@ -10,7 +10,6 @@ export default function ProfilePage({
     <>
       <Navigation>
         <Link to="/">All</Link>
-        <Link to="/spookmarked">Spookmarked</Link>
       </Navigation>
       <Flex>
         <Wrapper>

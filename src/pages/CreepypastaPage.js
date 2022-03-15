@@ -13,7 +13,6 @@ export default function CreepypastaPage({
   return (
     <>
       <Navigation>
-        <Link to="/spookmarked">Spookmarked</Link>
         <Link to="/profilepage">Profile</Link>
       </Navigation>
       <Header>
