@@ -4,7 +4,6 @@ import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
 import FullCreepypastaPage from './pages/FullCreepypastaPage';
-import BookmarkPage from './pages/BookmarkPage';
 import ProfilePage from './pages/ProfilePage';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -37,9 +36,9 @@ function App() {
         />
 
         <Route
-          path="/spookmarked"
+          path="/profilepage"
           element={
-            <BookmarkPage
+            <ProfilePage
               bookmarkedCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isBookmarked === true
               )}
@@ -48,7 +47,6 @@ function App() {
             />
           }
         />
-        <Route path="/profilepage" element={<ProfilePage />} />
       </Routes>
     </>
   );

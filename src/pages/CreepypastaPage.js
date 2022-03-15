@@ -13,7 +13,6 @@ export default function CreepypastaPage({
   return (
     <>
       <Navigation>
-        <Link to="/spookmarked">Spookmarked</Link>
         <Link to="/profilepage">Profile</Link>
       </Navigation>
       <Header>
@@ -67,6 +66,5 @@ const Header = styled.h1`
 
 const Grid = styled.main`
   display: grid;
-  gap: 20px;
   padding: 0 20px 20px;
 `;
