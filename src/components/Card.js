@@ -41,6 +41,7 @@ export default function Creepypasta({
 
 const Grid = styled.section`
   display: grid;
+  margin: 20px 0px 25px 0px;
 `;
 
 const Wrapper = styled.div`
