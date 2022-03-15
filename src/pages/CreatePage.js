@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import CreepypastaFrom from '../components/CreepypastaFrom.js';
+import CreepypastaForm from '../components/CreepypastaForm.js';
 
 export default function CreatePage({ handleCreateCreepypasta }) {
   return (
@@ -12,7 +12,7 @@ export default function CreatePage({ handleCreateCreepypasta }) {
       <Flex>
         <Wrapper>
           <Header>Write your story!</Header>
-          <CreepypastaFrom handleCreateCreepypasta={handleCreateCreepypasta} />
+          <CreepypastaForm handleCreateCreepypasta={handleCreateCreepypasta} />
         </Wrapper>
       </Flex>
     </>
