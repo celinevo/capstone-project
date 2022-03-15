@@ -50,7 +50,9 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
         <Input
           {...register('image', { required: 'You need a creepy image!' })}
           id="image"
-          placeholder=" Please use a link"
+          placeholder=" Please use an URL"
+          type="url"
+          pattern="https://"
         />
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
