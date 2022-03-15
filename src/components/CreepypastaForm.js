@@ -31,6 +31,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
           })}
           id="title"
         />
+        <Error>{errors.title && errors.title.message}</Error>
       </Field>
       <Field>
         <Label htmlFor="text">Text:</Label>
@@ -39,6 +40,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
           id="text"
           onChange={e => setWordCount(e.target.value.split(' ').length)}
         />
+        <Error>{errors.text && errors.text.message}</Error>
         <Wordcount {...register('wordcount')} id="wordcount">
           Wordcount: {wordCount}
         </Wordcount>
@@ -50,11 +52,9 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
           id="image"
           placeholder=" Please use a link"
         />
+        <Error>{errors.image && errors.image.message}</Error>
       </Field>
       <Button type="submit">Save</Button>
-      <Error>{errors.title && errors.title.message}</Error>
-      <Error>{errors.text && errors.text.message}</Error>
-      <Error>{errors.image && errors.image.message}</Error>
     </Form>
   );
 
@@ -116,7 +116,11 @@ const Button = styled.button`
   justify-self: center;
 `;
 
-const Error = styled.p``;
+const Error = styled.p`
+  color: #990000;
+  margin: 5px 0px 0px 0px;
+  font-size: 16px;
+`;
 
 const Wordcount = styled.p`
   margin-bottom: -10px;
