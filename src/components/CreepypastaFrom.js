@@ -15,10 +15,13 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
   } = useForm();
 
   return (
-    <Grid onSubmit={handleSubmit(creepypasta => onSubmit(creepypasta))}>
-      <form aria-label="Create a creepypasta">
-        <label htmlFor="title">Title:</label>
-        <input
+    <Form
+      aria-label="Create a creepypasta"
+      onSubmit={handleSubmit(creepypasta => onSubmit(creepypasta))}
+    >
+      <Field>
+        <Label htmlFor="title">Title:</Label>
+        <Input
           {...register('title', {
             required: 'You need a spooky title!',
             maxLength: {
@@ -28,26 +31,31 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
           })}
           id="title"
         />
-        <label htmlFor="text">Text:</label>
-        <textarea
+      </Field>
+      <Field>
+        <Label htmlFor="text">Text:</Label>
+        <Textarea
           {...register('text', { required: 'You need a scary text!' })}
           id="text"
           onChange={e => setWordCount(e.target.value.split(' ').length)}
         />
-        <p {...register('wordcount')} id="wordcount">
-          {wordCount}
-        </p>
-        <label htmlFor="image">Image:</label>
-        <input
+        <Wordcount {...register('wordcount')} id="wordcount">
+          Wordcount: {wordCount}
+        </Wordcount>
+      </Field>
+      <Field>
+        <Label htmlFor="image">Image:</Label>
+        <Input
           {...register('image', { required: 'You need a creepy image!' })}
           id="image"
+          placeholder=" Please use a link"
         />
-        <button type="submit">Save</button>
-        <p>{errors.title && errors.title.message}</p>
-        <p>{errors.text && errors.text.message}</p>
-        <p>{errors.image && errors.image.message}</p>
-      </form>
-    </Grid>
+      </Field>
+      <Button type="submit">Save</Button>
+      <Error>{errors.title && errors.title.message}</Error>
+      <Error>{errors.text && errors.text.message}</Error>
+      <Error>{errors.image && errors.image.message}</Error>
+    </Form>
   );
 
   function onSubmit(creepypasta) {
@@ -63,7 +71,53 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
   }
 }
 
-const Grid = styled.main`
+const Form = styled.form`
   display: grid;
-  gap: 20px;
+  gap: 25px;
+`;
+
+const Field = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const Label = styled.label``;
+
+const Input = styled.input`
+  border-radius: 6px;
+  padding-bottom: 0px;
+  @media (min-width: 600px) {
+    height: 100%;
+    width: 500px;
+  }
+`;
+
+const Textarea = styled.textarea`
+  width: 320px;
+  height: 150px;
+  padding: 2px;
+  border-radius: 6px;
+  @media (min-width: 500px) {
+    height: 200px;
+    width: 500px;
+  }
+`;
+
+const Button = styled.button`
+  background-color: #990000;
+  border: none;
+  border-radius: 6px;
+  color: #e6e6e6;
+  font-family: 'Special Elite';
+  font-size: 18px;
+  padding: 12px 10px 10px 10px;
+  width: 80px;
+  justify-self: center;
+`;
+
+const Error = styled.p``;
+
+const Wordcount = styled.p`
+  margin-bottom: -10px;
 `;

@@ -9,11 +9,29 @@ export default function CreatePage({ handleCreateCreepypasta }) {
         <Link to="/">All</Link>
         <Link to="/profile">Profile</Link>
       </Navigation>
-      <h1>Write your own story!</h1>
-      <CreepypastaFrom handleCreateCreepypasta={handleCreateCreepypasta} />
+      <Flex>
+        <Wrapper>
+          <Header>Write your story!</Header>
+          <CreepypastaFrom handleCreateCreepypasta={handleCreateCreepypasta} />
+        </Wrapper>
+      </Flex>
     </>
   );
 }
+
+const Wrapper = styled.div`
+  margin: 0px 15px 0px 15px;
+  @media (min-width: 500px) {
+    height: 200px;
+    width: 500px;
+  }
+`;
+
+const Flex = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Navigation = styled.nav`
   display: flex;
@@ -24,4 +42,9 @@ const Link = styled(NavLink)`
   text-decoration: none;
   color: #e6e6e6;
   margin: 10px;
+`;
+
+const Header = styled.h1`
+  text-align: center;
+  margin-top: 0px;
 `;
