@@ -29,24 +29,26 @@ export default function ProfilePage({
             excited to be here!
           </p>
           <Header>Spookmarked</Header>
-          {bookmarkedCreepypastas.length > 0 ? (
-            bookmarkedCreepypastas.map(creepypasta => (
-              <Card
-                key={creepypasta.id}
-                id={creepypasta.id}
-                title={creepypasta.title}
-                image={creepypasta.image}
-                wordcount={creepypasta.wordcount}
-                onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
-                isBookmarked={creepypasta.isBookmarked}
-              />
-            ))
-          ) : (
-            <>
-              <h3>It's ghostly quiet in here...</h3>
-              <p>You need to spookmark a story to see it here!</p>
-            </>
-          )}
+          <Format>
+            {bookmarkedCreepypastas.length > 0 ? (
+              bookmarkedCreepypastas.map(creepypasta => (
+                <Card
+                  key={creepypasta.id}
+                  id={creepypasta.id}
+                  title={creepypasta.title}
+                  image={creepypasta.image}
+                  wordcount={creepypasta.wordcount}
+                  onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+                  isBookmarked={creepypasta.isBookmarked}
+                />
+              ))
+            ) : (
+              <>
+                <h3>It's ghostly quiet in here...</h3>
+                <p>You need to spookmark a story to see it here!</p>
+              </>
+            )}
+          </Format>
         </Wrapper>
       </Flex>
     </>
@@ -67,7 +69,6 @@ const Link = styled(NavLink)`
 const Position = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px 0px 0px 0px;
 `;
 
 const ProfileName = styled.h1`
@@ -102,10 +103,15 @@ const Header = styled.h3`
   text-align: center;
   font-size: 18px;
   padding-top: 2px;
-  margin: 0px -20px 25px -20px;
+  margin: 0px -20px 10px -20px;
   border: 1px solid #4d4d4d;
   border-left: 0px;
   border-right: 0px;
+`;
+
+const Format = styled.div`
+  display: grid;
+  gap: 2px;
 `;
 
 const Wrapper = styled.section`
