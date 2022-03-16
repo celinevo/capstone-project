@@ -1,4 +1,4 @@
-import Searchbar from './Searchbar';
+import Searchbar from './Searchbar.js';
 
 export default {
   title: 'Components/Searchbar',

@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 import Searchbar from '../components/Searchbar.js';
@@ -12,10 +11,6 @@ export default function CreepypastaPage({
 }) {
   return (
     <>
-      <Navigation>
-        <Link to="/profile">Profile</Link>
-        <Link to="/create">Create</Link>
-      </Navigation>
       <Header>
         <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
       </Header>
@@ -48,25 +43,13 @@ export default function CreepypastaPage({
   );
 }
 
-const Navigation = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const Link = styled(NavLink)`
-  text-decoration: none;
-  color: #e6e6e6;
-  margin: 10px;
-  z-index: 10;
-`;
-
 const Header = styled.h1`
   text-align: center;
   margin: 0;
-  margin-top: -30px;
+  margin-top: -10px;
 `;
 
-const Grid = styled.main`
+const Grid = styled.section`
   display: grid;
-  padding: 0 20px 20px;
+  padding: 0 20px 70px 20px;
 `;

@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 
@@ -8,10 +7,6 @@ export default function ProfilePage({
 }) {
   return (
     <>
-      <Navigation>
-        <Link to="/">All</Link>
-        <Link to="/create">Create</Link>
-      </Navigation>
       <Flex>
         <Wrapper>
           <Position>
@@ -55,17 +50,6 @@ export default function ProfilePage({
     </>
   );
 }
-
-const Navigation = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const Link = styled(NavLink)`
-  text-decoration: none;
-  color: #e6e6e6;
-  margin: 10px;
-`;
 
 const Position = styled.div`
   display: flex;
@@ -117,6 +101,7 @@ const Format = styled.div`
 
 const Wrapper = styled.section`
   position: relative;
+  margin-bottom: 50px;
   @media (min-width: 500px) {
     height: 200px;
     width: 500px;
@@ -127,5 +112,5 @@ const Flex = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 20px 20px 20px;
+  padding: 25px 20px 20px 20px;
 `;
