@@ -15,13 +15,13 @@ export default function Navigation() {
             src={menuGray}
           />
         </StyledLink>
-        <StyledLinkBorder to="/create">
+        <StyledLink to="/create">
           <img
             height="35px"
             alt="Clickable icon that directs to create page"
             src={penGray}
           />
-        </StyledLinkBorder>
+        </StyledLink>
         <StyledLink to="/profile">
           <img
             height="35px"
@@ -40,7 +40,7 @@ const Footer = styled.footer`
   bottom: 0;
   width: 100%;
   background-color: #261b1b;
-  border-top: 2px solid #4d4d4d;
+  border-top: 1px solid #4d4d4d;
 `;
 
 const Nav = styled.nav`
@@ -54,17 +54,7 @@ const StyledLink = styled(NavLink)`
   text-align: center;
   padding: 15px 0px 5px 0px;
   &.active {
-    opacity: 40%;
-  }
-`;
-
-const StyledLinkBorder = styled(NavLink)`
-  width: 100%;
-  text-align: center;
-  padding: 15px 0px 5px 0px;
-  border-left: 1px solid #4d4d4d;
-  border-right: 1px solid #4d4d4d;
-  &.active {
-    opacity: 40%;
+    filter: grayscale(20%) brightness(12%) sepia(200%) hue-rotate(-55deg)
+      saturate(1500%) contrast(1);
   }
 `;
