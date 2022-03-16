@@ -13,7 +13,8 @@ export default function CreepypastaPage({
   return (
     <>
       <Navigation>
-        <Link to="/profilepage">Profile</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/create">Create</Link>
       </Navigation>
       <Header>
         <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
@@ -56,6 +57,7 @@ const Link = styled(NavLink)`
   text-decoration: none;
   color: #e6e6e6;
   margin: 10px;
+  z-index: 10;
 `;
 
 const Header = styled.h1`

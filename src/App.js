@@ -5,6 +5,7 @@ import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
 import FullCreepypastaPage from './pages/FullCreepypastaPage';
 import ProfilePage from './pages/ProfilePage';
+import CreatePage from './pages/CreatePage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
         />
 
         <Route
-          path="/profilepage"
+          path="/profile"
           element={
             <ProfilePage
               bookmarkedCreepypastas={creepypastas.filter(
@@ -45,6 +46,13 @@ function App() {
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
             />
+          }
+        />
+
+        <Route
+          path="/create"
+          element={
+            <CreatePage handleCreateCreepypasta={handleCreateCreepypasta} />
           }
         />
       </Routes>
@@ -64,6 +72,10 @@ function App() {
 
   function handleChange(event) {
     setSearchValue(event.target.value.trim().toLowerCase());
+  }
+
+  function handleCreateCreepypasta(createdCreepypasta) {
+    setCreepypastas([createdCreepypasta, ...creepypastas]);
   }
 }
 
