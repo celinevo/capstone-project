@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 export default function CreepypastaFrom({ handleCreateCreepypasta }) {
   const [wordCount, setWordCount] = useState(0);
-  const [counter, setCounter] = useState(25);
+  const [counter, setCounter] = useState(20);
 
   const navigate = useNavigate();
   const {
@@ -42,7 +42,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
         <Input
           {...register('title', {
             onChange: e => {
-              setCounter(25 - e.target.value.length);
+              setCounter(20 - e.target.value.length);
             },
             required: {
               value: true,
@@ -50,7 +50,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
             },
             minLength: 1,
             maxLength: {
-              value: 25,
+              value: 20,
               message: 'Calm down there! Your title is too long.',
             },
           })}

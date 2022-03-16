@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
@@ -7,8 +8,9 @@ import FullCreepypastaPage from './pages/FullCreepypastaPage';
 import ProfilePage from './pages/ProfilePage';
 import CreatePage from './pages/CreatePage';
 import ScrollToTop from './components/ScrollToTop';
+import Navigation from './components/Navigation.js';
 
-function App() {
+export default function App() {
   const [creepypastas, setCreepypastas] = useLocalStorage(
     'creepy',
     creepypastasData
@@ -16,7 +18,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
   return (
-    <>
+    <AppGrid>
       <ScrollToTop />
       <Routes>
         <Route
@@ -56,7 +58,8 @@ function App() {
           }
         />
       </Routes>
-    </>
+      <Navigation />
+    </AppGrid>
   );
 
   function handleBookmarkClick(id) {
@@ -79,4 +82,7 @@ function App() {
   }
 }
 
-export default App;
+const AppGrid = styled.div`
+  height: 100vh;
+  display: grid;
+`;

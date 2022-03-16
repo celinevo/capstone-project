@@ -1,8 +1,8 @@
-import CreepypastaFrom from './CreepypastaFrom';
+import CreepypastaForm from './CreepypastaForm.js';
 
 export default {
   title: 'Components/Form',
-  component: CreepypastaFrom,
+  component: CreepypastaForm,
 };
 
-export const Default = <CreepypastaFrom />;
+export const Default = <CreepypastaForm />;
