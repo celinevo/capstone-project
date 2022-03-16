@@ -53,6 +53,9 @@ const StyledLink = styled(NavLink)`
   width: 100%;
   text-align: center;
   padding: 15px 0px 5px 0px;
+  &.active {
+    opacity: 40%;
+  }
 `;
 
 const StyledLinkBorder = styled(NavLink)`
@@ -61,4 +64,7 @@ const StyledLinkBorder = styled(NavLink)`
   padding: 15px 0px 5px 0px;
   border-left: 1px solid #4d4d4d;
   border-right: 1px solid #4d4d4d;
+  &.active {
+    opacity: 40%;
+  }
 `;
