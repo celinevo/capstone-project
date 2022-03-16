@@ -8,7 +8,7 @@ const creepypastas = [
     image:
       'https://www.creepypasta.com/wp-content/uploads/2010/01/slenderman-1.jpg.webp',
     wordcount: 860,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -18,7 +18,7 @@ const creepypastas = [
     image:
       'https://images.unsplash.com/photo-1546453436-6d08a4070088?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=994&q=80',
     wordcount: 359,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -28,7 +28,7 @@ const creepypastas = [
     image:
       'https://external-preview.redd.it/8y-nJo3-qVVaUTY8u_LOlCrqh8WyDoquXGb9xb3x0LI.jpg?auto=webp&s=0a593617696179698701c06bee32c4d963d1a439',
     wordcount: 437,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -38,7 +38,7 @@ const creepypastas = [
     image:
       'https://i.pinimg.com/originals/58/4e/c9/584ec9ea39188ce6f719d823329e1dfd.jpg',
     wordcount: 686,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -48,7 +48,7 @@ const creepypastas = [
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi63nTwP8DAlUhJkj1JFp-FxuHkfKpxxdTjw&usqp=CAU',
     wordcount: 517,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -57,7 +57,7 @@ const creepypastas = [
     text: 'The rainy season began in early summer, and June had been no exception. It did not surprise the man when he discovered rainwater dripping from his dining room ceiling. Shrugging it off, he placed a tall pot beneath the leak and expected it to stop on its own. However, it continued to rain, and before he knew it, the pot would threaten to overflow. He had to dump the water out first thing in the morning and straight after he returned home from work. Eventually, he began to notice water damage at the source of the leak. The white ceiling had discolored, turning a dull shade of brown. He checked the weather and realized that it would continue to rain sporadically over the next 10 days. The man was worried about the ceiling mildewing and becoming an expensive repair, so he called a local handyman. Unfortunately, the man could not sign to have the repairs done–only his landlord could. It was a frustrating policy. The man called his landlord but could not reach him. He left him a few voicemails, detailing how the damage was becoming progressively worse. The man was clueless as to why his landlord would not return his calls; they usually kept in touch, speaking at least twice a month. Finally, he reasoned that he would not be held accountable for any damages sustained. One night, the man was startled awake by a massive thump. He quickly turned on his bedside lamp, and just vaguely, he could see an overturned table and a large shape laying across it. He sprinted out of his apartment and called the police, gagging at the smell. The man sat in the police station with a blanket wrapped around his shoulders and a coffee mug resting in his hands. He did know one thing. There had been a dead body in his ceiling, and the water had saturated it so badly that it caved under the weight. So far, the body was unidentifiable due to the rainwater and was being autopsied. While the man waited, he called his landlord and finally reached him, panicking as he explained the situation. His landlord was just as alarmed, and the man pleaded for him to come to the station while he made his statement. The man paused as a detective crossed over to him, and he lowered his phone, wondering if the body had been identified. His blood ran immediately cold, and he shook his head with terror. The body belonged to Richard Thompson, his landlord, and he had died over a year ago. That’s not what disturbed him the most. If his landlord was dead, then who was pretending to be him?',
     image: 'https://i.ytimg.com/vi/1fubiyN7fz0/maxresdefault.jpg',
     wordcount: 448,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -67,7 +67,7 @@ const creepypastas = [
     image:
       'https://image.scoopwhoop.com/w360/s4.scoopwhoop.com/rob/deathfacts/2.jpg.webp',
     wordcount: 233,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -77,7 +77,7 @@ const creepypastas = [
     image:
       'https://www.tynker.com/projects/screenshot/5a7c9faa94e01d0f7b8b4574/red-eyes-trailer-1.png',
     wordcount: 412,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -87,7 +87,7 @@ const creepypastas = [
     image:
       'http://www.theoccultmuseum.com/wp-content/uploads/2017/03/10-Short-Scary-Creepypasta-Stories-That-Will-Make-You-Shudder-2.jpg',
     wordcount: 481,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -97,7 +97,7 @@ const creepypastas = [
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShH9-V2LoPJF5GD4ZdqZJo5q4kw1EZK969Ww0kJdX6vZUm1PEMvKz67DtPAcNVU5uOHM0&usqp=CAU',
     wordcount: 778,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -107,7 +107,7 @@ const creepypastas = [
     image:
       'https://ak.picdn.net/shutterstock/videos/1018622416/thumb/9.jpg?ip=x480',
     wordcount: 345,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -117,7 +117,7 @@ const creepypastas = [
     image:
       'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1554000847795-NOVLEYWA3UH41Q6QXYQ1/image-asset.jpeg',
     wordcount: 229,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -127,7 +127,7 @@ const creepypastas = [
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREx9Zs4anwh7ukeceHYMsuVPsgdaqNkHTSvQ&usqp=CAU',
     wordcount: 479,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -137,7 +137,7 @@ const creepypastas = [
     image:
       'http://booklikes.com/upload/post/1/a/azure_1acbb97c3f8a53f66a86ac3a3ee58d3b.jpg',
     wordcount: 436,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 
   {
@@ -147,7 +147,7 @@ const creepypastas = [
     image:
       'https://i0.wp.com/bloody-disgusting.com/wp-content/uploads/2017/12/christine34-1200x520.jpg?resize=1000%2C520&ssl=1',
     wordcount: 490,
-    isSpookmarked: false,
+    isBookmarked: false,
   },
 ];
 export default creepypastas;

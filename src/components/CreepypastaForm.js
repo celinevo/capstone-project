@@ -1,11 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import styled from 'styled-components';
 import { nanoid } from 'nanoid';
+import styled from 'styled-components';
 
 export default function CreepypastaFrom({ handleCreateCreepypasta }) {
   const [wordCount, setWordCount] = useState(0);
+  const [counter, setCounter] = useState(25);
 
   const navigate = useNavigate();
   const {
@@ -14,22 +15,47 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
     formState: { errors },
   } = useForm();
 
+  function onSubmit(creepypasta) {
+    handleCreateCreepypasta({
+      id: nanoid(),
+      title: creepypasta.title,
+      text: creepypasta.text,
+      wordcount: wordCount,
+      image: creepypasta.image,
+      isBookmarked: false,
+    });
+    navigate('/');
+  }
+
   return (
     <Form
       aria-label="Create a creepypasta"
       onSubmit={handleSubmit(creepypasta => onSubmit(creepypasta))}
     >
       <Field>
-        <Label htmlFor="title">Title:</Label>
+        <Format>
+          <Label htmlFor="title">Title:</Label>
+          <TitleCounter name="Counter of characters from title">
+            {counter}
+          </TitleCounter>
+        </Format>
         <Input
           {...register('title', {
-            required: 'You need a spooky title!',
+            onChange: e => {
+              setCounter(25 - e.target.value.length);
+            },
+            required: {
+              value: true,
+              message: 'You need a spookie title!',
+            },
+            minLength: 1,
             maxLength: {
               value: 25,
               message: 'Calm down there! Your title is too long.',
             },
           })}
           id="title"
+          autoFocus
         />
         <Error>{errors.title && errors.title.message}</Error>
       </Field>
@@ -50,32 +76,28 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
         <Input
           {...register('image', { required: 'You need a creepy image!' })}
           id="image"
-          placeholder=" Please use an URL"
-          type="url"
-          pattern="https://"
+          placeholder=" Please use an URL: https://"
         />
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
       <Button type="submit">Save</Button>
     </Form>
   );
-
-  function onSubmit(creepypasta) {
-    handleCreateCreepypasta({
-      id: nanoid(),
-      title: creepypasta.title,
-      text: creepypasta.text,
-      wordcount: wordCount,
-      image: creepypasta.image,
-      isSpookmarked: false,
-    });
-    navigate('/');
-  }
 }
 
 const Form = styled.form`
   display: grid;
   gap: 25px;
+`;
+
+const Format = styled.div`
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+`;
+
+const TitleCounter = styled.span`
+  text-align: end;
 `;
 
 const Field = styled.div`
