@@ -26,8 +26,8 @@ export default function ProfilePage({
             excited to be here!
           </p>
           <Header>
-            <Link to="/profile">My Stories</Link>
-            <Link to="/profile/:spookmarked">Spookmarked</Link>
+            <ActiveLink to="/profile">My Stories</ActiveLink>
+            <InactiveLink to="/profile/:spookmarked">Spookmarked</InactiveLink>
           </Header>
           <Format>
             {writtenCreepypastas.length > 0 ? (
@@ -90,13 +90,24 @@ const ProfileInfo = styled.h2`
 `;
 
 const Header = styled.h3`
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
   font-size: 18px;
   padding-top: 2px;
   margin: 0px -20px 10px -20px;
   border: 1px solid #4d4d4d;
   border-left: 0px;
   border-right: 0px;
+`;
+
+const ActiveLink = styled(Link)`
+  text-decoration: none;
+  color: #990000;
+`;
+
+const InactiveLink = styled(Link)`
+  text-decoration: none;
+  color: #e6e6e6;
 `;
 
 const Format = styled.div`
