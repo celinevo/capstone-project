@@ -45,6 +45,9 @@ export default function App() {
             <ProfilePage
               creepypastas={creepypastas}
               handleBookmarkClick={handleBookmarkClick}
+              writtenCreepypastas={creepypastas.filter(
+                creepypasta => creepypasta.isWritten === true
+              )}
             />
           }
         ></Route>

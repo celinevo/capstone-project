@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 
-export default function ProfilePage({ creepypastas, handleBookmarkClick }) {
+export default function ProfilePage({
+  writtenCreepypastas,
+  handleBookmarkClick,
+}) {
   return (
     <>
       <Flex>
@@ -27,21 +30,25 @@ export default function ProfilePage({ creepypastas, handleBookmarkClick }) {
             <Link to="/profile/:spookmarked">Spookmarked</Link>
           </Header>
           <Format>
-            {creepypastas &&
-              creepypastas
-                .filter(creepypasta => creepypasta.isWritten === true)
-                .map(creepypasta => (
-                  <Card
-                    key={creepypasta.id}
-                    id={creepypasta.id}
-                    title={creepypasta.title}
-                    image={creepypasta.image}
-                    wordcount={creepypasta.wordcount}
-                    onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
-                    isBookmarked={creepypasta.isBookmarked}
-                    isWritten={creepypasta.isWritten}
-                  />
-                ))}
+            {writtenCreepypastas.length > 0 ? (
+              writtenCreepypastas.map(creepypasta => (
+                <Card
+                  key={creepypasta.id}
+                  id={creepypasta.id}
+                  title={creepypasta.title}
+                  image={creepypasta.image}
+                  wordcount={creepypasta.wordcount}
+                  onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+                  isBookmarked={creepypasta.isBookmarked}
+                  isWritten={creepypasta.isWritten}
+                />
+              ))
+            ) : (
+              <>
+                <h3>It's ghostly quiet in here...</h3>
+                <p>You need to create a story to see it here!</p>
+              </>
+            )}
           </Format>
         </Wrapper>
       </Flex>
