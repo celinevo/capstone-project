@@ -6,6 +6,7 @@ export default function ProfilePage({
   writtenCreepypastas,
   handleBookmarkClick,
   handleDeleteCreepypasta,
+  handleRedirectEdit,
 }) {
   return (
     <>
@@ -45,6 +46,7 @@ export default function ProfilePage({
                   handleDeleteCreepypasta={() =>
                     handleDeleteCreepypasta(creepypasta.id)
                   }
+                  handleRedirectEdit={handleRedirectEdit}
                 />
               ))
             ) : (

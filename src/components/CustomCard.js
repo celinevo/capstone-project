@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import TrashIcon from '../Images/trash_red.svg';
+import PenIcon from '../Images/pen_red.svg';
 import BookmarkButton from './BookmarkButton';
 import Delete from './Delete';
 
@@ -13,6 +14,7 @@ export default function CustomCard({
   onBookmarkClick,
   isBookmarked,
   handleDeleteCreepypasta,
+  handleRedirectEdit,
 }) {
   const [showMessage, setShowMessage] = useState(false);
 
@@ -39,6 +41,9 @@ export default function CustomCard({
               Read
             </ReadMoreButtonText>
           </ReadMoreButton>
+          <EditIcon onClick={() => handleRedirectEdit(id)}>
+            <img src={PenIcon} alt="Edit this creepypasta" width="35px" />
+          </EditIcon>
           <DeleteIcon onClick={() => setShowMessage(true)}>
             <img src={TrashIcon} alt="Delete this creepypasta" width="35px" />
           </DeleteIcon>
@@ -130,6 +135,14 @@ const DeleteIcon = styled.button`
   background-color: transparent;
   border: none;
   position: absolute;
-  right: 4%;
+  left: 4%;
   bottom: 5%;
+`;
+
+const EditIcon = styled.button`
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 4%;
+  bottom: 35%;
 `;
