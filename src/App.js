@@ -39,7 +39,15 @@ export default function App() {
           element={<FullCreepypastaPage creepypastas={creepypastas} />}
         />
 
-        <Route path="/profile" element={<ProfilePage />}></Route>
+        <Route
+          path="/profile"
+          element={
+            <ProfilePage
+              creepypastas={creepypastas}
+              handleBookmarkClick={handleBookmarkClick}
+            />
+          }
+        ></Route>
 
         <Route
           path="/profile/:spookmarked"

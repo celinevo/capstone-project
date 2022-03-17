@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Card from '../components/Card.js';
 
-export default function ProfilePage() {
+export default function ProfilePage({ creepypastas, handleBookmarkClick }) {
   return (
     <>
       <Flex>
@@ -25,7 +26,23 @@ export default function ProfilePage() {
             <Link to="/profile">My Stories</Link>
             <Link to="/profile/:spookmarked">Spookmarked</Link>
           </Header>
-          <Format></Format>
+          <Format>
+            {creepypastas &&
+              creepypastas
+                .filter(creepypasta => creepypasta.isWritten === true)
+                .map(creepypasta => (
+                  <Card
+                    key={creepypasta.id}
+                    id={creepypasta.id}
+                    title={creepypasta.title}
+                    image={creepypasta.image}
+                    wordcount={creepypasta.wordcount}
+                    onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+                    isBookmarked={creepypasta.isBookmarked}
+                    isWritten={creepypasta.isWritten}
+                  />
+                ))}
+          </Format>
         </Wrapper>
       </Flex>
     </>
