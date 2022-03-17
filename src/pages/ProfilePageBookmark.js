@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Card from '../components/Card.js';
+import Card from '../components/CustomCard.js';
 
 export default function ProfilePageBookmark({
   handleBookmarkClick,

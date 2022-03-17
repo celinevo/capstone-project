@@ -45,6 +45,7 @@ export default function App() {
             <ProfilePage
               creepypastas={creepypastas}
               handleBookmarkClick={handleBookmarkClick}
+              handleDeleteCreepypasta={handleDeleteCreepypasta}
               writtenCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isWritten === true
               )}
@@ -93,6 +94,10 @@ export default function App() {
 
   function handleCreateCreepypasta(createdCreepypasta) {
     setCreepypastas([createdCreepypasta, ...creepypastas]);
+  }
+
+  function handleDeleteCreepypasta(id) {
+    setCreepypastas(creepypastas.filter(creepypasta => creepypasta.id !== id));
   }
 }
 
