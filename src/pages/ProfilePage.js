@@ -22,8 +22,8 @@ export default function ProfilePage({
           </Position>
           <ProfileInfo>About me</ProfileInfo>
           <p>
-            Welcome to my spooky scary page! I love everything horror, so I'm
-            excited to be here!
+            Welcome to my spooky scary page! I love everything that is horror,
+            so I'm excited to be here!
           </p>
           <Header>
             <ActiveLink to="/profile">My Stories</ActiveLink>
