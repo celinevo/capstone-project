@@ -119,7 +119,7 @@ const Wrapper = styled.section`
   position: relative;
   margin-bottom: 50px;
   @media (min-width: 500px) {
-    height: 200px;
+    height: 100%;
     width: 500px;
   }
 `;
