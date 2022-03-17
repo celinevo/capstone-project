@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 
-export default function ProfilePage({
-  writtenCreepypastas,
+export default function ProfilePageBookmark({
   handleBookmarkClick,
+  bookmarkedCreepypastas,
 }) {
   return (
     <>
@@ -26,12 +26,12 @@ export default function ProfilePage({
             so I'm excited to be here!
           </p>
           <Header>
-            <ActiveLink to="/profile">My Stories</ActiveLink>
-            <InactiveLink to="/profile/:spookmarked">Spookmarked</InactiveLink>
+            <InactiveLink to="/profile">My Stories</InactiveLink>
+            <ActiveLink to="/profile-spookmarked">Spookmarked</ActiveLink>
           </Header>
           <Format>
-            {writtenCreepypastas.length > 0 ? (
-              writtenCreepypastas.map(creepypasta => (
+            {bookmarkedCreepypastas.length > 0 ? (
+              bookmarkedCreepypastas.map(creepypasta => (
                 <Card
                   key={creepypasta.id}
                   id={creepypasta.id}
@@ -40,13 +40,12 @@ export default function ProfilePage({
                   wordcount={creepypasta.wordcount}
                   onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
                   isBookmarked={creepypasta.isBookmarked}
-                  isWritten={creepypasta.isWritten}
                 />
               ))
             ) : (
               <>
                 <h3>It's ghostly quiet in here...</h3>
-                <p>You need to create a story to see it here!</p>
+                <p>You need to spookmark a story to see it here!</p>
               </>
             )}
           </Format>

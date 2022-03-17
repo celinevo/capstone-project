@@ -6,6 +6,7 @@ import creepypastasData from './CreepypastasData.js';
 import CreepypastaPage from './pages/CreepypastaPage';
 import FullCreepypastaPage from './pages/FullCreepypastaPage';
 import ProfilePage from './pages/ProfilePage';
+import ProfilePageBookmark from './pages/ProfilePageBookmark';
 import CreatePage from './pages/CreatePage';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
@@ -42,6 +43,19 @@ export default function App() {
           path="/profile"
           element={
             <ProfilePage
+              creepypastas={creepypastas}
+              handleBookmarkClick={handleBookmarkClick}
+              writtenCreepypastas={creepypastas.filter(
+                creepypasta => creepypasta.isWritten === true
+              )}
+            />
+          }
+        ></Route>
+
+        <Route
+          path="/profile/:spookmarked"
+          element={
+            <ProfilePageBookmark
               bookmarkedCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isBookmarked === true
               )}

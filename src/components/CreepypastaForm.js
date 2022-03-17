@@ -23,6 +23,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
       wordcount: wordCount,
       image: creepypasta.image,
       isBookmarked: false,
+      isWritten: true,
     });
     navigate('/');
   }
