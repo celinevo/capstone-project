@@ -72,6 +72,7 @@ export default function CreepypastaForm({
           })}
           id="title"
           autoFocus
+          maxLength="20"
         />
         <Error>{errors.title && errors.title.message}</Error>
       </Field>
@@ -90,7 +91,9 @@ export default function CreepypastaForm({
       <Field>
         <Label htmlFor="image">Image:</Label>
         <Input
-          {...register('image', { required: 'You need a creepy image!' })}
+          {...register('image', {
+            required: 'You need a creepy image!',
+          })}
           id="image"
           placeholder=" Please use an URL: https://"
         />

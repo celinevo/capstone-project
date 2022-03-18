@@ -35,6 +35,7 @@ const Flex = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 65px;
 `;
 
 const Wrapper = styled.section`

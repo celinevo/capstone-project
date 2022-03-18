@@ -11,7 +11,7 @@ export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
       <Flex>
         <Wrapper>
           <GoBackButton onClick={() => navigate(-1)}>
-            <img src={Arrow} alt="Go back" />
+            <img src={Arrow} alt="Go back" width="60" />
           </GoBackButton>
           <Header>Edit your story!</Header>
           <CreepypastaForm
@@ -41,8 +41,10 @@ const Flex = styled.main`
 const GoBackButton = styled.button`
   background-color: transparent;
   border: none;
+  margin: 10px 0px 0px -20px;
 `;
 
 const Header = styled.h1`
   text-align: center;
+  margin-top: 0px;
 `;

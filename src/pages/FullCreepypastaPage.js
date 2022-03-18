@@ -24,7 +24,7 @@ export default function FullCreepypastaPage({ creepypastas }) {
   );
 }
 
-const Grid = styled.main`
+const Grid = styled.section`
   display: grid;
   gap: 20px;
 `;
