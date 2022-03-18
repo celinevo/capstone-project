@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
+import Button from './Button';
 
 export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
@@ -142,18 +143,6 @@ const Textarea = styled.textarea`
     height: 200px;
     width: 500px;
   }
-`;
-
-const Button = styled.button`
-  background-color: #990000;
-  border: none;
-  border-radius: 6px;
-  color: #e6e6e6;
-  font-family: 'Special Elite';
-  font-size: 18px;
-  padding: 12px 10px 10px 10px;
-  width: 80px;
-  justify-self: center;
 `;
 
 const Error = styled.p`
