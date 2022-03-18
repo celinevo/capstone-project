@@ -75,7 +75,7 @@ const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--black);
   border-radius: 6px;
 `;
 
@@ -101,5 +101,5 @@ const ReadMorePosition = styled.div`
 const ReadMoreButtonText = styled(Link)`
   z-index: 2;
   text-decoration: none;
-  color: #e6e6e6;
+  color: var(--lightgray);
 `;

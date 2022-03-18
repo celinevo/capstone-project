@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from './Button';
 
 export default function Delete({ onConfirmDelete, onCancelDelete }) {
   return (
@@ -21,23 +22,11 @@ const Dialog = styled.div`
   margin-top: -80px;
   margin-left: -150px;
   padding: 20px;
-  background-color: #261b1b;
+  background-color: var(--darkred);
   border-radius: 6px;
-  border: 2px solid #4d4d4d;
+  border: 2px solid var(--gray);
   text-align: center;
   z-index: 20;
-`;
-
-const Button = styled.button`
-  background-color: #990000;
-  border: none;
-  border-radius: 6px;
-  color: #e6e6e6;
-  font-family: 'Special Elite';
-  font-size: 18px;
-  padding: 12px 10px 10px 10px;
-  width: 80px;
-  justify-self: center;
 `;
 
 const Wrapper = styled.div`
