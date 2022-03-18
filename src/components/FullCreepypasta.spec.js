@@ -27,4 +27,15 @@ describe('FullCreepypasta', () => {
     const wordcount = screen.getByText(/1978/);
     expect(wordcount).toBeInTheDocument();
   });
+
+  it('renders two links', () => {
+    render(
+      <MemoryRouter>
+        <FullCreepypasta />
+      </MemoryRouter>
+    );
+
+    const links = screen.getAllByRole('link');
+    expect(links).toHaveLength(2);
+  });
 });
