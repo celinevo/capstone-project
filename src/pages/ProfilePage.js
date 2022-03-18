@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Card from '../components/Card.js';
+import CustomCard from '../components/CustomCard.js';
 
 export default function ProfilePage({
   writtenCreepypastas,
   handleBookmarkClick,
+  handleDeleteCreepypasta,
+  handleRedirectEdit,
 }) {
   return (
     <>
@@ -32,7 +34,7 @@ export default function ProfilePage({
           <Format>
             {writtenCreepypastas.length > 0 ? (
               writtenCreepypastas.map(creepypasta => (
-                <Card
+                <CustomCard
                   key={creepypasta.id}
                   id={creepypasta.id}
                   title={creepypasta.title}
@@ -41,6 +43,10 @@ export default function ProfilePage({
                   onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
                   isBookmarked={creepypasta.isBookmarked}
                   isWritten={creepypasta.isWritten}
+                  handleDeleteCreepypasta={() =>
+                    handleDeleteCreepypasta(creepypasta.id)
+                  }
+                  handleRedirectEdit={handleRedirectEdit}
                 />
               ))
             ) : (

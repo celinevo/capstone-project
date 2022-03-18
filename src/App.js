@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
@@ -8,6 +8,7 @@ import FullCreepypastaPage from './pages/FullCreepypastaPage';
 import ProfilePage from './pages/ProfilePage';
 import ProfilePageBookmark from './pages/ProfilePageBookmark';
 import CreatePage from './pages/CreatePage';
+import EditCreepypasta from './pages/EditCreepypasta.js';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
 
@@ -17,6 +18,9 @@ export default function App() {
     creepypastasData
   );
   const [searchValue, setSearchValue] = useState('');
+  const [creepypastaEdit, setCreepypastaEdit] = useState([]);
+
+  const navigate = useNavigate();
 
   return (
     <AppGrid>
@@ -45,6 +49,8 @@ export default function App() {
             <ProfilePage
               creepypastas={creepypastas}
               handleBookmarkClick={handleBookmarkClick}
+              handleDeleteCreepypasta={handleDeleteCreepypasta}
+              handleRedirectEdit={handleRedirectEdit}
               writtenCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isWritten === true
               )}
@@ -68,7 +74,20 @@ export default function App() {
         <Route
           path="/create"
           element={
-            <CreatePage handleCreateCreepypasta={handleCreateCreepypasta} />
+            <CreatePage
+              handleCreateCreepypasta={handleCreateCreepypasta}
+              handleRedirectEdit={handleRedirectEdit}
+            />
+          }
+        />
+
+        <Route
+          path="/edit-creepypasta"
+          element={
+            <EditCreepypasta
+              onEditCreepypasta={handleEditCreepypasta}
+              creepypastaEdit={creepypastaEdit}
+            />
           }
         />
       </Routes>
@@ -93,6 +112,26 @@ export default function App() {
 
   function handleCreateCreepypasta(createdCreepypasta) {
     setCreepypastas([createdCreepypasta, ...creepypastas]);
+  }
+
+  function handleDeleteCreepypasta(id) {
+    setCreepypastas(creepypastas.filter(creepypasta => creepypasta.id !== id));
+  }
+
+  function handleEditCreepypasta(editedCreepypasta) {
+    const oldCreepypastas = creepypastas.filter(
+      creepypasta => creepypasta.id !== editedCreepypasta.id
+    );
+
+    setCreepypastas([editedCreepypasta, ...oldCreepypastas]);
+    navigate(-1);
+  }
+
+  function handleRedirectEdit(id) {
+    setCreepypastaEdit(
+      creepypastas.filter(creepypasta => creepypasta.id === id)
+    );
+    navigate('/edit-creepypasta');
   }
 }
 

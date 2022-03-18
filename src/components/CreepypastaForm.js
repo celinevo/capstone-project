@@ -4,20 +4,28 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-export default function CreepypastaFrom({ handleCreateCreepypasta }) {
-  const [wordCount, setWordCount] = useState(0);
-  const [counter, setCounter] = useState(20);
+export default function CreepypastaForm({
+  handleCreateCreepypasta,
+  creepypastaEdit,
+}) {
+  const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
 
+  const [wordCount, setWordCount] = useState(initialWordcount);
+  const [counter, setCounter] = useState(20);
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: creepypastaEdit
+      ? creepypastaEdit[0]
+      : { title: '', text: '', image: '' },
+  });
 
   function onSubmit(creepypasta) {
     handleCreateCreepypasta({
-      id: nanoid(),
+      id: creepypasta.isWritten ? creepypasta.id : nanoid(),
       title: creepypasta.title,
       text: creepypasta.text,
       wordcount: wordCount,
@@ -26,6 +34,13 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
       isWritten: true,
     });
     navigate('/');
+  }
+  function handleTextareaChange(e) {
+    if (e.target.value === '') {
+      setWordCount(0);
+    } else {
+      setWordCount(e.target.value.split(' ').length);
+    }
   }
 
   return (
@@ -57,6 +72,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
           })}
           id="title"
           autoFocus
+          maxLength="20"
         />
         <Error>{errors.title && errors.title.message}</Error>
       </Field>
@@ -65,7 +81,7 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
         <Textarea
           {...register('text', { required: 'You need a scary text!' })}
           id="text"
-          onChange={e => setWordCount(e.target.value.split(' ').length)}
+          onChange={e => handleTextareaChange(e)}
         />
         <Error>{errors.text && errors.text.message}</Error>
         <Wordcount {...register('wordcount')} id="wordcount">
@@ -75,7 +91,9 @@ export default function CreepypastaFrom({ handleCreateCreepypasta }) {
       <Field>
         <Label htmlFor="image">Image:</Label>
         <Input
-          {...register('image', { required: 'You need a creepy image!' })}
+          {...register('image', {
+            required: 'You need a creepy image!',
+          })}
           id="image"
           placeholder=" Please use an URL: https://"
         />
