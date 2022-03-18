@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-export default function CreepypastaForm({
-  handleCreateCreepypasta,
-  creepypastaEdit,
-}) {
+export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
 
   const [wordCount, setWordCount] = useState(initialWordcount);
@@ -44,7 +41,7 @@ export default function CreepypastaForm({
   }
 
   return (
-    <Form
+    <StyledForm
       aria-label="Create a creepypasta"
       onSubmit={handleSubmit(creepypasta => onSubmit(creepypasta))}
     >
@@ -100,11 +97,11 @@ export default function CreepypastaForm({
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
       <Button type="submit">Save</Button>
-    </Form>
+    </StyledForm>
   );
 }
 
-const Form = styled.form`
+const StyledForm = styled.form`
   display: grid;
   gap: 25px;
 `;

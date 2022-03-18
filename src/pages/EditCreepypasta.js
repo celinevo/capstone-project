@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Arrow from '../Images/Arrow.svg';
 import styled from 'styled-components';
-import CreepypastaForm from '../components/CreepypastaForm.js';
+import Form from '../components/Form.js';
 
 export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
             <img src={Arrow} alt="Go back" width="60" />
           </GoBackButton>
           <Header>Edit your story!</Header>
-          <CreepypastaForm
+          <Form
             handleCreateCreepypasta={onEditCreepypasta}
             creepypastaEdit={creepypastaEdit}
           />

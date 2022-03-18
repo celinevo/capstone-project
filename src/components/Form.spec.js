@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import CreepypastaForm from './CreepypastaForm';
+import Form from './Form';
 
-describe('CreepypastaForm', () => {
+describe('Form', () => {
   it('renders a form with two inputs, a textarea and a button to submit the form', () => {
     render(
       <MemoryRouter>
-        <CreepypastaForm />
+        <Form />
       </MemoryRouter>
     );
 
