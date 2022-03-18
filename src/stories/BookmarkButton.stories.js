@@ -1,4 +1,4 @@
-import BookmarkButton from './BookmarkButton.js';
+import BookmarkButton from '../components/BookmarkButton.js';
 import BookmarkIconActive from '../Images/redskull.svg';
 import BookmarkIconInactive from '../Images/grayskull.svg';
 

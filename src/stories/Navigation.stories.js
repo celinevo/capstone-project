@@ -1,4 +1,4 @@
-import Navigation from './Navigation.js';
+import Navigation from '../components/Navigation.js';
 
 export default {
   title: 'components/Navigation',

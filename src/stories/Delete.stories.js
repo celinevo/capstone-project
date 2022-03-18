@@ -1,4 +1,4 @@
-import Delete from './Delete';
+import Delete from '../components/Delete';
 
 export default {
   title: 'components/Delete',

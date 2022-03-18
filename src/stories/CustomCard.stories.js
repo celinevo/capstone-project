@@ -1,4 +1,4 @@
-import CustomCard from './CustomCard.js';
+import CustomCard from '../components/CustomCard.js';
 
 export default {
   title: 'components/CustomCard',

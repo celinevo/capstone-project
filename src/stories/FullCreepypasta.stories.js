@@ -1,4 +1,4 @@
-import FullCreepypasta from './FullCreepypasta.js';
+import FullCreepypasta from '../components/FullCreepypasta.js';
 
 export default {
   title: 'components/FullCreepypasta',
