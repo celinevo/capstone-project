@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import Creepypasta from '../components/Creepypasta.js';
+import FullCreepypasta from '../components/FullCreepypasta.js';
 
 export default function FullCreepypastaPage({ creepypastas }) {
   const location = useLocation();
@@ -11,7 +11,7 @@ export default function FullCreepypastaPage({ creepypastas }) {
         {creepypastas
           .filter(creepypasta => creepypasta.id === id)
           .map(creepypasta => (
-            <Creepypasta
+            <FullCreepypasta
               key={creepypasta.id}
               title={creepypasta.title}
               image={creepypasta.image}

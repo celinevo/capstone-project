@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Creepypasta from './Creepypasta.js';
+import FullCreepypasta from './FullCreepypasta.js';
 
-describe('Creepypasta', () => {
+describe('FullCreepypasta', () => {
   it('renders a title, image, text and wordcount', () => {
     render(
       <MemoryRouter>
-        <Creepypasta
+        <FullCreepypasta
           title="Slenderman"
           image="https://www.creepypasta.com/wp-content/uploads/2010/01/slenderman-1.jpg.webp"
           text="This is a story about Slenderman"
