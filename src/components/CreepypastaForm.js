@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
-export default function CreepypastaFrom({
+export default function CreepypastaForm({
   handleCreateCreepypasta,
   creepypastaEdit,
 }) {
