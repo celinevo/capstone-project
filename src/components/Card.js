@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import BookmarkButton from './BookmarkButton';
+import Button from './Button';
 
 export default function Creepypasta({
   title,
@@ -28,11 +29,13 @@ export default function Creepypasta({
             <Title>{title}</Title>
             <Wordcount>{wordcount} Words</Wordcount>
           </CardContent>
-          <ReadMoreButton>
-            <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
-              Read
-            </ReadMoreButtonText>
-          </ReadMoreButton>
+          <ReadMorePosition>
+            <Button>
+              <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
+                Read
+              </ReadMoreButtonText>
+            </Button>
+          </ReadMorePosition>
         </Card>
       </Wrapper>
     </Grid>
@@ -72,7 +75,7 @@ const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--black);
   border-radius: 6px;
 `;
 
@@ -87,14 +90,9 @@ const Wordcount = styled.p`
   margin: 0px;
 `;
 
-const ReadMoreButton = styled.div`
-  margin-top: 15px;
-  background-color: #990000;
-  border: none;
-  border-radius: 6px;
-  padding: 5px 10px 2px 10px;
+const ReadMorePosition = styled.div`
   position: absolute;
-  top: 65%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -103,5 +101,5 @@ const ReadMoreButton = styled.div`
 const ReadMoreButtonText = styled(Link)`
   z-index: 2;
   text-decoration: none;
-  color: #e6e6e6;
+  color: var(--lightgray);
 `;

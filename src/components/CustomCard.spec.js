@@ -8,7 +8,7 @@ const title = 'Slenderman';
 const wordcount = '1978';
 
 describe('CustomCard', () => {
-  it('renders a title and wordcount and three  buttons', () => {
+  it('renders a title and wordcount and four  buttons', () => {
     render(
       <MemoryRouter>
         <CustomCard title={title} wordcount={wordcount} />
@@ -22,7 +22,7 @@ describe('CustomCard', () => {
     expect(storyWordcount).toBeInTheDocument();
 
     const buttons = screen.getAllByRole('button');
-    expect(buttons).toHaveLength(2);
+    expect(buttons).toHaveLength(4);
   });
 
   it('calls function to show the delete message when the delete icon is clicked', () => {

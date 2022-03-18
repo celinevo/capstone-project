@@ -39,8 +39,8 @@ const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #261b1b;
-  border-top: 1px solid #4d4d4d;
+  background-color: var(--darkred);
+  border-top: 1px solid var(--gray);
 `;
 
 const Nav = styled.nav`

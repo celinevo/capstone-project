@@ -1,11 +1,11 @@
-import Creepypasta from './Creepypasta.js';
+import FullCreepypasta from '../components/FullCreepypasta.js';
 
 export default {
-  title: 'components/Creepypasta',
-  component: Creepypasta,
+  title: 'components/FullCreepypasta',
+  component: FullCreepypasta,
 };
 
-const Template = args => <Creepypasta {...args} />;
+const Template = args => <FullCreepypasta {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -6,14 +6,22 @@ export default createGlobalStyle`
   box-sizing: border-box;
 };
 
+:root {
+  --lightgray: #e6e6e6;
+  --gray: #4d4d4d;
+  --red: #990000;
+  --darkred: #261b1b;
+  --black: rgba(0, 0, 0, 0.4);
+}
+
 body {
   margin: 0;
   font-family: 'Special Elite';
   letter-spacing: 1px;
   font-size: 18px;
   line-height: 1.5;
-  color: #E6E6E6;
-  background-color: #261b1b;
+  color: var(--lightgray);
+  background-color: var(--darkred);
 }
 
 h1, h2 {
@@ -22,7 +30,7 @@ h1, h2 {
 
 input {
   background-color: transparent;
-  color: #e6e6e6;
+  color: var(--lightgray);
   font-family: 'Special Elite';
   letter-spacing: 1px;
   font-size: 18px;
@@ -35,6 +43,6 @@ textarea {
   letter-spacing: 1px;
   font-size: 18px;
   line-height: 1.5;
-  color: #e6e6e6;
+  color: var(--lightgray);
 }
 `;

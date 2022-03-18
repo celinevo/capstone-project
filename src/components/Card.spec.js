@@ -7,7 +7,7 @@ const title = 'Slenderman';
 const wordcount = '1978';
 
 describe('Card', () => {
-  it('renders a title and wordcount', () => {
+  it('renders a title, a wordcount and a link', () => {
     render(
       <MemoryRouter>
         <Card title={title} wordcount={wordcount} />
@@ -19,5 +19,8 @@ describe('Card', () => {
 
     const storyWordcount = screen.getByText(/1978/);
     expect(storyWordcount).toBeInTheDocument();
+
+    const link = screen.getByRole('link');
+    expect(link).toBeInTheDocument();
   });
 });

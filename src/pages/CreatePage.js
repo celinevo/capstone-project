@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CreepypastaForm from '../components/CreepypastaForm.js';
+import Form from '../components/Form.js';
 
 export default function CreatePage({ handleCreateCreepypasta }) {
   return (
@@ -7,7 +7,7 @@ export default function CreatePage({ handleCreateCreepypasta }) {
       <Flex>
         <Wrapper>
           <Header>Write your story!</Header>
-          <CreepypastaForm handleCreateCreepypasta={handleCreateCreepypasta} />
+          <Form handleCreateCreepypasta={handleCreateCreepypasta} />
         </Wrapper>
       </Flex>
     </>

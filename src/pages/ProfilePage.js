@@ -27,10 +27,10 @@ export default function ProfilePage({
             Welcome to my spooky scary page! I love everything that is horror,
             so I'm excited to be here!
           </p>
-          <Header>
+          <PageDirection>
             <ActiveLink to="/profile">My Stories</ActiveLink>
             <InactiveLink to="/profile/:spookmarked">Spookmarked</InactiveLink>
-          </Header>
+          </PageDirection>
           <Format>
             {writtenCreepypastas.length > 0 ? (
               writtenCreepypastas.map(creepypasta => (
@@ -95,7 +95,7 @@ const ProfileInfo = styled.h2`
   font-size: 23px;
 `;
 
-const Header = styled.h3`
+const PageDirection = styled.h3`
   display: flex;
   justify-content: space-evenly;
   font-size: 18px;

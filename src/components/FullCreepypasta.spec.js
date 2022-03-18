@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Creepypasta from './Creepypasta.js';
+import FullCreepypasta from './FullCreepypasta.js';
 
-describe('Creepypasta', () => {
+describe('FullCreepypasta', () => {
   it('renders a title, image, text and wordcount', () => {
     render(
       <MemoryRouter>
-        <Creepypasta
+        <FullCreepypasta
           title="Slenderman"
           image="https://www.creepypasta.com/wp-content/uploads/2010/01/slenderman-1.jpg.webp"
           text="This is a story about Slenderman"
@@ -26,5 +26,16 @@ describe('Creepypasta', () => {
 
     const wordcount = screen.getByText(/1978/);
     expect(wordcount).toBeInTheDocument();
+  });
+
+  it('renders two links', () => {
+    render(
+      <MemoryRouter>
+        <FullCreepypasta />
+      </MemoryRouter>
+    );
+
+    const links = screen.getAllByRole('link');
+    expect(links).toHaveLength(2);
   });
 });

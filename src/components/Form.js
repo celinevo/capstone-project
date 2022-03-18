@@ -3,11 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
+import Button from './Button';
 
-export default function CreepypastaForm({
-  handleCreateCreepypasta,
-  creepypastaEdit,
-}) {
+export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
 
   const [wordCount, setWordCount] = useState(initialWordcount);
@@ -44,7 +42,7 @@ export default function CreepypastaForm({
   }
 
   return (
-    <Form
+    <StyledForm
       aria-label="Create a creepypasta"
       onSubmit={handleSubmit(creepypasta => onSubmit(creepypasta))}
     >
@@ -100,11 +98,11 @@ export default function CreepypastaForm({
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
       <Button type="submit">Save</Button>
-    </Form>
+    </StyledForm>
   );
 }
 
-const Form = styled.form`
+const StyledForm = styled.form`
   display: grid;
   gap: 25px;
 `;
@@ -147,20 +145,8 @@ const Textarea = styled.textarea`
   }
 `;
 
-const Button = styled.button`
-  background-color: #990000;
-  border: none;
-  border-radius: 6px;
-  color: #e6e6e6;
-  font-family: 'Special Elite';
-  font-size: 18px;
-  padding: 12px 10px 10px 10px;
-  width: 80px;
-  justify-self: center;
-`;
-
 const Error = styled.p`
-  color: #990000;
+  color: var(--red);
   margin: 5px 0px 0px 0px;
   font-size: 16px;
 `;
