@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import pinkArrow from '../Images/arrow_pink.svg';
 
 export default function FeelGoodPage() {
+  const navigate = useNavigate();
   return (
     <Flex>
-      <GoBackTop to="/profile">
+      <GoBackButton onClick={() => navigate(-1)}>
         <img
           alt="Red Arrow, if clicked leads back to main page"
           src={pinkArrow}
           width="60"
         />
-      </GoBackTop>
+      </GoBackButton>
       <Header>Scared?</Header>
       <Text>
         Don't worry!
@@ -31,8 +32,12 @@ const Flex = styled.section`
   background-color: var(--pink);
 `;
 
-const GoBackTop = styled(Link)`
+const GoBackButton = styled.button`
+  background-color: transparent;
+  border: none;
+  align-self: flex-start;
   margin: -10px 0px 0px -10px;
+  z-index: 2;
 `;
 
 const Header = styled.h1`
