@@ -39,7 +39,7 @@ export default function ProfilePage({
           </p>
           <PageDirection>
             <ActiveLink to="/profile">My Stories</ActiveLink>
-            <InactiveLink to="/profile/:spookmarked">Spookmarked</InactiveLink>
+            <InactiveLink to="/profile/spookmarked">Spookmarked</InactiveLink>
           </PageDirection>
           <Format>
             {writtenCreepypastas.length > 0 ? (

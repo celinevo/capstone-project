@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
 
-export default function ProfilePageBookmark({
+export default function ProfileBookmarkPage({
   handleBookmarkClick,
   bookmarkedCreepypastas,
 }) {
