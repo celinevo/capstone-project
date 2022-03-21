@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
 
-export default function ProfilePageBookmark({
+export default function ProfileBookmarkPage({
   handleBookmarkClick,
   bookmarkedCreepypastas,
 }) {
@@ -20,7 +21,16 @@ export default function ProfilePageBookmark({
             </PictureCropper>
             <ProfileName>Creepster</ProfileName>
           </Position>
-          <ProfileInfo>About me</ProfileInfo>
+          <ProfileInfo>
+            About me
+            <NavLink to="/feelgood">
+              <img
+                width="45px"
+                src={sparkles}
+                alt="Icon of sprakles that lead, if pressed, to feel good page."
+              />
+            </NavLink>
+          </ProfileInfo>
           <p>
             Welcome to my spooky scary page! I love everything that is horror,
             so I'm excited to be here!
@@ -82,10 +92,13 @@ const ProfilePicture = styled.img`
 `;
 
 const ProfileInfo = styled.h2`
-  margin: 20px 0px -15px 0px;
+  margin: 15px 0px -20px 0px;
   font-family: 'Special Elite';
   letter-spacing: 1px;
   font-size: 23px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 `;
 
 const Header = styled.h3`

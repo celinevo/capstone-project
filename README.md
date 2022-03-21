@@ -1,8 +1,13 @@
 # Capstone Project: CREEPY(pen)NE
 
 With CREEPY(pen)NE you can read spookie scary storys! You can also spookmark your favorites to your profile page and find them faster.
+If you are feeling creative, you can write your own creepypasta in the create page!
+And because even the best author makes mistakes, you can edit or delete your creepypastas in your profile.
 But remember!
 Don't get too scared...
+
+...but if you DO get to scared, you can check out the feel-good page!
+It's a little hard to find, but I will give you a hint. Look at your profile page and search for something out of the ordinary...
 
 ## Demo (still in progress):
 

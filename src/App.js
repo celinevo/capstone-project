@@ -7,7 +7,8 @@ import CreepypastaPage from './pages/CreepypastaPage';
 import FullCreepypastaPage from './pages/FullCreepypastaPage';
 import CreatePage from './pages/CreatePage';
 import ProfilePage from './pages/ProfilePage';
-import ProfilePageBookmark from './pages/ProfileBookmarkPage';
+import ProfileBookmarkPage from './pages/ProfileBookmarkPage';
+import FeelGoodPage from './pages/FeelGoodPage';
 import EditCreepypasta from './pages/EditCreepypasta.js';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
@@ -59,9 +60,9 @@ export default function App() {
         ></Route>
 
         <Route
-          path="/profile/:spookmarked"
+          path="/profile/spookmarked"
           element={
-            <ProfilePageBookmark
+            <ProfileBookmarkPage
               bookmarkedCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isBookmarked === true
               )}
@@ -90,6 +91,7 @@ export default function App() {
             />
           }
         />
+        <Route path="/feelgood" element={<FeelGoodPage />} />
       </Routes>
       <Navigation />
     </AppGrid>
