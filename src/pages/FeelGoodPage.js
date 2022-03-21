@@ -5,7 +5,7 @@ import pinkArrow from '../Images/arrow_pink.svg';
 export default function FeelGoodPage() {
   return (
     <Flex>
-      <GoBackTop to="/">
+      <GoBackTop to="/profile">
         <img
           alt="Red Arrow, if clicked leads back to main page"
           src={pinkArrow}
