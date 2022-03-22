@@ -100,7 +100,7 @@ const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--black);
+  background-color: var(--bg-picture);
   border-radius: 6px;
 `;
 
@@ -126,7 +126,7 @@ const ReadMorePosition = styled.div`
 const ReadMoreButtonText = styled(Link)`
   z-index: 2;
   text-decoration: none;
-  color: var(--lightgray);
+  color: var(--text-main);
 `;
 
 const DeleteIcon = styled.button`

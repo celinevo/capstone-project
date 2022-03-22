@@ -6,9 +6,8 @@ import { PinkButton } from '../components/Button';
 
 export default function FeelGoodPage() {
   const navigate = useNavigate();
-  const [catUrl, setCatUrl] = useState(null);
+  const [catResponse, setCatResponse] = useState(null);
   const [hasError, setHasError] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Flex>
@@ -20,14 +19,11 @@ export default function FeelGoodPage() {
         />
       </GoBackButton>
       <Header>Scared? Not anymore!</Header>
-
       <CatContainer>
-        {isLoading && <p>Press the button below to see cute cats!</p>}
-        {hasError && isLoading && (
-          <img src={catUrl?.url} alt="" width="300px" />
-        )}
+        <p>Click the button to see cute cats!</p>
+        {hasError && <img src={catResponse?.url} alt="" width="300px" />}
         {!hasError && <p>Oh no! Something went wrong.</p>}
-        <PinkButton onClick={fetchCatImages}>Press for a cute cat!</PinkButton>
+        <PinkButton onClick={fetchCatImages}>Click me!</PinkButton>
       </CatContainer>
     </Flex>
   );
@@ -38,8 +34,7 @@ export default function FeelGoodPage() {
         'https://api.thecatapi.com/v1/images/search'
       );
       const data = await response.json();
-      setCatUrl(data[0]);
-      setIsLoading(true);
+      setCatResponse(data[0]);
     } catch (error) {
       setHasError(true);
     }
@@ -50,7 +45,10 @@ const Flex = styled.section`
   display: flex;
   padding: 20px;
   flex-direction: column;
-  background-color: var(--pink);
+  background-color: var(--bg-secondary);
+  font-size: 22px;
+  color: var(--text-secondary);
+  font-family: 'Indie Flower';
 `;
 
 const GoBackButton = styled.button`
@@ -65,14 +63,12 @@ const Header = styled.h1`
   text-align: center;
   font-size: 35px;
   margin: -40px 5px 15px 5px;
-  color: var(--brown);
+  color: var(--text-secondary);
   font-family: 'Indie Flower';
 `;
 
 const CatContainer = styled.div`
   display: grid;
   justify-items: center;
-  font-size: 22px;
-  color: var(--brown);
-  font-family: 'Indie Flower';
+  padding-bottom: 165px;
 `;

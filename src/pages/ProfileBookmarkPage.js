@@ -107,19 +107,19 @@ const Header = styled.h3`
   font-size: 18px;
   padding-top: 2px;
   margin: 0px -20px 10px -20px;
-  border: 1px solid #4d4d4d;
+  border: 1px solid var(--passive);
   border-left: 0px;
   border-right: 0px;
 `;
 
 const ActiveLink = styled(Link)`
   text-decoration: none;
-  color: #990000;
+  color: var(--active-main);
 `;
 
 const InactiveLink = styled(Link)`
   text-decoration: none;
-  color: #e6e6e6;
+  color: var(--text-main);
 `;
 
 const Format = styled.div`

@@ -8,8 +8,8 @@ const Button = styled.button`
 export default Button;
 
 const RedButton = styled(Button)`
-  background-color: var(--red);
-  color: var(--lightgray);
+  background-color: var(--active-main);
+  color: var(--text-main);
   font-family: 'Special Elite';
   font-size: 18px;
   padding: 12px 10px 10px 10px;
@@ -19,12 +19,12 @@ const RedButton = styled(Button)`
 export { RedButton };
 
 const PinkButton = styled(Button)`
-  background-color: var(--hotpink);
-  color: var(--lightgray);
+  background-color: var(--active-secondary);
+  color: var(--text-main);
   font-family: 'Indie Flower';
   font-size: 22px;
   padding: 12px 10px 10px 10px;
   width: 120px;
-  margin: 20px 0px 60px 0px;
+  margin: 20px 0px 80px 0px;
 `;
 export { PinkButton };

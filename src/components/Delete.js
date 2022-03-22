@@ -22,9 +22,9 @@ const Dialog = styled.div`
   margin-top: -80px;
   margin-left: -150px;
   padding: 20px;
-  background-color: var(--darkred);
+  background-color: var(--bg-main);
   border-radius: 6px;
-  border: 2px solid var(--gray);
+  border: 2px solid var(--passive);
   text-align: center;
   z-index: 20;
 `;

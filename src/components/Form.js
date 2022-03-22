@@ -146,7 +146,7 @@ const Textarea = styled.textarea`
 `;
 
 const Error = styled.p`
-  color: var(--red);
+  color: var(--active);
   margin: 5px 0px 0px 0px;
   font-size: 16px;
 `;

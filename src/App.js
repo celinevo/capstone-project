@@ -139,5 +139,4 @@ export default function App() {
 
 const AppGrid = styled.div`
   height: 100vh;
-  display: grid;
 `;
