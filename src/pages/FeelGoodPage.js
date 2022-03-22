@@ -7,6 +7,8 @@ import { PinkButton } from '../components/Button';
 export default function FeelGoodPage() {
   const navigate = useNavigate();
   const [catUrl, setCatUrl] = useState(null);
+  const [hasError, setHasError] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Flex>
@@ -18,12 +20,13 @@ export default function FeelGoodPage() {
         />
       </GoBackButton>
       <Header>Scared? Not anymore!</Header>
+
       <CatContainer>
-        <img
-          src={catUrl?.url}
-          alt="Press the button below to see cute cats!"
-          width="300px"
-        />
+        {isLoading && <p>Press the button below to see cute cats!</p>}
+        {hasError && isLoading && (
+          <img src={catUrl?.url} alt="" width="300px" />
+        )}
+        {!hasError && <p>Oh no! Something went wrong.</p>}
         <PinkButton onClick={fetchCatImages}>Press for a cute cat!</PinkButton>
       </CatContainer>
     </Flex>
@@ -36,8 +39,9 @@ export default function FeelGoodPage() {
       );
       const data = await response.json();
       setCatUrl(data[0]);
+      setIsLoading(true);
     } catch (error) {
-      console.log(error);
+      setHasError(true);
     }
   }
 }
