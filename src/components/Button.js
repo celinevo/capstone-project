@@ -15,6 +15,9 @@ const RedButton = styled(Button)`
   padding: 12px 10px 10px 10px;
   width: 80px;
   justify-self: center;
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 export { RedButton };
 
@@ -26,5 +29,8 @@ const PinkButton = styled(Button)`
   padding: 12px 10px 10px 10px;
   width: 120px;
   margin: 25px 0px 90px 0px;
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 export { PinkButton };
