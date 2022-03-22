@@ -1,9 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import styled from 'styled-components';
 import pinkArrow from '../Images/arrow_pink.svg';
+import { PinkButton } from '../components/Button';
 
 export default function FeelGoodPage() {
   const navigate = useNavigate();
+  const [catUrl, setCatUrl] = useState(null);
+
   return (
     <Flex>
       <GoBackButton onClick={() => navigate(-1)}>
@@ -13,16 +17,29 @@ export default function FeelGoodPage() {
           width="60"
         />
       </GoBackButton>
-      <Header>Scared?</Header>
-      <Text>
-        Don't worry!
-        <br />
-        The monsters under your bed are not that bad...
-        <br />
-        You should be more worried about the monsters in your closet!
-      </Text>
+      <Header>Scared? Not anymore!</Header>
+      <CatContainer>
+        <img
+          src={catUrl?.url}
+          alt="Press the button below to see cute cats!"
+          width="300px"
+        />
+        <PinkButton onClick={fetchCatImages}>Press for a cute cat!</PinkButton>
+      </CatContainer>
     </Flex>
   );
+
+  async function fetchCatImages() {
+    try {
+      const response = await fetch(
+        'https://api.thecatapi.com/v1/images/search'
+      );
+      const data = await response.json();
+      setCatUrl(data[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 const Flex = styled.section`
@@ -43,13 +60,15 @@ const GoBackButton = styled.button`
 const Header = styled.h1`
   text-align: center;
   font-size: 35px;
-  margin: -40px 5px 5px 5px;
+  margin: -40px 5px 15px 5px;
   color: var(--brown);
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower';
 `;
 
-const Text = styled.p`
+const CatContainer = styled.div`
+  display: grid;
+  justify-items: center;
   font-size: 22px;
   color: var(--brown);
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower';
 `;

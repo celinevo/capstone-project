@@ -14,6 +14,7 @@ export default createGlobalStyle`
   --black: rgba(0, 0, 0, 0.4);
   --brown: #594347;
   --pink: #F2AEC1;
+  --hotpink: #FF004E;
 }
 
 body {

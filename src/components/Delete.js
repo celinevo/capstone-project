@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import Button from './Button';
+import { RedButton } from './Button';
 
 export default function Delete({ onConfirmDelete, onCancelDelete }) {
   return (
     <Dialog>
       Are you sure you want to delete your creepypasta?
       <Wrapper>
-        <Button onClick={onConfirmDelete}>Yes</Button>
-        <Button onClick={onCancelDelete}>No</Button>
+        <RedButton onClick={onConfirmDelete}>Yes</RedButton>
+        <RedButton onClick={onCancelDelete}>No</RedButton>
       </Wrapper>
     </Dialog>
   );

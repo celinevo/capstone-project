@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import BookmarkButton from './BookmarkButton';
-import Button from './Button';
+import { RedButton } from './Button';
 
 export default function Creepypasta({
   title,
@@ -30,11 +30,11 @@ export default function Creepypasta({
             <Wordcount>{wordcount} Words</Wordcount>
           </CardContent>
           <ReadMorePosition>
-            <Button>
+            <RedButton>
               <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
                 Read
               </ReadMoreButtonText>
-            </Button>
+            </RedButton>
           </ReadMorePosition>
         </Card>
       </Wrapper>
