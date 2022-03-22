@@ -43,7 +43,7 @@ export default function FeelGoodPage() {
 
 const Flex = styled.section`
   display: flex;
-  padding: 20px;
+  height: 100%;
   flex-direction: column;
   background-color: var(--bg-secondary);
   font-size: 22px;
@@ -56,13 +56,15 @@ const GoBackButton = styled.button`
   border: none;
   align-self: flex-start;
   margin: -10px 0px 0px -10px;
+  padding: 20px;
   z-index: 2;
 `;
 
 const Header = styled.h1`
   text-align: center;
   font-size: 35px;
-  margin: -40px 5px 15px 5px;
+  margin: -50px 5px 0px 5px;
+  padding: 0px 20px 0px 20px;
   color: var(--text-secondary);
   font-family: 'Indie Flower';
 `;
@@ -70,5 +72,7 @@ const Header = styled.h1`
 const CatContainer = styled.div`
   display: grid;
   justify-items: center;
-  padding-bottom: 165px;
+  padding: 0px;
+  margin: 0px;
+  background-color: var(--bg-secondary);
 `;

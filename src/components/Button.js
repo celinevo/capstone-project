@@ -25,6 +25,6 @@ const PinkButton = styled(Button)`
   font-size: 22px;
   padding: 12px 10px 10px 10px;
   width: 120px;
-  margin: 20px 0px 80px 0px;
+  margin: 25px 0px 90px 0px;
 `;
 export { PinkButton };

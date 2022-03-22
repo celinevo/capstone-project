@@ -32,21 +32,12 @@ h1, h2 {
   font-family: 'Creepster', cursive;
 }
 
-input {
+input, textarea {
   background-color: transparent;
   color: var(--text-main);
   font-family: 'Special Elite';
   letter-spacing: 1px;
   font-size: 18px;
   line-height: 1.4;
-}
-
-textarea {
-  background-color: transparent;
-  font-family: 'Special Elite';
-  letter-spacing: 1px;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--text-main);
 }
 `;
