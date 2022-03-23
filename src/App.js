@@ -20,6 +20,7 @@ export default function App() {
   );
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
+  const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
 
   const navigate = useNavigate();
 
@@ -52,6 +53,8 @@ export default function App() {
               handleBookmarkClick={handleBookmarkClick}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
+              nameValue={nameValue}
+              setNameValue={setNameValue}
               writtenCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isWritten === true
               )}
@@ -68,6 +71,8 @@ export default function App() {
               )}
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
+              nameValue={nameValue}
+              setNameValue={setNameValue}
             />
           }
         />

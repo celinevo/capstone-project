@@ -1,4 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
+import { useState } from 'react';
 import styled from 'styled-components';
 import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
@@ -6,7 +7,27 @@ import Card from '../components/Card.js';
 export default function ProfileBookmarkPage({
   handleBookmarkClick,
   bookmarkedCreepypastas,
+  nameValue,
+  setNameValue,
 }) {
+  const [editingValue, setEditingValue] = useState(nameValue);
+
+  const onChange = event => setEditingValue(event.target.value);
+
+  const onBlur = event => {
+    if (event.target.value.trim() === '') {
+      setNameValue(nameValue);
+    } else {
+      setNameValue(event.target.value);
+    }
+  };
+
+  const onKeyDown = event => {
+    if (event.key === 'Enter' || event.key === 'Escape') {
+      event.target.blur();
+    }
+  };
+
   return (
     <>
       <Flex>
@@ -19,7 +40,15 @@ export default function ProfileBookmarkPage({
                 src="https://images.unsplash.com/photo-1487174244970-cd18784bb4a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
               />
             </PictureCropper>
-            <ProfileName>Creepster</ProfileName>
+            <Input
+              type="text"
+              aria-label="Field name"
+              onChange={onChange}
+              onKeyDown={onKeyDown}
+              value={editingValue}
+              onBlur={onBlur}
+              maxLength="10"
+            />
           </Position>
           <ProfileInfo>
             About me
@@ -70,9 +99,22 @@ const Position = styled.div`
   align-items: center;
 `;
 
-const ProfileName = styled.h1`
-  margin-left: 30px;
+const Input = styled.input`
+  background-color: transparent;
+  border: 0;
+  padding: 8px;
+  margin-left: 15px;
   font-size: 35px;
+  width: 60%;
+  font-family: 'Creepster';
+  &:hover {
+    background-color: #d3d3d3;
+    cursor: pointer;
+  }
+  @media (min-width: 600px) {
+    height: 100%;
+    width: 500px;
+  }
 `;
 
 const PictureCropper = styled.div`
