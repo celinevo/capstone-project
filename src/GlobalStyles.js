@@ -7,13 +7,14 @@ export default createGlobalStyle`
 };
 
 :root {
-  --lightgray: #e6e6e6;
-  --gray: #4d4d4d;
-  --red: #990000;
-  --darkred: #261b1b;
-  --black: rgba(0, 0, 0, 0.4);
-  --brown: #594347;
-  --pink: #F2AEC1;
+  --text-main: #e6e6e6;
+  --passive: #4d4d4d;
+  --active-main: #990000;
+  --bg-main: #261b1b;
+  --bg-picture: rgba(0, 0, 0, 0.4);
+  --text-secondary: #594347;
+  --bg-secondary: #F2AEC1;
+  --active-secondary: #FF004E;
 }
 
 body {
@@ -22,29 +23,21 @@ body {
   letter-spacing: 1px;
   font-size: 18px;
   line-height: 1.5;
-  color: var(--lightgray);
-  background-color: var(--darkred);
+  color: var(--text-main);
+  background-repeat: no-repeat;
+  background-color: var(--bg-main)
 }
 
 h1, h2 {
   font-family: 'Creepster', cursive;
 }
 
-input {
+input, textarea {
   background-color: transparent;
-  color: var(--lightgray);
+  color: var(--text-main);
   font-family: 'Special Elite';
   letter-spacing: 1px;
   font-size: 18px;
   line-height: 1.4;
-}
-
-textarea {
-  background-color: transparent;
-  font-family: 'Special Elite';
-  letter-spacing: 1px;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--lightgray);
 }
 `;

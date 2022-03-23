@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import Button from './Button';
+import { RedButton } from './Button';
 
 export default function Delete({ onConfirmDelete, onCancelDelete }) {
   return (
     <Dialog>
       Are you sure you want to delete your creepypasta?
       <Wrapper>
-        <Button onClick={onConfirmDelete}>Yes</Button>
-        <Button onClick={onCancelDelete}>No</Button>
+        <RedButton onClick={onConfirmDelete}>Yes</RedButton>
+        <RedButton onClick={onCancelDelete}>No</RedButton>
       </Wrapper>
     </Dialog>
   );
@@ -22,9 +22,9 @@ const Dialog = styled.div`
   margin-top: -80px;
   margin-left: -150px;
   padding: 20px;
-  background-color: var(--darkred);
+  background-color: var(--bg-main);
   border-radius: 6px;
-  border: 2px solid var(--gray);
+  border: 2px solid var(--passive);
   text-align: center;
   z-index: 20;
 `;

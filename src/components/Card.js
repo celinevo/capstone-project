@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import BookmarkButton from './BookmarkButton';
-import Button from './Button';
+import { RedButton } from './Button';
 
 export default function Creepypasta({
   title,
@@ -30,11 +30,11 @@ export default function Creepypasta({
             <Wordcount>{wordcount} Words</Wordcount>
           </CardContent>
           <ReadMorePosition>
-            <Button>
+            <RedButton>
               <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
                 Read
               </ReadMoreButtonText>
-            </Button>
+            </RedButton>
           </ReadMorePosition>
         </Card>
       </Wrapper>
@@ -75,7 +75,7 @@ const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--black);
+  background-color: var(--bg-picture);
   border-radius: 6px;
 `;
 
@@ -101,5 +101,5 @@ const ReadMorePosition = styled.div`
 const ReadMoreButtonText = styled(Link)`
   z-index: 2;
   text-decoration: none;
-  color: var(--lightgray);
+  color: var(--text-main);
 `;

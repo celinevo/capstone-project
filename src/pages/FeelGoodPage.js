@@ -1,9 +1,15 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import styled from 'styled-components';
 import pinkArrow from '../Images/arrow_pink.svg';
+import { PinkButton } from '../components/Button';
 
 export default function FeelGoodPage() {
   const navigate = useNavigate();
+  const [catResponse, setCatResponse] = useState(null);
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <Flex>
       <GoBackButton onClick={() => navigate(-1)}>
@@ -13,23 +19,47 @@ export default function FeelGoodPage() {
           width="60"
         />
       </GoBackButton>
-      <Header>Scared?</Header>
-      <Text>
-        Don't worry!
-        <br />
-        The monsters under your bed are not that bad...
-        <br />
-        You should be more worried about the monsters in your closet!
-      </Text>
+      <Header>Scared? Not anymore!</Header>
+      <CatContainer>
+        <p>Click the button to see cute cats!</p>
+        {isLoading && <p>Loading...</p>}
+        {catResponse && !hasError && !isLoading && (
+          <img src={catResponse?.url} alt="" width="300px" />
+        )}
+        {hasError && (
+          <p>
+            Oh no! Something went wrong. <br />
+            You should try again!
+          </p>
+        )}
+        <PinkButton onClick={fetchCatImages}>Click me!</PinkButton>
+      </CatContainer>
     </Flex>
   );
+
+  async function fetchCatImages() {
+    try {
+      const response = await fetch(
+        'https://api.thecatapi.com/v1/images/search'
+      );
+      const data = await response.json();
+      setCatResponse(data[0]);
+    } catch (error) {
+      console.error(error);
+      setHasError(true);
+      setIsLoading(false);
+    }
+  }
 }
 
 const Flex = styled.section`
   display: flex;
-  padding: 20px;
+  height: 100%;
   flex-direction: column;
-  background-color: var(--pink);
+  background-color: var(--bg-secondary);
+  font-size: 22px;
+  color: var(--text-secondary);
+  font-family: 'Indie Flower';
 `;
 
 const GoBackButton = styled.button`
@@ -37,19 +67,23 @@ const GoBackButton = styled.button`
   border: none;
   align-self: flex-start;
   margin: -10px 0px 0px -10px;
+  padding: 20px;
   z-index: 2;
 `;
 
 const Header = styled.h1`
   text-align: center;
   font-size: 35px;
-  margin: -40px 5px 5px 5px;
-  color: var(--brown);
-  font-family: 'Indie Flower', cursive;
+  margin: -50px 5px 0px 5px;
+  padding: 0px 20px 0px 20px;
+  color: var(--text-secondary);
+  font-family: 'Indie Flower';
 `;
 
-const Text = styled.p`
-  font-size: 22px;
-  color: var(--brown);
-  font-family: 'Indie Flower', cursive;
+const CatContainer = styled.div`
+  display: grid;
+  justify-items: center;
+  padding: 0px;
+  margin: 0px;
+  background-color: var(--bg-secondary);
 `;

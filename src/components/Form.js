@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
-import Button from './Button';
+import { RedButton } from './Button';
 
 export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
@@ -97,7 +97,7 @@ export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
         />
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
-      <Button type="submit">Save</Button>
+      <RedButton type="submit">Save</RedButton>
     </StyledForm>
   );
 }
@@ -146,7 +146,7 @@ const Textarea = styled.textarea`
 `;
 
 const Error = styled.p`
-  color: var(--red);
+  color: var(--active);
   margin: 5px 0px 0px 0px;
   font-size: 16px;
 `;

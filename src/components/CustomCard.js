@@ -4,7 +4,7 @@ import { useState } from 'react';
 import TrashIcon from '../Images/trash_red.svg';
 import PenIcon from '../Images/pen_red.svg';
 import BookmarkButton from './BookmarkButton';
-import Button from './Button';
+import { RedButton } from './Button';
 import Delete from './Delete';
 
 export default function CustomCard({
@@ -38,11 +38,11 @@ export default function CustomCard({
             <Wordcount>{wordcount} Words</Wordcount>
           </CardContent>
           <ReadMorePosition>
-            <Button>
+            <RedButton>
               <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
                 Read
               </ReadMoreButtonText>
-            </Button>
+            </RedButton>
           </ReadMorePosition>
           <EditIcon onClick={() => handleRedirectEdit(id)}>
             <img src={PenIcon} alt="Edit this creepypasta" width="35px" />
@@ -100,7 +100,7 @@ const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--black);
+  background-color: var(--bg-picture);
   border-radius: 6px;
 `;
 
@@ -126,7 +126,7 @@ const ReadMorePosition = styled.div`
 const ReadMoreButtonText = styled(Link)`
   z-index: 2;
   text-decoration: none;
-  color: var(--lightgray);
+  color: var(--text-main);
 `;
 
 const DeleteIcon = styled.button`
