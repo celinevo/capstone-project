@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import CustomCard from '../components/CustomCard.js';
 import sparkles from '../Images/sparkles.svg';
-import React from 'react';
+import editPen from '../Images/pen_darkgray.svg';
 
 export default function ProfilePage({
   writtenCreepypastas,
@@ -51,6 +51,11 @@ export default function ProfilePage({
               value={editingValue}
               onBlur={onBlur}
               maxLength="10"
+            />
+            <img
+              src={editPen}
+              alt="You can edit the name next to the pen"
+              height="25px"
             />
           </Position>
           <ProfileInfo>
@@ -124,10 +129,10 @@ const ProfilePicture = styled.img`
 
 const Input = styled.input`
   background-color: transparent;
-  border: 0;
-  padding: 8px;
+  border: none;
+  padding: 0;
   margin-left: 15px;
-  width: 60%;
+  width: 50%;
   font-size: 35px;
   font-family: 'Creepster';
   &:hover {
@@ -136,7 +141,7 @@ const Input = styled.input`
   }
   @media (min-width: 600px) {
     height: 100%;
-    width: 60%;
+    width: 50%;
   }
 `;
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
+import editPen from '../Images/pen_darkgray.svg';
 
 export default function ProfileBookmarkPage({
   handleBookmarkClick,
@@ -48,6 +49,11 @@ export default function ProfileBookmarkPage({
               value={editingValue}
               onBlur={onBlur}
               maxLength="10"
+            />
+            <img
+              src={editPen}
+              alt="You can edit the name next to the pen"
+              height="25px"
             />
           </Position>
           <ProfileInfo>
@@ -101,11 +107,11 @@ const Position = styled.div`
 
 const Input = styled.input`
   background-color: transparent;
-  border: 0;
-  padding: 8px;
+  border: none;
+  padding: 0;
   margin-left: 15px;
+  width: 50%;
   font-size: 35px;
-  width: 60%;
   font-family: 'Creepster';
   &:hover {
     background-color: var(--text-main);
@@ -113,7 +119,7 @@ const Input = styled.input`
   }
   @media (min-width: 600px) {
     height: 100%;
-    width: 60%;
+    width: 50%;
   }
 `;
 
