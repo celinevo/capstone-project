@@ -1,5 +1,4 @@
 import { NavLink, Link } from 'react-router-dom';
-import { useState } from 'react';
 import styled from 'styled-components';
 import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
@@ -8,27 +7,11 @@ import editPen from '../Images/pen_darkgray.svg';
 export default function ProfileBookmarkPage({
   handleBookmarkClick,
   bookmarkedCreepypastas,
-  nameValue,
-  setNameValue,
+  onBlur,
+  onChange,
+  onKeyDown,
+  editingValue,
 }) {
-  const [editingValue, setEditingValue] = useState(nameValue);
-
-  const onChange = event => setEditingValue(event.target.value);
-
-  const onBlur = event => {
-    if (event.target.value.trim() === '') {
-      setNameValue(nameValue);
-    } else {
-      setNameValue(event.target.value);
-    }
-  };
-
-  const onKeyDown = event => {
-    if (event.key === 'Enter' || event.key === 'Escape') {
-      event.target.blur();
-    }
-  };
-
   return (
     <>
       <Flex>

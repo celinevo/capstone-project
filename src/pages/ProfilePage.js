@@ -1,5 +1,4 @@
 import { NavLink, Link } from 'react-router-dom';
-import { useState } from 'react';
 import styled from 'styled-components';
 import CustomCard from '../components/CustomCard.js';
 import sparkles from '../Images/sparkles.svg';
@@ -10,27 +9,11 @@ export default function ProfilePage({
   handleBookmarkClick,
   handleDeleteCreepypasta,
   handleRedirectEdit,
-  nameValue,
-  setNameValue,
+  onBlur,
+  onChange,
+  onKeyDown,
+  editingValue,
 }) {
-  const [editingValue, setEditingValue] = useState(nameValue);
-
-  const onChange = event => setEditingValue(event.target.value);
-
-  const onBlur = event => {
-    if (event.target.value.trim() === '') {
-      setNameValue(nameValue);
-    } else {
-      setNameValue(event.target.value);
-    }
-  };
-
-  const onKeyDown = event => {
-    if (event.key === 'Enter' || event.key === 'Escape') {
-      event.target.blur();
-    }
-  };
-
   return (
     <>
       <Flex>

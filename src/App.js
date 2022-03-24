@@ -21,8 +21,25 @@ export default function App() {
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
   const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
+  const [editingValue, setEditingValue] = useState(nameValue);
 
   const navigate = useNavigate();
+
+  const onChange = event => setEditingValue(event.target.value);
+
+  const onBlur = event => {
+    if (event.target.value.trim() === '') {
+      setNameValue(nameValue);
+    } else {
+      setNameValue(event.target.value);
+    }
+  };
+
+  const onKeyDown = event => {
+    if (event.key === 'Enter' || event.key === 'Escape') {
+      event.target.blur();
+    }
+  };
 
   return (
     <AppGrid>
@@ -50,11 +67,13 @@ export default function App() {
           element={
             <ProfilePage
               creepypastas={creepypastas}
+              editingValue={editingValue}
+              onChange={onChange}
+              onBlur={onBlur}
+              onKeyDown={onKeyDown}
               handleBookmarkClick={handleBookmarkClick}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
-              nameValue={nameValue}
-              setNameValue={setNameValue}
               writtenCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isWritten === true
               )}
@@ -71,8 +90,10 @@ export default function App() {
               )}
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              nameValue={nameValue}
-              setNameValue={setNameValue}
+              editingValue={editingValue}
+              onChange={onChange}
+              onBlur={onBlur}
+              onKeyDown={onKeyDown}
             />
           }
         />
