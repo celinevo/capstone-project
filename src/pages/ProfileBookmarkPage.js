@@ -97,7 +97,6 @@ const Input = styled.input`
   font-size: 35px;
   font-family: 'Creepster';
   &:hover {
-    background-color: var(--text-main);
     cursor: pointer;
   }
   @media (min-width: 600px) {
