@@ -23,15 +23,13 @@ export default function ProfileBookmarkPage({
       <Flex>
         <Wrapper>
           <Position>
-            <div>
-              <PictureCropper>
-                <ProfilePicture
-                  alt="Person that created this profile"
-                  height="150px"
-                  src={image}
-                />
-              </PictureCropper>
-            </div>
+            <PictureCropper>
+              <ProfilePicture
+                alt="Person that created this profile"
+                height="150px"
+                src={image}
+              />
+            </PictureCropper>
             <Input
               type="text"
               aria-label="Field name"
@@ -41,7 +39,7 @@ export default function ProfileBookmarkPage({
               onBlur={onNameBlur}
               maxLength="10"
             />
-            <img
+            <PenIcon
               src={editPen}
               alt="You can edit the name next to the pen"
               height="25px"
@@ -122,9 +120,10 @@ const Input = styled.input`
   border: none;
   padding: 0;
   margin-left: 15px;
-  width: 50%;
+  width: 60%;
   font-size: 35px;
   font-family: 'Creepster';
+  z-index: 2;
   &:hover {
     cursor: pointer;
   }
@@ -132,6 +131,11 @@ const Input = styled.input`
     height: 100%;
     width: 50%;
   }
+`;
+
+const PenIcon = styled.img`
+  position: absolute;
+  right: 5px;
 `;
 
 const Textarea = styled.textarea`
@@ -167,7 +171,7 @@ const PictureCropper = styled.div`
 const ProfilePicture = styled.img`
   display: inline;
   margin: 0 auto;
-  margin-left: -25%;
+  margin-left: -40%;
   height: 100%;
   width: auto;
 `;
