@@ -3,14 +3,20 @@ import styled from 'styled-components';
 import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
 import editPen from '../Images/pen_darkgray.svg';
+import addIcon from '../Images/add.svg';
 
 export default function ProfileBookmarkPage({
   handleBookmarkClick,
   bookmarkedCreepypastas,
-  onBlur,
-  onChange,
+  onNameBlur,
+  onInfoBlur,
+  onNameChange,
+  onInfoChange,
   onKeyDown,
-  editingValue,
+  nameEditingValue,
+  infoEditingValue,
+  image,
+  upload,
 }) {
   return (
     <>
@@ -21,24 +27,40 @@ export default function ProfileBookmarkPage({
               <ProfilePicture
                 alt="Person that created this profile"
                 height="150px"
-                src="https://images.unsplash.com/photo-1487174244970-cd18784bb4a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
+                src={image}
               />
             </PictureCropper>
             <Input
               type="text"
               aria-label="Field name"
-              onChange={onChange}
+              onChange={onNameChange}
               onKeyDown={onKeyDown}
-              value={editingValue}
-              onBlur={onBlur}
+              value={nameEditingValue}
+              onBlur={onNameBlur}
               maxLength="10"
             />
-            <img
+            <PenIcon
               src={editPen}
               alt="You can edit the name next to the pen"
               height="25px"
             />
           </Position>
+          <AddImage>
+            <label htmlFor="file-upload">
+              <img
+                src={addIcon}
+                alt="Press here to add a profilepicture"
+                height="30px"
+              />
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              name="file"
+              onChange={upload}
+              hidden
+            />
+          </AddImage>
           <ProfileInfo>
             About me
             <NavLink to="/feelgood">
@@ -49,14 +71,19 @@ export default function ProfileBookmarkPage({
               />
             </NavLink>
           </ProfileInfo>
-          <p>
-            Welcome to my spooky scary page! I love everything that is horror,
-            so I'm excited to be here!
-          </p>
-          <Header>
+          <Textarea
+            rows={3}
+            aria-label="Field name"
+            value={infoEditingValue}
+            onBlur={onInfoBlur}
+            onChange={onInfoChange}
+            onKeyDown={onKeyDown}
+            maxLength="80"
+          />
+          <PageDirection>
             <InactiveLink to="/profile">My Stories</InactiveLink>
             <ActiveLink to="/profile-spookmarked">Spookmarked</ActiveLink>
-          </Header>
+          </PageDirection>
           <Format>
             {bookmarkedCreepypastas.length > 0 ? (
               bookmarkedCreepypastas.map(creepypasta => (
@@ -93,9 +120,10 @@ const Input = styled.input`
   border: none;
   padding: 0;
   margin-left: 15px;
-  width: 50%;
+  width: 60%;
   font-size: 35px;
   font-family: 'Creepster';
+  z-index: 2;
   &:hover {
     cursor: pointer;
   }
@@ -105,18 +133,45 @@ const Input = styled.input`
   }
 `;
 
+const PenIcon = styled.img`
+  position: absolute;
+  right: 5px;
+`;
+
+const Textarea = styled.textarea`
+  width: 330px;
+  border: none;
+  margin: 15px 0px 5px 0px;
+  font-size: 16px;
+  &:focus {
+    outline: 5px auto Highlight;
+  }
+  @media (min-width: 500px) {
+    width: 480px;
+  }
+`;
+
+const AddImage = styled.div`
+  position: absolute;
+  left: 98px;
+  top: 90px;
+`;
+
 const PictureCropper = styled.div`
   width: 125px;
   height: 125px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  background-color: var(--passive);
+  color: transparent;
+  margin-left: -8px;
 `;
 
 const ProfilePicture = styled.img`
   display: inline;
   margin: 0 auto;
-  margin-left: -25%;
+  margin-left: -40%;
   height: 100%;
   width: auto;
 `;
@@ -131,7 +186,7 @@ const ProfileInfo = styled.h2`
   gap: 15px;
 `;
 
-const Header = styled.h3`
+const PageDirection = styled.h3`
   display: flex;
   justify-content: space-evenly;
   font-size: 18px;

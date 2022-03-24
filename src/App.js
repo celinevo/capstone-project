@@ -1,5 +1,6 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
@@ -13,6 +14,9 @@ import EditCreepypasta from './pages/EditCreepypasta.js';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
 
+const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
+
 export default function App() {
   const [creepypastas, setCreepypastas] = useLocalStorage(
     'creepy',
@@ -21,17 +25,32 @@ export default function App() {
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
   const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
-  const [editingValue, setEditingValue] = useState(nameValue);
+  const [nameEditingValue, setNameEditingValue] = useState(nameValue);
+  const [image, setImage] = useLocalStorage('ProfileImage', '');
+  const [infoValue, setInfoValue] = useLocalStorage(
+    'InfoKey',
+    'Here you can write something about yourself!'
+  );
+  const [infoEditingValue, setInfoEditingValue] = useState(infoValue);
 
   const navigate = useNavigate();
 
-  const onChange = event => setEditingValue(event.target.value);
+  const onNameChange = event => setNameEditingValue(event.target.value);
+  const onInfoChange = event => setInfoEditingValue(event.target.value);
 
-  const onBlur = event => {
+  const onNameBlur = event => {
     if (event.target.value.trim() === '') {
-      setNameValue(nameValue);
+      setNameEditingValue(nameValue);
     } else {
       setNameValue(event.target.value);
+    }
+  };
+
+  const onInfoBlur = event => {
+    if (event.target.value.trim() === '') {
+      setInfoEditingValue(infoValue);
+    } else {
+      setInfoValue(event.target.value);
     }
   };
 
@@ -67,10 +86,15 @@ export default function App() {
           element={
             <ProfilePage
               creepypastas={creepypastas}
-              editingValue={editingValue}
-              onChange={onChange}
-              onBlur={onBlur}
+              nameEditingValue={nameEditingValue}
+              infoEditingValue={infoEditingValue}
+              onNameChange={onNameChange}
+              onInfoChange={onInfoChange}
+              onNameBlur={onNameBlur}
+              onInfoBlur={onInfoBlur}
               onKeyDown={onKeyDown}
+              image={image}
+              upload={upload}
               handleBookmarkClick={handleBookmarkClick}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
@@ -90,10 +114,15 @@ export default function App() {
               )}
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              editingValue={editingValue}
-              onChange={onChange}
-              onBlur={onBlur}
+              nameEditingValue={nameEditingValue}
+              infoEditingValue={infoEditingValue}
+              onNameChange={onNameChange}
+              onInfoChange={onInfoChange}
+              onNameBlur={onNameBlur}
+              onInfoBlur={onInfoBlur}
               onKeyDown={onKeyDown}
+              image={image}
+              upload={upload}
             />
           }
         />
@@ -160,6 +189,27 @@ export default function App() {
       creepypastas.filter(creepypasta => creepypasta.id === id)
     );
     navigate('/edit-creepypasta');
+  }
+
+  function upload(event) {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/image/upload`;
+
+    const formData = new FormData();
+    formData.append('file', event.target.files[0]);
+    formData.append('upload_preset', PRESET);
+
+    axios
+      .post(url, formData, {
+        headers: {
+          'Content-type': 'multipart/form-data',
+        },
+      })
+      .then(onImageSave)
+      .catch(err => console.error(err));
+  }
+
+  function onImageSave(response) {
+    setImage(response.data.url);
   }
 }
 
