@@ -13,19 +13,27 @@ export default function ProfilePage({
   onChange,
   onKeyDown,
   editingValue,
+  image,
+  upload,
 }) {
   return (
     <>
       <Flex>
         <Wrapper>
           <Position>
-            <PictureCropper>
-              <ProfilePicture
-                alt="Person that created this profile"
-                height="150px"
-                src="https://images.unsplash.com/photo-1487174244970-cd18784bb4a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
-              />
-            </PictureCropper>
+            <div>
+              {image ? (
+                <PictureCropper>
+                  <ProfilePicture
+                    alt="Person that created this profile"
+                    height="150px"
+                    src={image}
+                  />
+                </PictureCropper>
+              ) : (
+                <input type="file" name="file" onChange={upload} />
+              )}
+            </div>
             <Input
               type="text"
               aria-label="Field name"

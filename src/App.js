@@ -1,5 +1,6 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
@@ -13,6 +14,9 @@ import EditCreepypasta from './pages/EditCreepypasta.js';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
 
+const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
+
 export default function App() {
   const [creepypastas, setCreepypastas] = useLocalStorage(
     'creepy',
@@ -22,6 +26,7 @@ export default function App() {
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
   const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
   const [editingValue, setEditingValue] = useState(nameValue);
+  const [image, setImage] = useLocalStorage('ProfileImage', '');
 
   const navigate = useNavigate();
 
@@ -71,6 +76,8 @@ export default function App() {
               onChange={onChange}
               onBlur={onBlur}
               onKeyDown={onKeyDown}
+              image={image}
+              upload={upload}
               handleBookmarkClick={handleBookmarkClick}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
@@ -160,6 +167,27 @@ export default function App() {
       creepypastas.filter(creepypasta => creepypasta.id === id)
     );
     navigate('/edit-creepypasta');
+  }
+
+  function upload(event) {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/image/upload`;
+
+    const formData = new FormData();
+    formData.append('file', event.target.files[0]);
+    formData.append('upload_preset', PRESET);
+
+    axios
+      .post(url, formData, {
+        headers: {
+          'Content-type': 'multipart/form-data',
+        },
+      })
+      .then(onImageSave)
+      .catch(err => console.error(err));
+  }
+
+  function onImageSave(response) {
+    setImage(response.data.url);
   }
 }
 
