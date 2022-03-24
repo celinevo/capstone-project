@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CustomCard from '../components/CustomCard.js';
 import sparkles from '../Images/sparkles.svg';
 import editPen from '../Images/pen_darkgray.svg';
+import addIcon from '../Images/add.svg';
 
 export default function ProfilePage({
   writtenCreepypastas,
@@ -22,17 +23,13 @@ export default function ProfilePage({
         <Wrapper>
           <Position>
             <div>
-              {image ? (
-                <PictureCropper>
-                  <ProfilePicture
-                    alt="Person that created this profile"
-                    height="150px"
-                    src={image}
-                  />
-                </PictureCropper>
-              ) : (
-                <input type="file" name="file" onChange={upload} />
-              )}
+              <PictureCropper>
+                <ProfilePicture
+                  alt="Person that created this profile"
+                  height="150px"
+                  src={image}
+                />
+              </PictureCropper>
             </div>
             <Input
               type="text"
@@ -49,6 +46,22 @@ export default function ProfilePage({
               height="25px"
             />
           </Position>
+          <AddImage>
+            <label htmlFor="file-upload">
+              <img
+                src={addIcon}
+                alt="Press here to add a profilepicture"
+                height="30px"
+              />
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              name="file"
+              onChange={upload}
+              hidden
+            />
+          </AddImage>
           <ProfileInfo>
             About me
             <NavLink to="/feelgood">
@@ -109,11 +122,13 @@ const PictureCropper = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  background-color: var(--passive);
+  color: transparent;
 `;
 
 const ProfilePicture = styled.img`
   display: inline;
-  margin-left: -25%;
+  margin-left: -40%;
   height: 100%;
   width: auto;
 `;
@@ -133,6 +148,12 @@ const Input = styled.input`
     height: 100%;
     width: 50%;
   }
+`;
+
+const AddImage = styled.div`
+  position: absolute;
+  left: 30%;
+  top: 16%;
 `;
 
 const ProfileInfo = styled.h2`
