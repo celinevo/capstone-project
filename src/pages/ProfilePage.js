@@ -137,7 +137,7 @@ const PictureCropper = styled.div`
 
 const ProfilePicture = styled.img`
   display: inline;
-  margin-left: -40%;
+  margin-left: -25%;
   height: 100%;
   width: auto;
 `;
@@ -167,12 +167,15 @@ const Textarea = styled.textarea`
   &:focus {
     outline: 5px auto Highlight;
   }
+  @media (min-width: 500px) {
+    width: 480px;
+  }
 `;
 
 const AddImage = styled.div`
   position: absolute;
-  left: 30%;
-  top: 16%;
+  left: 98px;
+  top: 90px;
 `;
 
 const ProfileInfo = styled.h2`

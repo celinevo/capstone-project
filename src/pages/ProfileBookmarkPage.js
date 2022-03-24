@@ -142,12 +142,15 @@ const Textarea = styled.textarea`
   &:focus {
     outline: 5px auto Highlight;
   }
+  @media (min-width: 500px) {
+    width: 480px;
+  }
 `;
 
 const AddImage = styled.div`
   position: absolute;
-  left: 30%;
-  top: 16%;
+  left: 98px;
+  top: 90px;
 `;
 
 const PictureCropper = styled.div`
