@@ -108,12 +108,12 @@ const Input = styled.input`
   width: 60%;
   font-family: 'Creepster';
   &:hover {
-    background-color: #d3d3d3;
+    background-color: var(--text-main);
     cursor: pointer;
   }
   @media (min-width: 600px) {
     height: 100%;
-    width: 500px;
+    width: 60%;
   }
 `;
 

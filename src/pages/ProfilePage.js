@@ -117,7 +117,6 @@ const PictureCropper = styled.div`
 
 const ProfilePicture = styled.img`
   display: inline;
-  margin: 0 auto;
   margin-left: -25%;
   height: 100%;
   width: auto;
@@ -128,16 +127,16 @@ const Input = styled.input`
   border: 0;
   padding: 8px;
   margin-left: 15px;
-  font-size: 35px;
   width: 60%;
+  font-size: 35px;
   font-family: 'Creepster';
   &:hover {
-    background-color: #d3d3d3;
+    background-color: var(--text-main);
     cursor: pointer;
   }
   @media (min-width: 600px) {
     height: 100%;
-    width: 500px;
+    width: 60%;
   }
 `;
 
