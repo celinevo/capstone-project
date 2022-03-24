@@ -25,18 +25,32 @@ export default function App() {
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
   const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
-  const [editingValue, setEditingValue] = useState(nameValue);
+  const [nameEditingValue, setNameEditingValue] = useState(nameValue);
   const [image, setImage] = useLocalStorage('ProfileImage', '');
+  const [infoValue, setInfoValue] = useLocalStorage(
+    'InfoKey',
+    'Here you can write something about yourself!'
+  );
+  const [infoEditingValue, setInfoEditingValue] = useState(infoValue);
 
   const navigate = useNavigate();
 
-  const onChange = event => setEditingValue(event.target.value);
+  const onNameChange = event => setNameEditingValue(event.target.value);
+  const onInfoChange = event => setInfoEditingValue(event.target.value);
 
-  const onBlur = event => {
+  const onNameBlur = event => {
     if (event.target.value.trim() === '') {
-      setEditingValue(nameValue);
+      setNameEditingValue(nameValue);
     } else {
       setNameValue(event.target.value);
+    }
+  };
+
+  const onInfoBlur = event => {
+    if (event.target.value.trim() === '') {
+      setInfoEditingValue(infoValue);
+    } else {
+      setInfoValue(event.target.value);
     }
   };
 
@@ -72,9 +86,12 @@ export default function App() {
           element={
             <ProfilePage
               creepypastas={creepypastas}
-              editingValue={editingValue}
-              onChange={onChange}
-              onBlur={onBlur}
+              nameEditingValue={nameEditingValue}
+              infoEditingValue={infoEditingValue}
+              onNameChange={onNameChange}
+              onInfoChange={onInfoChange}
+              onNameBlur={onNameBlur}
+              onInfoBlur={onInfoBlur}
               onKeyDown={onKeyDown}
               image={image}
               upload={upload}
@@ -97,10 +114,15 @@ export default function App() {
               )}
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              editingValue={editingValue}
-              onChange={onChange}
-              onBlur={onBlur}
+              nameEditingValue={nameEditingValue}
+              infoEditingValue={infoEditingValue}
+              onNameChange={onNameChange}
+              onInfoChange={onInfoChange}
+              onNameBlur={onNameBlur}
+              onInfoBlur={onInfoBlur}
               onKeyDown={onKeyDown}
+              image={image}
+              upload={upload}
             />
           }
         />

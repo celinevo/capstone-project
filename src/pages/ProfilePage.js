@@ -10,10 +10,13 @@ export default function ProfilePage({
   handleBookmarkClick,
   handleDeleteCreepypasta,
   handleRedirectEdit,
-  onBlur,
-  onChange,
+  onNameBlur,
+  onInfoBlur,
+  onNameChange,
+  onInfoChange,
   onKeyDown,
-  editingValue,
+  nameEditingValue,
+  infoEditingValue,
   image,
   upload,
 }) {
@@ -34,10 +37,10 @@ export default function ProfilePage({
             <Input
               type="text"
               aria-label="Field name"
-              onChange={onChange}
+              onChange={onNameChange}
               onKeyDown={onKeyDown}
-              value={editingValue}
-              onBlur={onBlur}
+              value={nameEditingValue}
+              onBlur={onNameBlur}
               maxLength="10"
             />
             <img
@@ -72,10 +75,15 @@ export default function ProfilePage({
               />
             </NavLink>
           </ProfileInfo>
-          <p>
-            Welcome to my spooky scary page! I love everything that is horror,
-            so I'm excited to be here!
-          </p>
+          <Textarea
+            rows={3}
+            aria-label="Field name"
+            value={infoEditingValue}
+            onBlur={onInfoBlur}
+            onChange={onInfoChange}
+            onKeyDown={onKeyDown}
+            maxLength="80"
+          />
           <PageDirection>
             <ActiveLink to="/profile">My Stories</ActiveLink>
             <InactiveLink to="/profile/spookmarked">Spookmarked</InactiveLink>
@@ -124,6 +132,7 @@ const PictureCropper = styled.div`
   border-radius: 50%;
   background-color: var(--passive);
   color: transparent;
+  margin-left: -8px;
 `;
 
 const ProfilePicture = styled.img`
@@ -147,6 +156,16 @@ const Input = styled.input`
   @media (min-width: 600px) {
     height: 100%;
     width: 50%;
+  }
+`;
+
+const Textarea = styled.textarea`
+  width: 330px;
+  border: none;
+  margin: 15px 0px 5px 0px;
+  font-size: 16px;
+  &:focus {
+    outline: 5px auto Highlight;
   }
 `;
 
