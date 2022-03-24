@@ -34,7 +34,7 @@ export default function App() {
 
   const onBlur = event => {
     if (event.target.value.trim() === '') {
-      setNameValue(nameValue);
+      setEditingValue(nameValue);
     } else {
       setNameValue(event.target.value);
     }
