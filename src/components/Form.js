@@ -105,6 +105,7 @@ export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
 const StyledForm = styled.form`
   display: grid;
   gap: 25px;
+  margin-bottom: 85px;
 `;
 
 const Format = styled.div`

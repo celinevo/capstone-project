@@ -26,7 +26,7 @@ export default function App() {
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
   const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
   const [nameEditingValue, setNameEditingValue] = useState(nameValue);
-  const [image, setImage] = useLocalStorage('ProfileImage', '');
+  const [profileImage, setProfileImage] = useLocalStorage('ProfileImage', '');
   const [infoValue, setInfoValue] = useLocalStorage(
     'InfoKey',
     'Here you can write something about yourself!'
@@ -93,8 +93,8 @@ export default function App() {
               onNameBlur={onNameBlur}
               onInfoBlur={onInfoBlur}
               onKeyDown={onKeyDown}
-              image={image}
-              upload={upload}
+              profileImage={profileImage}
+              profileUpload={profileUpload}
               handleBookmarkClick={handleBookmarkClick}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
@@ -121,8 +121,8 @@ export default function App() {
               onNameBlur={onNameBlur}
               onInfoBlur={onInfoBlur}
               onKeyDown={onKeyDown}
-              image={image}
-              upload={upload}
+              profileImage={profileImage}
+              profileUpload={profileUpload}
             />
           }
         />
@@ -191,7 +191,7 @@ export default function App() {
     navigate('/edit-creepypasta');
   }
 
-  function upload(event) {
+  function profileUpload(event) {
     const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/image/upload`;
 
     const formData = new FormData();
@@ -204,12 +204,12 @@ export default function App() {
           'Content-type': 'multipart/form-data',
         },
       })
-      .then(onImageSave)
+      .then(onProfileImageSave)
       .catch(err => console.error(err));
   }
 
-  function onImageSave(response) {
-    setImage(response.data.url);
+  function onProfileImageSave(response) {
+    setProfileImage(response.data.url);
   }
 }
 

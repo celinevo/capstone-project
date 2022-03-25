@@ -17,8 +17,8 @@ export default function ProfilePage({
   onKeyDown,
   nameEditingValue,
   infoEditingValue,
-  image,
-  upload,
+  profileImage,
+  profileUpload,
 }) {
   return (
     <>
@@ -29,7 +29,7 @@ export default function ProfilePage({
               <ProfilePicture
                 alt="Person that created this profile"
                 height="150px"
-                src={image}
+                src={profileImage}
               />
             </PictureCropper>
             <Input
@@ -59,7 +59,7 @@ export default function ProfilePage({
               id="file-upload"
               type="file"
               name="file"
-              onChange={upload}
+              onChange={profileUpload}
               hidden
             />
           </AddImage>
