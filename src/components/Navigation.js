@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import menuGray from '../Images/menu_gray.svg';
 import penGray from '../Images/pen_gray.svg';
 import personGray from '../Images/person_gray.svg';

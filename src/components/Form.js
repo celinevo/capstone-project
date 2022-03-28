@@ -129,6 +129,12 @@ const Label = styled.label``;
 const Input = styled.input`
   border-radius: 6px;
   padding-bottom: 0px;
+  border: 2px solid var(--passive);
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    border: 2.5px solid var(--active-main);
+  }
   @media (min-width: 600px) {
     height: 100%;
     width: 500px;
@@ -140,6 +146,12 @@ const Textarea = styled.textarea`
   height: 150px;
   padding: 2px;
   border-radius: 6px;
+  border: 2px solid var(--passive);
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    border: 2.5px solid var(--active-main);
+  }
   @media (min-width: 500px) {
     height: 200px;
     width: 500px;

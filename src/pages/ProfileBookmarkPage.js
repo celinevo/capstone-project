@@ -1,7 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import sparkles from '../Images/sparkles.svg';
 import Card from '../components/Card.js';
+import sparkles from '../Images/sparkles.svg';
 import editPen from '../Images/pen_darkgray.svg';
 import addIcon from '../Images/add.svg';
 

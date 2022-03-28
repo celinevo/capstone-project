@@ -11,8 +11,8 @@ import ProfilePage from './pages/ProfilePage';
 import ProfileBookmarkPage from './pages/ProfileBookmarkPage';
 import FeelGoodPage from './pages/FeelGoodPage';
 import EditCreepypasta from './pages/EditCreepypasta.js';
-import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
+import ScrollToTop from './components/ScrollToTop';
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
@@ -24,9 +24,9 @@ export default function App() {
   );
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
+  const [profileImage, setProfileImage] = useLocalStorage('ProfileImage', '');
   const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
   const [nameEditingValue, setNameEditingValue] = useState(nameValue);
-  const [profileImage, setProfileImage] = useLocalStorage('ProfileImage', '');
   const [infoValue, setInfoValue] = useLocalStorage(
     'InfoKey',
     'Here you can write something about yourself!'
@@ -35,6 +35,7 @@ export default function App() {
 
   const navigate = useNavigate();
 
+  // Edit profile name and info
   const onNameChange = event => setNameEditingValue(event.target.value);
   const onInfoChange = event => setInfoEditingValue(event.target.value);
 
@@ -69,8 +70,8 @@ export default function App() {
           element={
             <CreepypastaPage
               handleBookmarkClick={handleBookmarkClick}
-              creepypastas={creepypastas}
               searchValue={searchValue}
+              creepypastas={creepypastas}
               handleChange={handleChange}
             />
           }
@@ -85,6 +86,7 @@ export default function App() {
           path="/profile"
           element={
             <ProfilePage
+              handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
               nameEditingValue={nameEditingValue}
               infoEditingValue={infoEditingValue}
@@ -95,7 +97,6 @@ export default function App() {
               onKeyDown={onKeyDown}
               profileImage={profileImage}
               profileUpload={profileUpload}
-              handleBookmarkClick={handleBookmarkClick}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
               writtenCreepypastas={creepypastas.filter(
@@ -152,6 +153,7 @@ export default function App() {
     </AppGrid>
   );
 
+  // Bookmark
   function handleBookmarkClick(id) {
     const saveCreepypasta = creepypastas.map(creepypasta => {
       if (creepypasta.id === id) {
@@ -163,18 +165,22 @@ export default function App() {
     setCreepypastas(saveCreepypasta);
   }
 
+  // Searchbar
   function handleChange(event) {
     setSearchValue(event.target.value.trim().toLowerCase());
   }
 
+  // Create a creepypasta
   function handleCreateCreepypasta(createdCreepypasta) {
     setCreepypastas([createdCreepypasta, ...creepypastas]);
   }
 
+  // Delete a creepypasta
   function handleDeleteCreepypasta(id) {
     setCreepypastas(creepypastas.filter(creepypasta => creepypasta.id !== id));
   }
 
+  // Edit a creepypasta
   function handleEditCreepypasta(editedCreepypasta) {
     const oldCreepypastas = creepypastas.filter(
       creepypasta => creepypasta.id !== editedCreepypasta.id
@@ -191,6 +197,7 @@ export default function App() {
     navigate('/edit-creepypasta');
   }
 
+  // Profile picture upload with Cloudinary
   function profileUpload(event) {
     const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/image/upload`;
 

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import TrashIcon from '../Images/trash_red.svg';
-import PenIcon from '../Images/pen_red.svg';
 import BookmarkButton from './BookmarkButton';
-import { RedButton } from './Button';
 import Delete from './Delete';
+import { RedButton } from './Button';
+import trashIcon from '../Images/trash_red.svg';
+import penIcon from '../Images/pen_red.svg';
 
 export default function CustomCard({
   title,
@@ -45,10 +45,10 @@ export default function CustomCard({
             </RedButton>
           </ReadMorePosition>
           <EditIcon onClick={() => handleRedirectEdit(id)}>
-            <img src={PenIcon} alt="Edit this creepypasta" width="35px" />
+            <img src={penIcon} alt="Edit this creepypasta" width="35px" />
           </EditIcon>
           <DeleteIcon onClick={() => setShowMessage(true)}>
-            <img src={TrashIcon} alt="Delete this creepypasta" width="35px" />
+            <img src={trashIcon} alt="Delete this creepypasta" width="35px" />
           </DeleteIcon>
         </Card>
         {showMessage && (
