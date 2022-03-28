@@ -14,8 +14,8 @@ export default function CustomCard({
   id,
   onBookmarkClick,
   isBookmarked,
-  handleDeleteCreepypasta,
-  handleRedirectEdit,
+  onDeleteCreepypasta,
+  onRedirectEdit,
 }) {
   const [showMessage, setShowMessage] = useState(false);
 
@@ -44,7 +44,7 @@ export default function CustomCard({
               </ReadMoreButtonText>
             </RedButton>
           </ReadMorePosition>
-          <EditIcon onClick={() => handleRedirectEdit(id)}>
+          <EditIcon onClick={() => onRedirectEdit(id)}>
             <img src={penIcon} alt="Edit this creepypasta" width="35px" />
           </EditIcon>
           <DeleteIcon onClick={() => setShowMessage(true)}>
@@ -63,13 +63,13 @@ export default function CustomCard({
 
   function handleDelete() {
     setShowMessage(false);
-    handleDeleteCreepypasta();
+    onDeleteCreepypasta();
   }
 }
 
 const Grid = styled.section`
   display: grid;
-  margin: 20px 0px 10px 0px;
+  margin: 20px 0px 10px;
 `;
 
 const Wrapper = styled.div`
@@ -135,6 +135,7 @@ const DeleteIcon = styled.button`
   position: absolute;
   left: 4%;
   bottom: 5%;
+  cursor: pointer;
 `;
 
 const EditIcon = styled.button`
@@ -143,4 +144,5 @@ const EditIcon = styled.button`
   position: absolute;
   left: 4%;
   bottom: 35%;
+  cursor: pointer;
 `;

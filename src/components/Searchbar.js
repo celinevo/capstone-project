@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function Searchbar({ handleChange, searchValue }) {
+export default function Searchbar({ onChange, searchValue }) {
   return (
     <SearchForm>
       <label htmlFor="search-input">
@@ -9,7 +9,7 @@ export default function Searchbar({ handleChange, searchValue }) {
       <InputField
         aria-label="search-input"
         maxLength={25}
-        onChange={handleChange}
+        onChange={onChange}
         value={searchValue}
         name="search-input"
         type="text"
@@ -32,7 +32,7 @@ const InputField = styled.input`
   cursor: pointer;
   &:focus {
     outline: none;
-    border: 2.5px solid var(--active-main);
+    border: 3px solid var(--active-main);
   }
   @media (min-width: 500px) {
     height: 100%;

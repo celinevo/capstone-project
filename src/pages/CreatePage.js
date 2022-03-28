@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import Form from '../components/Form.js';
 
-export default function CreatePage({ handleCreateCreepypasta }) {
+export default function CreatePage({ onCreateCreepypasta }) {
   return (
     <>
       <Flex>
         <Wrapper>
           <Header>Write your story!</Header>
-          <Form handleCreateCreepypasta={handleCreateCreepypasta} />
+          <Form onCreateCreepypasta={onCreateCreepypasta} />
         </Wrapper>
       </Flex>
     </>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 `;
 
 export default Button;
@@ -28,7 +29,7 @@ const PinkButton = styled(Button)`
   font-size: 22px;
   padding: 12px 10px 10px 10px;
   width: 120px;
-  margin: 25px 0px 90px 0px;
+  margin: 25px 0px 90px;
   &:active {
     transform: scale(0.95);
   }

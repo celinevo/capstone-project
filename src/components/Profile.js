@@ -179,7 +179,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   width: 330px;
   border: none;
-  margin: 15px 0px 5px 0px;
+  margin: 15px 0px 5px;
   font-size: 16px;
   &:focus {
     outline: 5px auto Highlight;
@@ -196,7 +196,7 @@ const AddImage = styled.div`
 `;
 
 const ProfileInfo = styled.h2`
-  margin: 15px 0px -20px 0px;
+  margin: 15px 0px -20px;
   font-family: 'Special Elite';
   letter-spacing: 1px;
   font-size: 23px;

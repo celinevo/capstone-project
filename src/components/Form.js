@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 import { RedButton } from './Button';
 
-export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
+export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
 
   const [wordCount, setWordCount] = useState(initialWordcount);
@@ -22,7 +22,7 @@ export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   });
 
   function onSubmit(creepypasta) {
-    handleCreateCreepypasta({
+    onCreateCreepypasta({
       id: creepypasta.isWritten ? creepypasta.id : nanoid(),
       title: creepypasta.title,
       text: creepypasta.text,
@@ -160,7 +160,7 @@ const Textarea = styled.textarea`
 
 const Error = styled.p`
   color: var(--active);
-  margin: 5px 0px 0px 0px;
+  margin-top: 5px;
   font-size: 16px;
 `;
 

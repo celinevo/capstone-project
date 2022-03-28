@@ -42,6 +42,7 @@ const GoBackButton = styled.button`
   background-color: transparent;
   border: none;
   margin: 10px 0px 0px -20px;
+  cursor: pointer;
 `;
 
 const Header = styled.h1`

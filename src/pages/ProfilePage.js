@@ -5,9 +5,9 @@ import Profile from '../components/Profile.js';
 
 export default function ProfilePage({
   writtenCreepypastas,
-  handleBookmarkClick,
-  handleDeleteCreepypasta,
-  handleRedirectEdit,
+  onBookmarkClick,
+  onDeleteCreepypasta,
+  onRedirectEdit,
 }) {
   return (
     <>
@@ -27,13 +27,13 @@ export default function ProfilePage({
                   title={creepypasta.title}
                   image={creepypasta.image}
                   wordcount={creepypasta.wordcount}
-                  onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+                  onBookmarkClick={() => onBookmarkClick(creepypasta.id)}
                   isBookmarked={creepypasta.isBookmarked}
                   isWritten={creepypasta.isWritten}
-                  handleDeleteCreepypasta={() =>
-                    handleDeleteCreepypasta(creepypasta.id)
+                  onDeleteCreepypasta={() =>
+                    onDeleteCreepypasta(creepypasta.id)
                   }
-                  handleRedirectEdit={handleRedirectEdit}
+                  onRedirectEdit={onRedirectEdit}
                 />
               ))
             ) : (

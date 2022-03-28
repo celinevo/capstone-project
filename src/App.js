@@ -34,7 +34,7 @@ export default function App() {
               handleBookmarkClick={handleBookmarkClick}
               searchValue={searchValue}
               creepypastas={creepypastas}
-              handleChange={handleChange}
+              onChange={handleChange}
             />
           }
         />
@@ -48,10 +48,10 @@ export default function App() {
           path="/profile"
           element={
             <ProfilePage
-              handleBookmarkClick={handleBookmarkClick}
+              onBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              handleDeleteCreepypasta={handleDeleteCreepypasta}
-              handleRedirectEdit={handleRedirectEdit}
+              onDeleteCreepypasta={handleDeleteCreepypasta}
+              onRedirectEdit={handleRedirectEdit}
               writtenCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isWritten === true
               )}
@@ -66,7 +66,7 @@ export default function App() {
               bookmarkedCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isBookmarked === true
               )}
-              handleBookmarkClick={handleBookmarkClick}
+              onBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
             />
           }
@@ -74,12 +74,7 @@ export default function App() {
 
         <Route
           path="/create"
-          element={
-            <CreatePage
-              handleCreateCreepypasta={handleCreateCreepypasta}
-              handleRedirectEdit={handleRedirectEdit}
-            />
-          }
+          element={<CreatePage onCreateCreepypasta={handleCreateCreepypasta} />}
         />
 
         <Route
@@ -97,7 +92,6 @@ export default function App() {
     </AppGrid>
   );
 
-  // Bookmark
   function handleBookmarkClick(id) {
     const saveCreepypasta = creepypastas.map(creepypasta => {
       if (creepypasta.id === id) {
@@ -109,22 +103,18 @@ export default function App() {
     setCreepypastas(saveCreepypasta);
   }
 
-  // Searchbar
   function handleChange(event) {
     setSearchValue(event.target.value.trim().toLowerCase());
   }
 
-  // Create a creepypasta
   function handleCreateCreepypasta(createdCreepypasta) {
     setCreepypastas([createdCreepypasta, ...creepypastas]);
   }
 
-  // Delete a creepypasta
   function handleDeleteCreepypasta(id) {
     setCreepypastas(creepypastas.filter(creepypasta => creepypasta.id !== id));
   }
 
-  // Edit a creepypasta
   function handleEditCreepypasta(editedCreepypasta) {
     const oldCreepypastas = creepypastas.filter(
       creepypasta => creepypasta.id !== editedCreepypasta.id

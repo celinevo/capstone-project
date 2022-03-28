@@ -4,7 +4,7 @@ import Card from '../components/Card.js';
 import Profile from '../components/Profile.js';
 
 export default function ProfileBookmarkPage({
-  handleBookmarkClick,
+  onBookmarkClick,
   bookmarkedCreepypastas,
 }) {
   return (
@@ -25,7 +25,7 @@ export default function ProfileBookmarkPage({
                   title={creepypasta.title}
                   image={creepypasta.image}
                   wordcount={creepypasta.wordcount}
-                  onBookmarkClick={() => handleBookmarkClick(creepypasta.id)}
+                  onBookmarkClick={() => onBookmarkClick(creepypasta.id)}
                   isBookmarked={creepypasta.isBookmarked}
                 />
               ))
