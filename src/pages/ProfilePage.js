@@ -63,13 +63,11 @@ const PageDirection = styled.h3`
 const ActiveLink = styled(Link)`
   text-decoration: none;
   color: var(--active-main);
-  cursor: pointer;
 `;
 
 const InactiveLink = styled(Link)`
   text-decoration: none;
   color: var(--text-main);
-  cursor: pointer;
 `;
 
 const Format = styled.div`
