@@ -1,6 +1,5 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
@@ -14,9 +13,6 @@ import EditCreepypasta from './pages/EditCreepypasta.js';
 import Navigation from './components/Navigation.js';
 import ScrollToTop from './components/ScrollToTop';
 
-const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
-const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
-
 export default function App() {
   const [creepypastas, setCreepypastas] = useLocalStorage(
     'creepy',
@@ -24,42 +20,8 @@ export default function App() {
   );
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
-  const [profileImage, setProfileImage] = useLocalStorage('ProfileImage', '');
-  const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
-  const [nameEditingValue, setNameEditingValue] = useState(nameValue);
-  const [infoValue, setInfoValue] = useLocalStorage(
-    'InfoKey',
-    'Here you can write something about yourself!'
-  );
-  const [infoEditingValue, setInfoEditingValue] = useState(infoValue);
 
   const navigate = useNavigate();
-
-  // Edit profile name and info
-  const onNameChange = event => setNameEditingValue(event.target.value);
-  const onInfoChange = event => setInfoEditingValue(event.target.value);
-
-  const onNameBlur = event => {
-    if (event.target.value.trim() === '') {
-      setNameEditingValue(nameValue);
-    } else {
-      setNameValue(event.target.value);
-    }
-  };
-
-  const onInfoBlur = event => {
-    if (event.target.value.trim() === '') {
-      setInfoEditingValue(infoValue);
-    } else {
-      setInfoValue(event.target.value);
-    }
-  };
-
-  const onKeyDown = event => {
-    if (event.key === 'Enter' || event.key === 'Escape') {
-      event.target.blur();
-    }
-  };
 
   return (
     <AppGrid>
@@ -88,15 +50,6 @@ export default function App() {
             <ProfilePage
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              nameEditingValue={nameEditingValue}
-              infoEditingValue={infoEditingValue}
-              onNameChange={onNameChange}
-              onInfoChange={onInfoChange}
-              onNameBlur={onNameBlur}
-              onInfoBlur={onInfoBlur}
-              onKeyDown={onKeyDown}
-              profileImage={profileImage}
-              profileUpload={profileUpload}
               handleDeleteCreepypasta={handleDeleteCreepypasta}
               handleRedirectEdit={handleRedirectEdit}
               writtenCreepypastas={creepypastas.filter(
@@ -115,15 +68,6 @@ export default function App() {
               )}
               handleBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              nameEditingValue={nameEditingValue}
-              infoEditingValue={infoEditingValue}
-              onNameChange={onNameChange}
-              onInfoChange={onInfoChange}
-              onNameBlur={onNameBlur}
-              onInfoBlur={onInfoBlur}
-              onKeyDown={onKeyDown}
-              profileImage={profileImage}
-              profileUpload={profileUpload}
             />
           }
         />
@@ -195,28 +139,6 @@ export default function App() {
       creepypastas.filter(creepypasta => creepypasta.id === id)
     );
     navigate('/edit-creepypasta');
-  }
-
-  // Profile picture upload with Cloudinary
-  function profileUpload(event) {
-    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/image/upload`;
-
-    const formData = new FormData();
-    formData.append('file', event.target.files[0]);
-    formData.append('upload_preset', PRESET);
-
-    axios
-      .post(url, formData, {
-        headers: {
-          'Content-type': 'multipart/form-data',
-        },
-      })
-      .then(onProfileImageSave)
-      .catch(err => console.error(err));
-  }
-
-  function onProfileImageSave(response) {
-    setProfileImage(response.data.url);
   }
 }
 
