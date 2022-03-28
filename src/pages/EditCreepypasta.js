@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Form from '../components/Form.js';
-import Arrow from '../Images/Arrow.svg';
+import arrow from '../Images/Arrow.svg';
 
 export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
       <Flex>
         <Wrapper>
           <GoBackButton onClick={() => navigate(-1)}>
-            <img src={Arrow} alt="Go back" width="60" />
+            <img src={arrow} alt="Go back" width="60" />
           </GoBackButton>
           <Header>Edit your story!</Header>
           <Form
@@ -42,6 +42,7 @@ const GoBackButton = styled.button`
   background-color: transparent;
   border: none;
   margin: 10px 0px 0px -20px;
+  cursor: pointer;
 `;
 
 const Header = styled.h1`

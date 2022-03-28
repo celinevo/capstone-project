@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 import { RedButton } from './Button';
 
-export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
+export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
 
   const [wordCount, setWordCount] = useState(initialWordcount);
@@ -22,7 +22,7 @@ export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   });
 
   function onSubmit(creepypasta) {
-    handleCreateCreepypasta({
+    onCreateCreepypasta({
       id: creepypasta.isWritten ? creepypasta.id : nanoid(),
       title: creepypasta.title,
       text: creepypasta.text,
@@ -129,6 +129,12 @@ const Label = styled.label``;
 const Input = styled.input`
   border-radius: 6px;
   padding-bottom: 0px;
+  border: 2px solid var(--passive);
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    border: 2.5px solid var(--active-main);
+  }
   @media (min-width: 600px) {
     height: 100%;
     width: 500px;
@@ -140,6 +146,12 @@ const Textarea = styled.textarea`
   height: 150px;
   padding: 2px;
   border-radius: 6px;
+  border: 2px solid var(--passive);
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    border: 2.5px solid var(--active-main);
+  }
   @media (min-width: 500px) {
     height: 200px;
     width: 500px;
@@ -148,7 +160,7 @@ const Textarea = styled.textarea`
 
 const Error = styled.p`
   color: var(--active);
-  margin: 5px 0px 0px 0px;
+  margin-top: 5px;
   font-size: 16px;
 `;
 

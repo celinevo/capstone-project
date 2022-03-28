@@ -6,7 +6,7 @@ import headerPicture from '../Images/Header.png';
 export default function CreepypastaPage({
   handleBookmarkClick,
   creepypastas,
-  handleChange,
+  onChange,
   searchValue,
 }) {
   return (
@@ -15,7 +15,7 @@ export default function CreepypastaPage({
         <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
       </Header>
       <Grid>
-        <Searchbar handleChange={handleChange} searchValue={searchValue} />
+        <Searchbar onChange={onChange} searchValue={searchValue} />
         {creepypastas &&
           creepypastas
             .filter(creepypasta =>

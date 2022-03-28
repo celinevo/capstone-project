@@ -3,15 +3,27 @@ import { RedButton } from './Button';
 
 export default function Delete({ onConfirmDelete, onCancelDelete }) {
   return (
-    <Dialog>
-      Are you sure you want to delete your creepypasta?
-      <Wrapper>
-        <RedButton onClick={onConfirmDelete}>Yes</RedButton>
-        <RedButton onClick={onCancelDelete}>No</RedButton>
-      </Wrapper>
-    </Dialog>
+    <Background>
+      <Dialog>
+        Are you sure you want to delete your creepypasta?
+        <Wrapper>
+          <RedButton onClick={onConfirmDelete}>Yes</RedButton>
+          <RedButton onClick={onCancelDelete}>No</RedButton>
+        </Wrapper>
+      </Dialog>
+    </Background>
   );
 }
+
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-picture);
+  z-index: 10;
+`;
 
 const Dialog = styled.div`
   width: 250px;

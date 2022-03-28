@@ -1,6 +1,5 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
@@ -11,11 +10,8 @@ import ProfilePage from './pages/ProfilePage';
 import ProfileBookmarkPage from './pages/ProfileBookmarkPage';
 import FeelGoodPage from './pages/FeelGoodPage';
 import EditCreepypasta from './pages/EditCreepypasta.js';
-import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation.js';
-
-const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
-const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   const [creepypastas, setCreepypastas] = useLocalStorage(
@@ -24,41 +20,8 @@ export default function App() {
   );
   const [searchValue, setSearchValue] = useState('');
   const [creepypastaEdit, setCreepypastaEdit] = useState([]);
-  const [nameValue, setNameValue] = useLocalStorage('NameKey', 'Your name');
-  const [nameEditingValue, setNameEditingValue] = useState(nameValue);
-  const [profileImage, setProfileImage] = useLocalStorage('ProfileImage', '');
-  const [infoValue, setInfoValue] = useLocalStorage(
-    'InfoKey',
-    'Here you can write something about yourself!'
-  );
-  const [infoEditingValue, setInfoEditingValue] = useState(infoValue);
 
   const navigate = useNavigate();
-
-  const onNameChange = event => setNameEditingValue(event.target.value);
-  const onInfoChange = event => setInfoEditingValue(event.target.value);
-
-  const onNameBlur = event => {
-    if (event.target.value.trim() === '') {
-      setNameEditingValue(nameValue);
-    } else {
-      setNameValue(event.target.value);
-    }
-  };
-
-  const onInfoBlur = event => {
-    if (event.target.value.trim() === '') {
-      setInfoEditingValue(infoValue);
-    } else {
-      setInfoValue(event.target.value);
-    }
-  };
-
-  const onKeyDown = event => {
-    if (event.key === 'Enter' || event.key === 'Escape') {
-      event.target.blur();
-    }
-  };
 
   return (
     <AppGrid>
@@ -69,9 +32,9 @@ export default function App() {
           element={
             <CreepypastaPage
               handleBookmarkClick={handleBookmarkClick}
-              creepypastas={creepypastas}
               searchValue={searchValue}
-              handleChange={handleChange}
+              creepypastas={creepypastas}
+              onChange={handleChange}
             />
           }
         />
@@ -85,19 +48,10 @@ export default function App() {
           path="/profile"
           element={
             <ProfilePage
+              onBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              nameEditingValue={nameEditingValue}
-              infoEditingValue={infoEditingValue}
-              onNameChange={onNameChange}
-              onInfoChange={onInfoChange}
-              onNameBlur={onNameBlur}
-              onInfoBlur={onInfoBlur}
-              onKeyDown={onKeyDown}
-              profileImage={profileImage}
-              profileUpload={profileUpload}
-              handleBookmarkClick={handleBookmarkClick}
-              handleDeleteCreepypasta={handleDeleteCreepypasta}
-              handleRedirectEdit={handleRedirectEdit}
+              onDeleteCreepypasta={handleDeleteCreepypasta}
+              onRedirectEdit={handleRedirectEdit}
               writtenCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isWritten === true
               )}
@@ -112,29 +66,15 @@ export default function App() {
               bookmarkedCreepypastas={creepypastas.filter(
                 creepypasta => creepypasta.isBookmarked === true
               )}
-              handleBookmarkClick={handleBookmarkClick}
+              onBookmarkClick={handleBookmarkClick}
               creepypastas={creepypastas}
-              nameEditingValue={nameEditingValue}
-              infoEditingValue={infoEditingValue}
-              onNameChange={onNameChange}
-              onInfoChange={onInfoChange}
-              onNameBlur={onNameBlur}
-              onInfoBlur={onInfoBlur}
-              onKeyDown={onKeyDown}
-              profileImage={profileImage}
-              profileUpload={profileUpload}
             />
           }
         />
 
         <Route
           path="/create"
-          element={
-            <CreatePage
-              handleCreateCreepypasta={handleCreateCreepypasta}
-              handleRedirectEdit={handleRedirectEdit}
-            />
-          }
+          element={<CreatePage onCreateCreepypasta={handleCreateCreepypasta} />}
         />
 
         <Route
@@ -189,27 +129,6 @@ export default function App() {
       creepypastas.filter(creepypasta => creepypasta.id === id)
     );
     navigate('/edit-creepypasta');
-  }
-
-  function profileUpload(event) {
-    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/image/upload`;
-
-    const formData = new FormData();
-    formData.append('file', event.target.files[0]);
-    formData.append('upload_preset', PRESET);
-
-    axios
-      .post(url, formData, {
-        headers: {
-          'Content-type': 'multipart/form-data',
-        },
-      })
-      .then(onProfileImageSave)
-      .catch(err => console.error(err));
-  }
-
-  function onProfileImageSave(response) {
-    setProfileImage(response.data.url);
   }
 }
 

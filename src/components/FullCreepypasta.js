@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import arrow from '../Images/Arrow.svg';
 
 export default function FullCreepypasta({ title, image, text, wordcount }) {

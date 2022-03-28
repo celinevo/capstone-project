@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import TrashIcon from '../Images/trash_red.svg';
-import PenIcon from '../Images/pen_red.svg';
 import BookmarkButton from './BookmarkButton';
-import { RedButton } from './Button';
 import Delete from './Delete';
+import { RedButton } from './Button';
+import trashIcon from '../Images/trash_red.svg';
+import penIcon from '../Images/pen_red.svg';
 
 export default function CustomCard({
   title,
@@ -14,8 +14,8 @@ export default function CustomCard({
   id,
   onBookmarkClick,
   isBookmarked,
-  handleDeleteCreepypasta,
-  handleRedirectEdit,
+  onDeleteCreepypasta,
+  onRedirectEdit,
 }) {
   const [showMessage, setShowMessage] = useState(false);
 
@@ -44,11 +44,11 @@ export default function CustomCard({
               </ReadMoreButtonText>
             </RedButton>
           </ReadMorePosition>
-          <EditIcon onClick={() => handleRedirectEdit(id)}>
-            <img src={PenIcon} alt="Edit this creepypasta" width="35px" />
+          <EditIcon onClick={() => onRedirectEdit(id)}>
+            <img src={penIcon} alt="Edit this creepypasta" width="35px" />
           </EditIcon>
           <DeleteIcon onClick={() => setShowMessage(true)}>
-            <img src={TrashIcon} alt="Delete this creepypasta" width="35px" />
+            <img src={trashIcon} alt="Delete this creepypasta" width="35px" />
           </DeleteIcon>
         </Card>
         {showMessage && (
@@ -63,13 +63,13 @@ export default function CustomCard({
 
   function handleDelete() {
     setShowMessage(false);
-    handleDeleteCreepypasta();
+    onDeleteCreepypasta();
   }
 }
 
 const Grid = styled.section`
   display: grid;
-  margin: 20px 0px 10px 0px;
+  margin: 20px 0px 10px;
 `;
 
 const Wrapper = styled.div`
@@ -135,6 +135,7 @@ const DeleteIcon = styled.button`
   position: absolute;
   left: 4%;
   bottom: 5%;
+  cursor: pointer;
 `;
 
 const EditIcon = styled.button`
@@ -143,4 +144,5 @@ const EditIcon = styled.button`
   position: absolute;
   left: 4%;
   bottom: 35%;
+  cursor: pointer;
 `;

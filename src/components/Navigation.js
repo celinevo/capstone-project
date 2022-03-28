@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import menuGray from '../Images/menu_gray.svg';
 import penGray from '../Images/pen_gray.svg';
 import personGray from '../Images/person_gray.svg';
@@ -52,7 +52,7 @@ const Nav = styled.nav`
 const StyledLink = styled(NavLink)`
   width: 100%;
   text-align: center;
-  padding: 15px 0px 5px 0px;
+  padding: 15px 0px 5px;
   &.active {
     filter: grayscale(20%) brightness(12%) sepia(200%) hue-rotate(-55deg)
       saturate(1500%) contrast(1);
