@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import useLocalStorage from '../hooks/useLocalStorage';
 import { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import useLocalStorage from '../hooks/useLocalStorage';
 import sparkles from '../Images/sparkles.svg';
 import editPen from '../Images/pen_darkgray.svg';
 import addIcon from '../Images/add.svg';
@@ -89,7 +90,8 @@ export default function Profile() {
       <ProfileInfo>
         About me
         <NavLink to="/feelgood">
-          <img
+          <motion.img
+            whileTap={{ scale: 1.5 }}
             width="45px"
             src={sparkles}
             alt="Icon of sprakles that lead, if pressed, to feel good page."
@@ -167,9 +169,7 @@ const Input = styled.input`
   font-size: 35px;
   font-family: 'Creepster';
   z-index: 2;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
   &:focus {
     outline: none;
   }
@@ -184,6 +184,7 @@ const Textarea = styled.textarea`
   border: none;
   margin: 15px 0px 5px;
   font-size: 16px;
+  cursor: pointer;
   &:focus {
     outline: none;
   }
