@@ -170,6 +170,9 @@ const Input = styled.input`
   &:hover {
     cursor: pointer;
   }
+  &:focus {
+    outline: none;
+  }
   @media (min-width: 600px) {
     height: 100%;
     width: 50%;
@@ -182,7 +185,7 @@ const Textarea = styled.textarea`
   margin: 15px 0px 5px;
   font-size: 16px;
   &:focus {
-    outline: 5px auto Highlight;
+    outline: none;
   }
   @media (min-width: 500px) {
     width: 480px;

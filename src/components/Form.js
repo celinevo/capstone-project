@@ -48,7 +48,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
     >
       <Field>
         <Format>
-          <Label htmlFor="title">Title:</Label>
+          <label htmlFor="title">Title:</label>
           <TitleCounter name="Counter of characters from title">
             {counter}
           </TitleCounter>
@@ -75,7 +75,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
         <Error>{errors.title && errors.title.message}</Error>
       </Field>
       <Field>
-        <Label htmlFor="text">Text:</Label>
+        <label htmlFor="text">Text:</label>
         <Textarea
           {...register('text', { required: 'You need a scary text!' })}
           id="text"
@@ -87,7 +87,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
         </Wordcount>
       </Field>
       <Field>
-        <Label htmlFor="image">Image:</Label>
+        <label htmlFor="image">Image:</label>
         <Input
           {...register('image', {
             required: 'You need a creepy image!',
@@ -124,8 +124,6 @@ const Field = styled.div`
   justify-content: flex-start;
 `;
 
-const Label = styled.label``;
-
 const Input = styled.input`
   border-radius: 6px;
   padding-bottom: 0px;
@@ -159,7 +157,7 @@ const Textarea = styled.textarea`
 `;
 
 const Error = styled.p`
-  color: var(--active);
+  color: var(--active-main);
   margin-top: 5px;
   font-size: 16px;
 `;

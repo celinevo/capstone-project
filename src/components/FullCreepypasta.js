@@ -41,7 +41,7 @@ const Flex = styled.section`
   margin-bottom: 65px;
 `;
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   position: relative;
   @media (min-width: 800px) {
     height: 200px;
