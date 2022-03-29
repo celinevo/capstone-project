@@ -43,13 +43,13 @@ export default function CreepypastaPage({
   );
 }
 
+const Grid = styled.section`
+  display: grid;
+  padding: 0 20px 80px 20px;
+`;
+
 const Header = styled.h1`
   text-align: center;
   margin: 0;
   margin-top: -10px;
-`;
-
-const Grid = styled.section`
-  display: grid;
-  padding: 0 20px 80px 20px;
 `;

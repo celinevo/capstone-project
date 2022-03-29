@@ -42,6 +42,22 @@ export default function ProfileBookmarkPage({
   );
 }
 
+const Flex = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 20px 20px 20px;
+`;
+
+const Wrapper = styled.section`
+  position: relative;
+  margin-bottom: 50px;
+  @media (min-width: 500px) {
+    height: 100%;
+    width: 500px;
+  }
+`;
+
 const PageDirection = styled.h3`
   display: flex;
   justify-content: space-evenly;
@@ -66,20 +82,4 @@ const InactiveLink = styled(Link)`
 const Format = styled.div`
   display: grid;
   gap: 2px;
-`;
-
-const Wrapper = styled.section`
-  position: relative;
-  margin-bottom: 50px;
-  @media (min-width: 500px) {
-    height: 100%;
-    width: 500px;
-  }
-`;
-
-const Flex = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px 20px 20px 20px;
 `;
