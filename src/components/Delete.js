@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { RedButton } from './Button';
 
 export default function Delete({ onConfirmDelete, onCancelDelete }) {
   return (
     <Background>
-      <Dialog>
+      <Dialog
+        animate={{ y: 300 }}
+        transition={{ type: 'spring', stiffness: 100 }}
+      >
         Are you sure you want to delete your creepypasta?
         <Wrapper>
           <RedButton onClick={onConfirmDelete}>Yes</RedButton>
@@ -25,12 +29,12 @@ const Background = styled.div`
   z-index: 10;
 `;
 
-const Dialog = styled.div`
+const Dialog = styled(motion.div)`
   width: 250px;
   height: 185px;
   position: fixed;
-  top: 50%;
-  left: 56%;
+  top: 0%;
+  left: 56.5%;
   margin-top: -80px;
   margin-left: -150px;
   padding: 20px;
