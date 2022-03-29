@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import BookmarkButton from './BookmarkButton';
 import Delete from './Delete';
 import { RedButton } from './Button';
@@ -45,10 +46,20 @@ export default function CustomCard({
             </RedButton>
           </ReadMorePosition>
           <EditIcon onClick={() => onRedirectEdit(id)}>
-            <img src={penIcon} alt="Edit this creepypasta" width="35px" />
+            <motion.img
+              src={penIcon}
+              alt="Edit this creepypasta"
+              width="35px"
+              whileTap={{ scale: 1.2 }}
+            />
           </EditIcon>
           <DeleteIcon onClick={() => setShowMessage(true)}>
-            <img src={trashIcon} alt="Delete this creepypasta" width="35px" />
+            <motion.img
+              src={trashIcon}
+              alt="Delete this creepypasta"
+              width="35px"
+              whileTap={{ scale: 1.2 }}
+            />
           </DeleteIcon>
         </Card>
         {showMessage && (

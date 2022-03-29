@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import pinkArrow from '../Images/arrow_pink.svg';
 import { PinkButton } from '../components/Button';
@@ -13,10 +14,11 @@ export default function FeelGoodPage() {
   return (
     <Flex>
       <GoBackButton onClick={() => navigate(-1)}>
-        <img
-          alt="Red Arrow, if clicked leads back to main page"
+        <motion.img
+          alt="Pink Arrow, if clicked leads back to main page"
           src={pinkArrow}
           width="60"
+          whileTap={{ scale: 1.2 }}
         />
       </GoBackButton>
       <Header>Scared? Not anymore!</Header>
@@ -69,6 +71,7 @@ const GoBackButton = styled.button`
   margin: -10px 0px 0px -10px;
   padding: 20px;
   z-index: 2;
+  cursor: pointer;
 `;
 
 const Header = styled.h1`

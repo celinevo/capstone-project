@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Form from '../components/Form.js';
 import arrow from '../Images/Arrow.svg';
 
@@ -11,7 +12,12 @@ export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
       <Flex>
         <Wrapper>
           <GoBackButton onClick={() => navigate(-1)}>
-            <img src={arrow} alt="Go back" width="60" />
+            <motion.img
+              src={arrow}
+              alt="Go back"
+              width="60"
+              whileTap={{ scale: 1.2 }}
+            />
           </GoBackButton>
           <Header>Edit your story!</Header>
           <Form

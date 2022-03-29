@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import arrow from '../Images/Arrow.svg';
 
@@ -7,10 +8,11 @@ export default function FullCreepypasta({ title, image, text, wordcount }) {
     <Flex>
       <Wrapper>
         <GoBackTop to="/">
-          <img
+          <motion.img
             alt="Red Arrow, if clicked leads back to main page"
             src={arrow}
             width="60"
+            whileTap={{ scale: 1.2 }}
           />
         </GoBackTop>
         <Image alt={title} src={image} height="160" />
@@ -20,10 +22,11 @@ export default function FullCreepypasta({ title, image, text, wordcount }) {
           <Wordcount>{wordcount} Words</Wordcount>
         </TextContent>
         <GoBackBottom to="/">
-          <img
+          <motion.img
             alt="Red Arrow, if clicked leads back to main page"
             src={arrow}
             width="60"
+            whileTap={{ scale: 1.2 }}
           />
         </GoBackBottom>
       </Wrapper>

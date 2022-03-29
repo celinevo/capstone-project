@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import menuGray from '../Images/menu_gray.svg';
 import penGray from '../Images/pen_gray.svg';
 import personGray from '../Images/person_gray.svg';
@@ -9,24 +10,27 @@ export default function Navigation() {
     <Footer>
       <Nav>
         <StyledLink to="/">
-          <img
+          <motion.img
             height="32px"
             alt="Clickable icon that directs to main page"
             src={menuGray}
+            whileTap={{ scale: 1.2 }}
           />
         </StyledLink>
         <StyledLink to="/create">
-          <img
+          <motion.img
             height="35px"
             alt="Clickable icon that directs to create page"
             src={penGray}
+            whileTap={{ scale: 1.2 }}
           />
         </StyledLink>
         <StyledLink to="/profile">
-          <img
+          <motion.img
             height="35px"
             alt="Clickable icon that directs to profile page"
             src={personGray}
+            whileTap={{ scale: 1.2 }}
           />
         </StyledLink>
       </Nav>
