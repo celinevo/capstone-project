@@ -40,7 +40,7 @@ export default function Creepypasta({
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: grid;
   margin: 20px 0px 10px;
   overflow: visible;
@@ -74,9 +74,11 @@ const CardContent = styled.div`
   border-radius: 6px;
 `;
 
-const Title = styled.h3`
+const Title = styled.p`
   white-space: nowrap;
   margin: 8px;
+  font-size: 22px;
+  font-weight: bold;
 `;
 
 const Wordcount = styled.p`

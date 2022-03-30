@@ -110,9 +110,11 @@ const CardContent = styled.div`
   border-radius: 6px;
 `;
 
-const Title = styled.h3`
+const Title = styled.p`
   white-space: nowrap;
   margin: 8px;
+  font-size: 22px;
+  font-weight: bold;
 `;
 
 const Wordcount = styled.p`

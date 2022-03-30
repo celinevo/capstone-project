@@ -12,6 +12,7 @@ export default function Navigation() {
         <StyledLink to="/">
           <motion.img
             height="32px"
+            width="32px"
             alt="Clickable icon that directs to main page"
             src={menuGray}
             whileTap={{ scale: 1.2 }}
@@ -20,6 +21,7 @@ export default function Navigation() {
         <StyledLink to="/create">
           <motion.img
             height="35px"
+            width="35px"
             alt="Clickable icon that directs to create page"
             src={penGray}
             whileTap={{ scale: 1.2 }}
@@ -28,6 +30,7 @@ export default function Navigation() {
         <StyledLink to="/profile">
           <motion.img
             height="35px"
+            width="35px"
             alt="Clickable icon that directs to profile page"
             src={personGray}
             whileTap={{ scale: 1.2 }}

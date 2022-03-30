@@ -7,12 +7,18 @@ export default function BookmarkButton({ isBookmarked, onBookmarkClick }) {
   return (
     <Bookmark whileTap={{ scale: 1.2 }} type="button" onClick={onBookmarkClick}>
       {isBookmarked ? (
-        <img src={bookmarkIconActive} alt="Story is spookmarked" width="35px" />
+        <img
+          src={bookmarkIconActive}
+          alt="Story is spookmarked"
+          width="35px"
+          height="35px"
+        />
       ) : (
         <img
           src={bookmarkIconInactive}
           alt="Story is not spookmarked"
           width="35px"
+          height="35px"
         />
       )}
     </Bookmark>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 import Searchbar from '../components/Searchbar.js';
-import headerPicture from '../Images/Header.png';
+import headerPicture from '../Images/Header.svg';
 
 export default function CreepypastaPage({
   handleBookmarkClick,
@@ -12,7 +12,12 @@ export default function CreepypastaPage({
   return (
     <>
       <Header>
-        <img alt="CREEPY(pen)NE" src={headerPicture} width="300" />
+        <img
+          alt="CREEPY(pen)NE"
+          src={headerPicture}
+          width="300px"
+          height="83px"
+        />
       </Header>
       <Grid>
         <Searchbar onChange={onChange} searchValue={searchValue} />
@@ -50,6 +55,5 @@ const Grid = styled.section`
 
 const Header = styled.h1`
   text-align: center;
-  margin: 0;
-  margin-top: -10px;
+  margin: 5px 0px -20px 0px;
 `;
