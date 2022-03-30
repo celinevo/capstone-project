@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import BookmarkButton from './BookmarkButton';
 import Delete from './Delete';
-import { RedButton } from './Button';
+import { MainButton } from './Button';
 import trashIcon from '../Images/trash_red.svg';
 import penIcon from '../Images/pen_red.svg';
 
@@ -38,11 +38,11 @@ export default function CustomCard({
           <Wordcount>{wordcount} Words</Wordcount>
         </CardContent>
         <ReadMorePosition>
-          <RedButton>
+          <MainButton>
             <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
               Read
             </ReadMoreButtonText>
-          </RedButton>
+          </MainButton>
         </ReadMorePosition>
         <EditIcon onClick={() => onRedirectEdit(id)}>
           <motion.img

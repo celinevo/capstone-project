@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { RedButton } from './Button';
+import { MainButton } from './Button';
 
 export default function Delete({ onConfirmDelete, onCancelDelete }) {
   return (
@@ -11,8 +11,8 @@ export default function Delete({ onConfirmDelete, onCancelDelete }) {
       >
         Are you sure you want to delete your creepypasta?
         <Wrapper>
-          <RedButton onClick={onConfirmDelete}>Yes</RedButton>
-          <RedButton onClick={onCancelDelete}>No</RedButton>
+          <MainButton onClick={onConfirmDelete}>Yes</MainButton>
+          <MainButton onClick={onCancelDelete}>No</MainButton>
         </Wrapper>
       </Dialog>
     </Background>

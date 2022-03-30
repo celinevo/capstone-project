@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
-import { RedButton } from './Button';
+import { MainButton } from './Button';
 
 export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
@@ -97,7 +97,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
         />
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
-      <RedButton type="submit">Save</RedButton>
+      <MainButton type="submit">Save</MainButton>
     </StyledForm>
   );
 }

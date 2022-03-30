@@ -13,20 +13,20 @@ const Button = styled.button`
 
 export default Button;
 
-const RedButton = styled(Button)`
+const MainButton = styled(Button)`
   background-color: var(--active-main);
   font-family: 'Special Elite';
   font-size: 18px;
   width: 80px;
   justify-self: center;
 `;
-export { RedButton };
+export { MainButton };
 
-const PinkButton = styled(Button)`
+const SecondaryButton = styled(Button)`
   background-color: var(--active-secondary);
   font-family: 'Indie Flower';
   font-size: 22px;
   width: 120px;
   margin: 25px 0px 90px;
 `;
-export { PinkButton };
+export { SecondaryButton };

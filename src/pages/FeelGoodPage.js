@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import pinkArrow from '../Images/arrow_pink.svg';
-import { PinkButton } from '../components/Button';
+import { SecondaryButton } from '../components/Button';
 
 export default function FeelGoodPage() {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function FeelGoodPage() {
             You should try again!
           </p>
         )}
-        <PinkButton onClick={fetchCatImages}>Click me!</PinkButton>
+        <SecondaryButton onClick={fetchCatImages}>Click me!</SecondaryButton>
       </CatContainer>
     </Flex>
   );
