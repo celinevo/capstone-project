@@ -1,5 +1,6 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import useLocalStorage from './hooks/useLocalStorage';
 import creepypastasData from './CreepypastasData.js';
@@ -26,69 +27,73 @@ export default function App() {
   return (
     <AppGrid>
       <ScrollToTop />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <CreepypastaPage
-              handleBookmarkClick={handleBookmarkClick}
-              searchValue={searchValue}
-              creepypastas={creepypastas}
-              onChange={handleChange}
-            />
-          }
-        />
+      <AnimatePresence>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <CreepypastaPage
+                handleBookmarkClick={handleBookmarkClick}
+                searchValue={searchValue}
+                creepypastas={creepypastas}
+                onChange={handleChange}
+              />
+            }
+          />
 
-        <Route
-          path="/fullcreepypasta"
-          element={<FullCreepypastaPage creepypastas={creepypastas} />}
-        />
+          <Route
+            path="/fullcreepypasta"
+            element={<FullCreepypastaPage creepypastas={creepypastas} />}
+          />
 
-        <Route
-          path="/profile"
-          element={
-            <ProfilePage
-              onBookmarkClick={handleBookmarkClick}
-              creepypastas={creepypastas}
-              onDeleteCreepypasta={handleDeleteCreepypasta}
-              onRedirectEdit={handleRedirectEdit}
-              writtenCreepypastas={creepypastas.filter(
-                creepypasta => creepypasta.isWritten === true
-              )}
-            />
-          }
-        ></Route>
+          <Route
+            path="/profile"
+            element={
+              <ProfilePage
+                onBookmarkClick={handleBookmarkClick}
+                creepypastas={creepypastas}
+                onDeleteCreepypasta={handleDeleteCreepypasta}
+                onRedirectEdit={handleRedirectEdit}
+                writtenCreepypastas={creepypastas.filter(
+                  creepypasta => creepypasta.isWritten === true
+                )}
+              />
+            }
+          ></Route>
 
-        <Route
-          path="/profile/spookmarked"
-          element={
-            <ProfileBookmarkPage
-              bookmarkedCreepypastas={creepypastas.filter(
-                creepypasta => creepypasta.isBookmarked === true
-              )}
-              onBookmarkClick={handleBookmarkClick}
-              creepypastas={creepypastas}
-            />
-          }
-        />
+          <Route
+            path="/profile/spookmarked"
+            element={
+              <ProfileBookmarkPage
+                bookmarkedCreepypastas={creepypastas.filter(
+                  creepypasta => creepypasta.isBookmarked === true
+                )}
+                onBookmarkClick={handleBookmarkClick}
+                creepypastas={creepypastas}
+              />
+            }
+          />
 
-        <Route
-          path="/create"
-          element={<CreatePage onCreateCreepypasta={handleCreateCreepypasta} />}
-        />
+          <Route
+            path="/create"
+            element={
+              <CreatePage onCreateCreepypasta={handleCreateCreepypasta} />
+            }
+          />
 
-        <Route
-          path="/edit-creepypasta"
-          element={
-            <EditCreepypasta
-              onEditCreepypasta={handleEditCreepypasta}
-              creepypastaEdit={creepypastaEdit}
-            />
-          }
-        />
-        <Route path="/feelgood" element={<FeelGoodPage />} />
-      </Routes>
-      <Navigation />
+          <Route
+            path="/edit-creepypasta"
+            element={
+              <EditCreepypasta
+                onEditCreepypasta={handleEditCreepypasta}
+                creepypastaEdit={creepypastaEdit}
+              />
+            }
+          />
+          <Route path="/feelgood" element={<FeelGoodPage />} />
+        </Routes>
+        <Navigation />
+      </AnimatePresence>
     </AppGrid>
   );
 

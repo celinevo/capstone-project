@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import FullCreepypasta from '../components/FullCreepypasta.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 
 export default function FullCreepypastaPage({ creepypastas }) {
   const location = useLocation();
   const { id } = location.state;
   return (
-    <>
+    <PageSwitchAnimation>
       <Grid>
         {creepypastas
           .filter(creepypasta => creepypasta.id === id)
@@ -20,7 +21,7 @@ export default function FullCreepypastaPage({ creepypastas }) {
             />
           ))}
       </Grid>
-    </>
+    </PageSwitchAnimation>
   );
 }
 

@@ -2,13 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Form from '../components/Form.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 import arrow from '../Images/Arrow.svg';
 
 export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
   const navigate = useNavigate();
 
   return (
-    <>
+    <PageSwitchAnimation>
       <Flex>
         <Wrapper>
           <GoBackButton onClick={() => navigate(-1)}>
@@ -26,7 +27,7 @@ export default function CreatePage({ onEditCreepypasta, creepypastaEdit }) {
           />
         </Wrapper>
       </Flex>
-    </>
+    </PageSwitchAnimation>
   );
 }
 

@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 import Profile from '../components/Profile.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 
 export default function ProfileBookmarkPage({
   onBookmarkClick,
   bookmarkedCreepypastas,
 }) {
   return (
-    <>
+    <PageSwitchAnimation>
       <Flex>
         <Wrapper>
           <Profile />
@@ -38,7 +39,7 @@ export default function ProfileBookmarkPage({
           </Format>
         </Wrapper>
       </Flex>
-    </>
+    </PageSwitchAnimation>
   );
 }
 

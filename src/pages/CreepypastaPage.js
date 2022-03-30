@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 import Searchbar from '../components/Searchbar.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 import headerPicture from '../Images/HeaderFull.svg';
 
 export default function CreepypastaPage({
@@ -10,7 +11,7 @@ export default function CreepypastaPage({
   searchValue,
 }) {
   return (
-    <>
+    <PageSwitchAnimation>
       <Header>
         <img
           alt="CREEPY(pen)NE"
@@ -44,7 +45,7 @@ export default function CreepypastaPage({
             <p>ERROR: Couldn't find the story you were looking for.</p>
           )}
       </Grid>
-    </>
+    </PageSwitchAnimation>
   );
 }
 

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 import lilacArrow from '../Images/arrow_lilac.svg';
 import { SecondaryButton } from '../components/Button';
 
@@ -13,30 +14,32 @@ export default function FeelGoodPage() {
 
   return (
     <Flex>
-      <GoBackButton onClick={() => navigate(-1)}>
-        <motion.img
-          alt="Lilac Arrow, if clicked leads back to main page"
-          src={lilacArrow}
-          width="60px"
-          height="60px"
-          whileTap={{ scale: 1.2 }}
-        />
-      </GoBackButton>
-      <Header>Scared? Not anymore!</Header>
-      <CatContainer>
-        <p>Click the button to see cute cats!</p>
-        {isLoading && <p>Loading...</p>}
-        {catResponse && !hasError && !isLoading && (
-          <img src={catResponse?.url} alt="" width="300px" />
-        )}
-        {hasError && (
-          <p>
-            Oh no! Something went wrong. <br />
-            You should try again!
-          </p>
-        )}
-        <SecondaryButton onClick={fetchCatImages}>Click me!</SecondaryButton>
-      </CatContainer>
+      <PageSwitchAnimation>
+        <GoBackButton onClick={() => navigate(-1)}>
+          <motion.img
+            alt="Lilac Arrow, if clicked leads back to main page"
+            src={lilacArrow}
+            width="60px"
+            height="60px"
+            whileTap={{ scale: 1.2 }}
+          />
+        </GoBackButton>
+        <Header>Scared? Not anymore!</Header>
+        <CatContainer>
+          <p>Click the button to see cute cats!</p>
+          {isLoading && <p>Loading...</p>}
+          {catResponse && !hasError && !isLoading && (
+            <img src={catResponse?.url} alt="" width="300px" />
+          )}
+          {hasError && (
+            <p>
+              Oh no! Something went wrong. <br />
+              You should try again!
+            </p>
+          )}
+          <SecondaryButton onClick={fetchCatImages}>Click me!</SecondaryButton>
+        </CatContainer>
+      </PageSwitchAnimation>
     </Flex>
   );
 

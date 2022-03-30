@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import Form from '../components/Form.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 
 export default function CreatePage({ onCreateCreepypasta }) {
   return (
-    <>
+    <PageSwitchAnimation>
       <Flex>
         <Wrapper>
           <Header>Write your story!</Header>
           <Form onCreateCreepypasta={onCreateCreepypasta} />
         </Wrapper>
       </Flex>
-    </>
+    </PageSwitchAnimation>
   );
 }
 
