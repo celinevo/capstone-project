@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from '../components/Card.js';
 import Profile from '../components/Profile.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 
 export default function ProfileBookmarkPage({
   onBookmarkClick,
   bookmarkedCreepypastas,
 }) {
   return (
-    <>
+    <PageSwitchAnimation>
       <Flex>
         <Wrapper>
           <Profile />
@@ -38,9 +39,25 @@ export default function ProfileBookmarkPage({
           </Format>
         </Wrapper>
       </Flex>
-    </>
+    </PageSwitchAnimation>
   );
 }
+
+const Flex = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 20px 20px 20px;
+`;
+
+const Wrapper = styled.section`
+  position: relative;
+  margin-bottom: 50px;
+  @media (min-width: 500px) {
+    height: 100%;
+    width: 500px;
+  }
+`;
 
 const PageDirection = styled.h3`
   display: flex;
@@ -66,20 +83,4 @@ const InactiveLink = styled(Link)`
 const Format = styled.div`
   display: grid;
   gap: 2px;
-`;
-
-const Wrapper = styled.section`
-  position: relative;
-  margin-bottom: 50px;
-  @media (min-width: 500px) {
-    height: 100%;
-    width: 500px;
-  }
-`;
-
-const Flex = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px 20px 20px 20px;
 `;

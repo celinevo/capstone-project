@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
-import { RedButton } from './Button';
+import { MainButton } from './Button';
 
 export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
@@ -48,7 +48,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
     >
       <Field>
         <Format>
-          <Label htmlFor="title">Title:</Label>
+          <label htmlFor="title">Title:</label>
           <TitleCounter name="Counter of characters from title">
             {counter}
           </TitleCounter>
@@ -69,13 +69,12 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
             },
           })}
           id="title"
-          autoFocus
           maxLength="20"
         />
         <Error>{errors.title && errors.title.message}</Error>
       </Field>
       <Field>
-        <Label htmlFor="text">Text:</Label>
+        <label htmlFor="text">Text:</label>
         <Textarea
           {...register('text', { required: 'You need a scary text!' })}
           id="text"
@@ -87,7 +86,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
         </Wordcount>
       </Field>
       <Field>
-        <Label htmlFor="image">Image:</Label>
+        <label htmlFor="image">Image:</label>
         <Input
           {...register('image', {
             required: 'You need a creepy image!',
@@ -97,7 +96,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
         />
         <Error>{errors.image && errors.image.message}</Error>
       </Field>
-      <RedButton type="submit">Save</RedButton>
+      <MainButton type="submit">Save</MainButton>
     </StyledForm>
   );
 }
@@ -123,8 +122,6 @@ const Field = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 `;
-
-const Label = styled.label``;
 
 const Input = styled.input`
   border-radius: 6px;
@@ -159,7 +156,7 @@ const Textarea = styled.textarea`
 `;
 
 const Error = styled.p`
-  color: var(--active);
+  color: var(--active-main);
   margin-top: 5px;
   font-size: 16px;
 `;

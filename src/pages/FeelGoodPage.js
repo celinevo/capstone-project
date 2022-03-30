@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import pinkArrow from '../Images/arrow_pink.svg';
-import { PinkButton } from '../components/Button';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
+import lilacArrow from '../Images/arrow_lilac.svg';
+import { SecondaryButton } from '../components/Button';
 
 export default function FeelGoodPage() {
   const navigate = useNavigate();
@@ -12,28 +14,32 @@ export default function FeelGoodPage() {
 
   return (
     <Flex>
-      <GoBackButton onClick={() => navigate(-1)}>
-        <img
-          alt="Red Arrow, if clicked leads back to main page"
-          src={pinkArrow}
-          width="60"
-        />
-      </GoBackButton>
-      <Header>Scared? Not anymore!</Header>
-      <CatContainer>
-        <p>Click the button to see cute cats!</p>
-        {isLoading && <p>Loading...</p>}
-        {catResponse && !hasError && !isLoading && (
-          <img src={catResponse?.url} alt="" width="300px" />
-        )}
-        {hasError && (
-          <p>
-            Oh no! Something went wrong. <br />
-            You should try again!
-          </p>
-        )}
-        <PinkButton onClick={fetchCatImages}>Click me!</PinkButton>
-      </CatContainer>
+      <PageSwitchAnimation>
+        <GoBackButton onClick={() => navigate(-1)}>
+          <motion.img
+            alt="Lilac Arrow, if clicked leads back to main page"
+            src={lilacArrow}
+            width="60px"
+            height="60px"
+            whileTap={{ scale: 1.2 }}
+          />
+        </GoBackButton>
+        <Header>Scared? Not anymore!</Header>
+        <CatContainer>
+          <p>Click the button to see cute cats!</p>
+          {isLoading && <p>Loading...</p>}
+          {catResponse && !hasError && !isLoading && (
+            <img src={catResponse?.url} alt="" width="300px" />
+          )}
+          {hasError && (
+            <p>
+              Oh no! Something went wrong. <br />
+              You should try again!
+            </p>
+          )}
+          <SecondaryButton onClick={fetchCatImages}>Click me!</SecondaryButton>
+        </CatContainer>
+      </PageSwitchAnimation>
     </Flex>
   );
 
@@ -69,12 +75,13 @@ const GoBackButton = styled.button`
   margin: -10px 0px 0px -10px;
   padding: 20px;
   z-index: 2;
+  cursor: pointer;
 `;
 
 const Header = styled.h1`
   text-align: center;
   font-size: 35px;
-  margin: -50px 5px 0px 5px;
+  margin: -45px 5px 0px 5px;
   padding: 0px 20px 0px 20px;
   color: var(--text-secondary);
   font-family: 'Indie Flower';

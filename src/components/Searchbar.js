@@ -3,11 +3,9 @@ import styled from 'styled-components';
 export default function Searchbar({ onChange, searchValue }) {
   return (
     <SearchForm>
-      <label htmlFor="search-input">
-        <VisuallyHidden>Search Spookie Story</VisuallyHidden>
-      </label>
+      <label htmlFor="search-input"></label>
       <InputField
-        aria-label="search-input"
+        aria-label="Search Spookie Story"
         maxLength={25}
         onChange={onChange}
         value={searchValue}
@@ -39,14 +37,4 @@ const InputField = styled.input`
     width: 400px;
     place-self: center;
   }
-`;
-
-const VisuallyHidden = styled.p`
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 `;

@@ -1,18 +1,25 @@
 import styled from 'styled-components';
 import Form from '../components/Form.js';
+import PageSwitchAnimation from '../components/PageSwitchAnimation.js';
 
 export default function CreatePage({ onCreateCreepypasta }) {
   return (
-    <>
+    <PageSwitchAnimation>
       <Flex>
         <Wrapper>
           <Header>Write your story!</Header>
           <Form onCreateCreepypasta={onCreateCreepypasta} />
         </Wrapper>
       </Flex>
-    </>
+    </PageSwitchAnimation>
   );
 }
+
+const Flex = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Wrapper = styled.div`
   margin: 0px 15px 0px 15px;
@@ -20,12 +27,6 @@ const Wrapper = styled.div`
     height: 200px;
     width: 500px;
   }
-`;
-
-const Flex = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 const Header = styled.h1`

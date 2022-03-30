@@ -14,7 +14,7 @@ export default createGlobalStyle`
   --bg-picture: rgba(0, 0, 0, 0.4);
   --text-secondary: #594347;
   --bg-secondary: #F2AEC1;
-  --active-secondary: #FF004E;
+  --active-secondary: #940059;
 }
 
 body {

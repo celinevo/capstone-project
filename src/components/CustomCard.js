@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import BookmarkButton from './BookmarkButton';
 import Delete from './Delete';
-import { RedButton } from './Button';
+import { MainButton } from './Button';
 import trashIcon from '../Images/trash_red.svg';
 import penIcon from '../Images/pen_red.svg';
 
@@ -20,45 +21,53 @@ export default function CustomCard({
   const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <Grid>
-      <Wrapper>
-        <BookmarkButton
-          onBookmarkClick={onBookmarkClick}
-          isBookmarked={isBookmarked}
-        />
-        <Card
-          style={{
-            backgroundImage: `url(${image})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          <CardContent>
-            <Title>{title}</Title>
-            <Wordcount>{wordcount} Words</Wordcount>
-          </CardContent>
-          <ReadMorePosition>
-            <RedButton>
-              <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
-                Read
-              </ReadMoreButtonText>
-            </RedButton>
-          </ReadMorePosition>
-          <EditIcon onClick={() => onRedirectEdit(id)}>
-            <img src={penIcon} alt="Edit this creepypasta" width="35px" />
-          </EditIcon>
-          <DeleteIcon onClick={() => setShowMessage(true)}>
-            <img src={trashIcon} alt="Delete this creepypasta" width="35px" />
-          </DeleteIcon>
-        </Card>
-        {showMessage && (
-          <Delete
-            onConfirmDelete={handleDelete}
-            onCancelDelete={() => setShowMessage(false)}
+    <Wrapper>
+      <BookmarkButton
+        onBookmarkClick={onBookmarkClick}
+        isBookmarked={isBookmarked}
+      />
+      <Card
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <CardContent>
+          <Title>{title}</Title>
+          <Wordcount>{wordcount} Words</Wordcount>
+        </CardContent>
+        <ReadMorePosition>
+          <MainButton>
+            <ReadMoreButtonText to="/fullcreepypasta" state={{ id: id }}>
+              Read
+            </ReadMoreButtonText>
+          </MainButton>
+        </ReadMorePosition>
+        <EditIcon onClick={() => onRedirectEdit(id)}>
+          <motion.img
+            src={penIcon}
+            alt="Edit this creepypasta"
+            width="35px"
+            whileTap={{ scale: 1.2 }}
           />
-        )}
-      </Wrapper>
-    </Grid>
+        </EditIcon>
+        <DeleteIcon onClick={() => setShowMessage(true)}>
+          <motion.img
+            src={trashIcon}
+            alt="Delete this creepypasta"
+            width="35px"
+            whileTap={{ scale: 1.2 }}
+          />
+        </DeleteIcon>
+      </Card>
+      {showMessage && (
+        <Delete
+          onConfirmDelete={handleDelete}
+          onCancelDelete={() => setShowMessage(false)}
+        />
+      )}
+    </Wrapper>
   );
 
   function handleDelete() {
@@ -67,12 +76,9 @@ export default function CustomCard({
   }
 }
 
-const Grid = styled.section`
+const Wrapper = styled.div`
   display: grid;
   margin: 20px 0px 10px;
-`;
-
-const Wrapper = styled.div`
   overflow: visible;
   position: relative;
   align-content: center;
@@ -104,11 +110,11 @@ const CardContent = styled.div`
   border-radius: 6px;
 `;
 
-const Title = styled.h3`
-  overflow: hidden;
-  text-overflow: ellipsis;
+const Title = styled.p`
   white-space: nowrap;
   margin: 8px;
+  font-size: 22px;
+  font-weight: bold;
 `;
 
 const Wordcount = styled.p`
@@ -145,4 +151,5 @@ const EditIcon = styled.button`
   left: 4%;
   bottom: 35%;
   cursor: pointer;
+  z-index: 2;
 `;
