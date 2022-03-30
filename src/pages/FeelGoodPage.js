@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import pinkArrow from '../Images/arrow_pink.svg';
+import lilacArrow from '../Images/arrow_lilac.svg';
 import { SecondaryButton } from '../components/Button';
 
 export default function FeelGoodPage() {
@@ -15,9 +15,10 @@ export default function FeelGoodPage() {
     <Flex>
       <GoBackButton onClick={() => navigate(-1)}>
         <motion.img
-          alt="Pink Arrow, if clicked leads back to main page"
-          src={pinkArrow}
-          width="60"
+          alt="Lilac Arrow, if clicked leads back to main page"
+          src={lilacArrow}
+          width="60px"
+          height="60px"
           whileTap={{ scale: 1.2 }}
         />
       </GoBackButton>
@@ -77,7 +78,7 @@ const GoBackButton = styled.button`
 const Header = styled.h1`
   text-align: center;
   font-size: 35px;
-  margin: -50px 5px 0px 5px;
+  margin: -45px 5px 0px 5px;
   padding: 0px 20px 0px 20px;
   color: var(--text-secondary);
   font-family: 'Indie Flower';
