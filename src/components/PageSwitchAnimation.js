@@ -4,7 +4,7 @@ const variants = {
   initial: {
     opacity: 0,
     y: '100vw',
-    scale: 1.2,
+    scale: 1,
   },
   in: {
     opacity: 1,
@@ -14,7 +14,7 @@ const variants = {
   out: {
     opacity: 0,
     y: '-100vw',
-    scale: 0.8,
+    scale: 1,
   },
 };
 
