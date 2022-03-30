@@ -1,26 +1,26 @@
 import { motion } from 'framer-motion';
 
-const pageVariants = {
+const variants = {
   initial: {
     opacity: 0,
-    x: '-100vw',
-    scale: 0.8,
+    y: '100vw',
+    scale: 1.2,
   },
   in: {
     opacity: 1,
-    x: 0,
+    y: 0,
     scale: 1,
   },
   out: {
     opacity: 0,
-    x: '100vw',
-    scale: 1.2,
+    y: '-100vw',
+    scale: 0.8,
   },
 };
 
-const pageTransition = {
+const transition = {
   type: 'tween',
-  ease: 'anticipate',
+  ease: 'backInOut',
   duration: 1,
 };
 export default function PageSwitchAnimation({ children }) {
@@ -29,8 +29,8 @@ export default function PageSwitchAnimation({ children }) {
       initial="initial"
       animate="in"
       exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+      variants={variants}
+      transition={transition}
     >
       {children}
     </motion.div>

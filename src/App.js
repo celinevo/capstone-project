@@ -92,8 +92,8 @@ export default function App() {
           />
           <Route path="/feelgood" element={<FeelGoodPage />} />
         </Routes>
-        <Navigation />
       </AnimatePresence>
+      <Navigation />
     </AppGrid>
   );
 
