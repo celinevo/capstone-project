@@ -69,7 +69,6 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
             },
           })}
           id="title"
-          autoFocus
           maxLength="20"
         />
         <Error>{errors.title && errors.title.message}</Error>

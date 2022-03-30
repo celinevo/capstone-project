@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const variants = {
   initial: {
     opacity: 0,
-    y: '100vw',
+    y: '50vw',
     scale: 1,
   },
   in: {
@@ -13,14 +13,14 @@ const variants = {
   },
   out: {
     opacity: 0,
-    y: '-100vw',
+    y: '-50vw',
     scale: 1,
   },
 };
 
 const transition = {
   type: 'tween',
-  ease: 'backInOut',
+  ease: 'anticipate',
   duration: 1,
 };
 export default function PageSwitchAnimation({ children }) {
