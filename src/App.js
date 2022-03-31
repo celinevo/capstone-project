@@ -77,7 +77,7 @@ export default function App() {
           <Route
             path="/create"
             element={
-              <CreatePage onCreateCreepypasta={handleCreateCreepypasta} />
+              <CreatePage handleCreateCreepypasta={handleCreateCreepypasta} />
             }
           />
 
