@@ -1,7 +1,5 @@
 # Capstone Project: CREEPY(pen)NE
 
-![CREEPY(pen)NE](/src/Images/readMeImages/Header_black.svg)
-
 With CREEPY(pen)NE you can read or write spookie scary storys! You can also spookmark your favorites to your profile page to find them faster.
 If you are feeling creative, you can write your own creepypasta in the create page!
 And because even the best author makes mistakes, you can edit or delete your creepypastas in your profile.
