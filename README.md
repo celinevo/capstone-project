@@ -34,7 +34,9 @@ You can find the hosted version on Vercel: [CREEPY(pen)NE](https://capstone-proj
 - localStorage
 - npm
 - Vercel
+- Cloudinary
 - Axios
+- Framer Motion
 
 ## Project Setup
 
