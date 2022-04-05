@@ -1,6 +1,6 @@
 # Capstone Project: CREEPY(pen)NE
 
-With CREEPY(pen)NE you can read or write spookie scary storys! You can also spookmark your favorites to your profile page to find them faster.
+With CREEPY(pen)NE you can read spookie scary stories! You can also spookmark your favorites to your profile page to find them faster.
 If you are feeling creative, you can write your own creepypasta in the create page!
 And because even the best author makes mistakes, you can edit or delete your creepypastas in your profile.
 But remember!
@@ -15,18 +15,28 @@ You can find the hosted version on Vercel: [CREEPY(pen)NE](https://capstone-proj
 
 **Important:** This demo is optimized for mobile screen.
 
+![App screen main](/src/Images/readMeImages/main.png)
+![App screen submain](/src/Images/readMeImages/main_sub.png)
+![App screen create](/src/Images/readMeImages/create.png)
+![App screen stories](/src/Images/readMeImages/stories.png)
+![App screen spookmarked](/src/Images/readMeImages/spookmarked.png)
+![App screen feelgood](/src/Images/readMeImages/feelgood.png)
+
 ## Tech Stack
 
 - React
 - React Router
 - React Testing Library
-- HTML
+- React Hooks
+- React Hook Form
 - Storybook
-- styled-components
+- styled components
 - localStorage
 - npm
 - Vercel
+- Cloudinary
 - Axios
+- Framer Motion
 
 ## Project Setup
 

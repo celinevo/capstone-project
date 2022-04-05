@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 import { MainButton } from './Button';
 
-export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
+export default function Form({ handleCreateCreepypasta, creepypastaEdit }) {
   const initialWordcount = creepypastaEdit ? creepypastaEdit[0].wordcount : 0;
 
   const [wordCount, setWordCount] = useState(initialWordcount);
@@ -22,7 +22,7 @@ export default function Form({ onCreateCreepypasta, creepypastaEdit }) {
   });
 
   function onSubmit(creepypasta) {
-    onCreateCreepypasta({
+    handleCreateCreepypasta({
       id: creepypasta.isWritten ? creepypasta.id : nanoid(),
       title: creepypasta.title,
       text: creepypasta.text,
